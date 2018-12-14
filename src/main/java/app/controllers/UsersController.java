@@ -99,7 +99,7 @@ public class UsersController {
 			
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
-			User userObject = userService.insert(user);
+			User userObject = userService.insertSelective(user);
 			return "redirect:/users";
 		} else {
 			//throw new ConstraintViolationException(constraintViolations)

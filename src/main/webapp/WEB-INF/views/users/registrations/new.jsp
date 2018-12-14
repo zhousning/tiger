@@ -17,12 +17,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="UTF-8">
 <title>用户注册</title>
 <%@include file="/WEB-INF/views/layouts/common.jsp"%>
+<link href="static/stylesheets/shiros.css" rel="stylesheet">
+
 </head>
 <body>
-
-<%@ include file="/WEB-INF/views/users/registrations/_form.jsp"%>
-
-<a href="users/sign_in">登录</a>
+	<section class="login-block">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 login-sec">
+					<h2 class="text-center">Sign Up</h2>
+					<%@ include file="/WEB-INF/views/users/registrations/_form.jsp"%>
+				</div>
+				<div class="col-md-8 banner-sec">			
+					</div>
+				</div>
+			</div>
+	</section>
 	
 </body>
 </html>

@@ -1,14 +1,15 @@
 package app.models;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class User {
     private Integer id;
-
     private String name;
     @Email
+    @NotEmpty
     private String email;
-
+    @NotEmpty
     private String password;
     
     

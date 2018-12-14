@@ -43,4 +43,9 @@ public class UsersService {
 		return user;
 	}
 
+	public User insertSelective(User user) {
+		userMapper.insertSelective(user);
+		return user;
+	}
+
 }

@@ -65,7 +65,7 @@ public class ShirosController {
 			
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
-			User userObject = userService.insert(user);
+			User userObject = userService.insertSelective(user);
 			return "redirect:/users/sign_in";
 		} else {
 			//throw new ConstraintViolationException(constraintViolations)
