@@ -11,30 +11,32 @@
 
                 </li>
 
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
+                <li  data-toggle="collapse" data-target="#users" class="collapsed active">
+                  <a><i class="fa fa-gift fa-lg"></i> <fmt:message
+								key="users.manage"></fmt:message> <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="products">
-                    <li class="active"><a href="#">CSS3 Animation</a></li>
-                    <li><a href="#">General</a></li>
-                    <li><a href="#">Buttons</a></li>
-                    <li><a href="#">Tabs & Accordions</a></li>
-                    <li><a href="#">Typography</a></li>
-                    <li><a href="#">FontAwesome</a></li>
-                    <li><a href="#">Slider</a></li>
-                    <li><a href="#">Panels</a></li>
-                    <li><a href="#">Widgets</a></li>
-                    <li><a href="#">Bootstrap Model</a></li>
+                <ul class="sub-menu collapse" id="users">
+                    <!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+                    <li><a href="users"><fmt:message
+								key="users.index"></fmt:message></a></li>
+                    <li><a href="users/new"><fmt:message
+								key="users.new"></fmt:message></a></li>   
                 </ul>
 
 
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Services <span class="arrow"></span></a>
+                <li data-toggle="collapse" data-target="#questions" class="collapsed">
+                  <a><i class="fa fa-globe fa-lg"></i>  <fmt:message
+								key="questions.manage"></fmt:message> <span class="arrow"></span></a>
                 </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>New Service 1</li>
-                  <li>New Service 2</li>
-                  <li>New Service 3</li>
+                <ul class="sub-menu collapse" id="questions">
+                    <li><a href="questions"><fmt:message
+								key="questions.index"></fmt:message></a></li> 
+					<li><a href="questions/new"><fmt:message
+								key="questions.single.manage"></fmt:message></a></li>   
+					<li><a href="questions/new"><fmt:message
+								key="questions.multiple.manage"></fmt:message></a></li>   
+					<li><a href="questions/new"><fmt:message
+								key="questions.essay.manage"></fmt:message></a></li>   			
                 </ul>
 
 

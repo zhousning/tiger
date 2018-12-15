@@ -38,9 +38,16 @@ public class UsersTest {
 	@Test
 	public void Insert() {
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		User user = new User("zn1", "333@qq.com", "passworee");
+		User user = new User("zn1", 222, "333@qq.com", "passworee");
 		userMapper.insert(user);
 		System.out.println(user.getId());
+	}
+	
+	@Test
+	public void selectByEmail() {
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		User user = userMapper.selectByEmail("222@qq.com");
+		System.out.println(user.getEmail());
 	}
 	
 	/**

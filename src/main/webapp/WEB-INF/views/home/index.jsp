@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title>列表</title>
+<title><fmt:message key="home.index"></fmt:message></title>
 <%@ include file="/WEB-INF/views/layouts/common.jsp"%>
 <link href="static/stylesheets/home.css" rel="stylesheet">
 <script src="static/javascripts/home.js"></script>

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
@@ -7,8 +8,9 @@
 <%@page import="java.util.Map"%>
 
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 
@@ -17,14 +19,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title>新建</title>
+<title><fmt:message key="users.new"></fmt:message></title>
 <%@include file="/WEB-INF/views/layouts/common.jsp"%>
 <link href="static/stylesheets/users.css" rel="stylesheet">
 <script src="static/javascripts/users.js"></script>
 </head>
 <body>
+	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
+	<div class="container-fluid body-container">
+		<div class="row body-box">
+			<div class="col-md-2 sidebar-container">
+				<%@ include file="/WEB-INF/views/layouts/sidebar.jsp"%>
+			</div>
+			<div class="col-md-10 main-container">
+				<div class="container-fluid">
+					<div class="page-header">
+						<h1>
+							<fmt:message key="users.new"></fmt:message>
+						</h1>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<%@ include file="/WEB-INF/views/users/_form.jsp"%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<%@ include file="/WEB-INF/views/users/_form.jsp"%>
-	
 </body>
 </html>

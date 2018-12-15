@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
-
-
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html>
@@ -14,16 +13,60 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title>信息详情</title>
-<%@ include file="/WEB-INF/views/layouts/common.jsp" %>
+<title><fmt:message key="users.show"></fmt:message></title>
+<%@ include file="/WEB-INF/views/layouts/common.jsp"%>
 <link href="static/stylesheets/users.css" rel="stylesheet">
 <script src="static/javascripts/users.js"></script>
 </head>
 <body>
-<a href="users" class="btn btn-primary">返回</a>
-<a href="users/${requestScope.user.id }/edit" class="btn btn-info">编辑</a>
-${requestScope.user.name }
-${requestScope.user.email }
-${requestScope.user.password }
+	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
+	<div class="container-fluid body-container">
+		<div class="row body-box">
+			<div class="col-md-2 sidebar-container">
+				<%@ include file="/WEB-INF/views/layouts/sidebar.jsp"%>
+			</div>
+			<div class="col-md-10 main-container">
+				<div class="container-fluid">
+					<div class="page-header">
+						<h1>
+							<fmt:message key="users.show"></fmt:message>
+						</h1>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-md-offset-4">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<div class="col-sm-4 info-title"><fmt:message
+											key="user.name"></fmt:message>：</div>
+									<div class="col-sm-8 info-ctn">${requestScope.user.name }
+										${requestScope.user.email }</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 info-title"><fmt:message
+											key="user.phone"></fmt:message>：</div>
+									<div class="col-sm-8 info-ctn">${requestScope.user.phone }</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 info-title"><fmt:message
+											key="user.email"></fmt:message>：</div>
+									<div class="col-sm-8 info-ctn">${requestScope.user.email }</div>
+								</div>
+								<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-4">
+										<a href="users/${requestScope.user.id }/edit" type="button" class="btn btn-info"><fmt:message
+												key="btn.edit"></fmt:message></a>
+									</div>
+									<div class="col-sm-offset-2 col-sm-4">
+										<a href="users" type="button" class="btn btn-warning"><fmt:message
+												key="btn.back"></fmt:message></a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

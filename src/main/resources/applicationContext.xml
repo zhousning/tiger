@@ -146,7 +146,7 @@
 		<property name="securityManager" ref="securityManager" />
 		<!-- 未登陆使用loginUrl，登陆成功了使用successUrl，登陆后访问未授权的页面使用unauthorizedUrl -->
 		<property name="loginUrl" value="/users/sign_in" />
-		<property name="successUrl" value="/index.jsp" />
+		<property name="successUrl" value="/home/index" />
 		<property name="unauthorizedUrl" value="/unauthorized.jsp" />
 
 		<property name="filterChainDefinitionMap"

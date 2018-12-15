@@ -66,9 +66,17 @@ public class UsersController {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
-			}		
+			}	
 			return "/users/edit";
 		}
+		String principal = user.getEmail();
+		String hashAlgorithmName = "MD5";
+		Object credentials = user.getPassword();
+		Object salt = ByteSource.Util.bytes(principal);;
+		int hashIterations = 1024;
+		
+		Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
+		user.setPassword(password.toString());
 		userService.updateUser(user);
 		return "redirect:/users/" + user.getId().toString();
 	}

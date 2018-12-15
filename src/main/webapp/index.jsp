@@ -20,7 +20,7 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
+	<%@ include file="WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
 			<div class="col-md-2 sidebar-container">

@@ -4,6 +4,7 @@
 	<resultMap id="BaseResultMap" type="app.models.User">
 		<id column="id" jdbcType="INTEGER" property="id" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="phone" jdbcType="INTEGER" property="phone" />
 		<result column="email" jdbcType="VARCHAR" property="email" />
 		<result column="password" jdbcType="VARCHAR"
 			property="password" />
@@ -73,7 +74,7 @@
 		</where>
 	</sql>
 	<sql id="Base_Column_List">
-		id, name, email, password
+		id, name, phone, email, password
 	</sql>
 	<select id="selectByExample"
 		parameterType="app.models.UserExample" resultMap="BaseResultMap">
@@ -102,7 +103,7 @@
 		select
 		<include refid="Base_Column_List" />
 		from users
-		where email = #{email,jdbcType=VARCHAR}
+		where email = #{email,jdbcType=VARCHAR} limit 1
 	</select>
 	<delete id="deleteByPrimaryKey"
 		parameterType="java.lang.Integer">
@@ -117,16 +118,11 @@
 		</if>
 	</delete>
 	<insert id="insert" parameterType="app.models.User">
-		<selectKey keyProperty="id" order="AFTER"
-			resultType="java.lang.Integer">
-			SELECT
-			LAST_INSERT_ID()
-		</selectKey>
-		insert into users (id, name, email,
-		password)
+		insert into users (id, name, phone,
+		email, password)
 		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
-		#{email,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR})
+		#{phone,jdbcType=INTEGER},
+		#{email,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
 	</insert>
 	<insert id="insertSelective" parameterType="app.models.User">
 		insert into users
@@ -136,6 +132,9 @@
 			</if>
 			<if test="name != null">
 				name,
+			</if>
+			<if test="phone != null">
+				phone,
 			</if>
 			<if test="email != null">
 				email,
@@ -150,6 +149,9 @@
 			</if>
 			<if test="name != null">
 				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=INTEGER},
 			</if>
 			<if test="email != null">
 				#{email,jdbcType=VARCHAR},
@@ -175,6 +177,9 @@
 			<if test="record.name != null">
 				name = #{record.name,jdbcType=VARCHAR},
 			</if>
+			<if test="record.phone != null">
+				phone = #{record.phone,jdbcType=INTEGER},
+			</if>
 			<if test="record.email != null">
 				email = #{record.email,jdbcType=VARCHAR},
 			</if>
@@ -190,6 +195,7 @@
 		update users
 		set id = #{record.id,jdbcType=INTEGER},
 		name = #{record.name,jdbcType=VARCHAR},
+		phone = #{record.phone,jdbcType=INTEGER},
 		email = #{record.email,jdbcType=VARCHAR},
 		password = #{record.password,jdbcType=VARCHAR}
 		<if test="_parameter != null">
@@ -203,6 +209,9 @@
 			<if test="name != null">
 				name = #{name,jdbcType=VARCHAR},
 			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=INTEGER},
+			</if>
 			<if test="email != null">
 				email = #{email,jdbcType=VARCHAR},
 			</if>
@@ -215,6 +224,7 @@
 	<update id="updateByPrimaryKey" parameterType="app.models.User">
 		update users
 		set name = #{name,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=INTEGER},
 		email = #{email,jdbcType=VARCHAR},
 		password = #{password,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
