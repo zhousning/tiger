@@ -1,51 +1,26 @@
 package app.services;
 
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import app.daos.UserMapper;
 import app.models.User;
 
 @Service
-public class UsersService {
+public interface UsersService {
+	public User getUserById(Integer id);
 	
-	@Autowired
-	UserMapper userMapper;
+	public List<User> getUsers();
 
-	public User getUserById(Integer id) {
-		return userMapper.selectByPrimaryKey(id);
-	}
+	public Integer createUser(User user);
 
-	public List<User> getUsers() {
-		return userMapper.selectByExample(null);
-	}
+	public Integer updateUser(User user);
 
-	public Integer createUser(User user) {
-		return userMapper.insert(user);
-	}
+	public void deleteById(Integer id);
 
-	public Integer updateUser(User user) {
-		return userMapper.updateByPrimaryKey(user);
-	}
+	public User getUserByEmail(String principal);
 
-	public void deleteById(Integer id) {
-		userMapper.deleteByPrimaryKey(id);
-	}
+	public User insert(User user);
 
-	public User getUserByEmail(String principal) {
-		return userMapper.selectByEmail(principal);
-	}
+	public User insertSelective(User user);
 
-	public User insert(User user) {
-		userMapper.insert(user);
-		return user;
-	}
-
-	public User insertSelective(User user) {
-		userMapper.insertSelective(user);
-		return user;
-	}
 
 }

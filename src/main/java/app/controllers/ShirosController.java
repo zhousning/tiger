@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import app.daos.UserMapper;
 import app.models.User;
 import app.services.UsersService;
 
@@ -65,7 +64,7 @@ public class ShirosController {
 			
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
-			User userObject = userService.insertSelective(user);
+			User userObject = userService.insert(user);
 			return "redirect:/users/sign_in";
 		} else {
 			//throw new ConstraintViolationException(constraintViolations)

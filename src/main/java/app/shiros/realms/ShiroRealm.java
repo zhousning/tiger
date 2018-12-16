@@ -18,14 +18,13 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import app.daos.UserMapper;
 import app.models.User;
 import app.services.UsersService;
 
 public class ShiroRealm extends AuthorizingRealm {
 	
 	@Autowired
-	UserMapper userMapper;
+	UsersService usersService;
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
@@ -39,7 +38,7 @@ public class ShiroRealm extends AuthorizingRealm {
 		String username = upToken.getUsername();
 		
 		//3. 调用数据库的方法, 从数据库中查询 username 对应的用户记录
-		User user = userMapper.selectByEmail(username.trim());
+		User user = usersService.getUserByEmail(username.trim());
 		System.out.println("从数据库中获取 username: " + username + " 所对应的用户信息.");
 		
 		//4. 若用户不存在, 则可以抛出 UnknownAccountException 异常
