@@ -8,7 +8,7 @@
 		<div class="collapse navbar-collapse navHeaderCollapse">
 			<ul class="nav navbar-nav navbar-right">
 				<shiro:guest>
-					<li class="active"><a href=" href="users/sign_in""> <fmt:message
+					<li class="active"><a href="users/sign_in"> <fmt:message
 								key="system.signin"></fmt:message>
 					</a></li>
 					<li><a href="users/sign_up"> <fmt:message

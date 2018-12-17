@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import app.models.User;
 
-@Service
+
 public interface UsersService {
 	public User getUserById(Integer id);
 	
@@ -20,7 +20,6 @@ public interface UsersService {
 
 	public User insert(User user);
 
-	public User insertSelective(User user);
 
 
 }

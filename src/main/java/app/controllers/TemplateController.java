@@ -22,7 +22,7 @@ import app.services.UsersService;
 
 @Controller
 @RequestMapping("/templates")
-public class TemplateController {
+public class TemplateController extends BaseController {
 
 	@Autowired
 	UsersService userService;

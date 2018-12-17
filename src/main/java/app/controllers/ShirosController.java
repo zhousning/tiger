@@ -25,7 +25,7 @@ import app.services.UsersService;
 
 @Controller 
 @RequestMapping("/users")
-public class ShirosController {
+public class ShirosController extends BaseController {
 	
 	@Autowired
 	UsersService userService;

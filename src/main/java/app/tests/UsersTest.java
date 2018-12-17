@@ -19,5 +19,14 @@ import net.sf.jsqlparser.statement.insert.Insert;
 @ContextConfiguration(locations={"classpath:applicationContext.xml"})
 public class UsersTest {
 	
+	@Autowired
+	UsersService usersService;
+	
+	@Test
+	public void selectByEmail() {
+		String string = "222@qq.com";
+		User user = usersService.getUserByEmail(string);
+		System.out.println(user.toString());
+	}
 	
 }

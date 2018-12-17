@@ -9,10 +9,11 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
-	 <context:component-scan base-package="app"> <!-- <context:exclude-filter 
+	 <context:component-scan base-package="app"> 
+	 <context:exclude-filter 
 		type="annotation" expression="org.springframework.stereotype.Controller" 
-		/> <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice" 
-		/> --> </context:component-scan>
+		/> 
+		</context:component-scan>
 
 	<!-- Spring的配置文件，这里主要配置和业务逻辑有关的 -->
 	<!--=================== 数据源，事务控制，xxx ================ -->
@@ -66,6 +67,7 @@
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+
 
 	<!-- ========================================================= Shiro Core 
 		Components - Not Spring Specific ========================================================= -->

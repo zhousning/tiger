@@ -26,7 +26,7 @@ import app.services.UsersService;
 
 @Controller
 @RequestMapping("/users")
-public class UsersController {
+public class UsersController extends BaseController {
 
 	@Autowired
 	UsersService userService;

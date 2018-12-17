@@ -9,10 +9,11 @@
 
 	<!--SpringMVC的配置文件，包含网站跳转逻辑的控制，配置 -->
 	<context:component-scan
-		base-package="app" >
-		<!--只扫描控制器和advice。 -->
-<!-- 		<context:include-filter type="annotation"
+		base-package="app.controllers" >
+		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
+		<!--只扫描控制器和advice。 -->
+<!-- 		
 		<context:include-filter type="annotation"
 			expression="org.springframework.web.bind.annotation.ControllerAdvice" /> -->
 	</context:component-scan>

@@ -23,7 +23,7 @@ import app.services.UsersService;
 
 @Controller
 @RequestMapping("/home")
-public class HomeController {
+public class HomeController extends BaseController {
 
 	@Autowired
 	UsersService userService;
