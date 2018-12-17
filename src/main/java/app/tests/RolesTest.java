@@ -1,6 +1,9 @@
 package app.tests;
 
 
+import java.util.Iterator;
+import java.util.Set;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +32,14 @@ public class RolesTest {
 		roleService.delete(role);
 	}
 
+	@Test
+	public void getRole() {
+		Role role = roleService.findById(2);
+		Set<User> users = role.getUsers();
+		Iterator<User> iterator = users.iterator();
+		while (iterator.hasNext()) {
+			User user = (User) iterator.next();
+			System.err.println(user.getEmail());
+		}
+	}
 }

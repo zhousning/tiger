@@ -28,7 +28,12 @@ public class UsersTest {
 	public void selectByEmail() {
 		String string = "222@qq.com";
 		User user = userService.getUserByEmail(string);
-		System.out.println(user.toString());
+		Set<Role> roles = user.getRoles();
+		Iterator<Role> iterator = roles.iterator();
+		while (iterator.hasNext()) {
+			Role role = (Role) iterator.next();
+			System.err.println(role.getName());
+		}
 	}
 	
 	
