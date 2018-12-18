@@ -42,4 +42,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		return dao.findAll();
 	}
 
+	@Override
+	public void deleteById(Integer id) {
+		// TODO Auto-generated method stub
+		dao.deleteById(id);
+	}
+
 }

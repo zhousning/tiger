@@ -1,24 +1,22 @@
 package app.models;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Role {
+public class Subject {
 	private Integer id;  
 	private String name;
+	private Integer leaderId;
 	private Set<User> users = new HashSet<User>();
 	
-	public Role(){}
+	public Subject(){}
 	
 	
-	public Role(String name) {
+	public Subject(String name) {
 		super();
 		this.name = name;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -45,6 +43,16 @@ public class Role {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+
+	public Integer getLeaderId() {
+		return leaderId;
+	}
+
+
+	public void setLeaderId(Integer leaderId) {
+		this.leaderId = leaderId;
 	}
 
 

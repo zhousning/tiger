@@ -15,6 +15,9 @@ public class User {
     private String password;
     
 	private Set<Role> roles = new HashSet<Role>();
+	
+	private Set<Subject> subjects = new HashSet<Subject>();
+
 
     
     @Override
@@ -88,6 +91,16 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-    
-    
+
+	public Set<Subject> getSubjects() {
+		return subjects;
+	}
+
+	public void setSubjects(Set<Subject> subjects) {
+		this.subjects = subjects;
+	}
+
+
+
+	
 }

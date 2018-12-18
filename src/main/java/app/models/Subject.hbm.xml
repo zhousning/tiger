@@ -4,14 +4,15 @@
 
 <hibernate-mapping package="app.models">
 
-	<class name="Role" table="roles" dynamic-insert="true"
+	<class name="Subject" table="subjects" dynamic-insert="true"
 		dynamic-update="true">
 		<id name="id" column="id">
 			<generator class="native" />
 		</id>
 		<property name="name" />
-		<set name="users" table="users_roles" lazy="false">
-			<key column="role_id"></key>
+		<property name="leaderId"/>
+		<set name="users" table="users_subjects" lazy="false">
+			<key column="subject_id"></key>
 			<many-to-many class="User" column="user_id">
 			</many-to-many>
 		</set>

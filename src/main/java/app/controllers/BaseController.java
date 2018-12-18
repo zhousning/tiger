@@ -9,7 +9,13 @@ import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+
 public class BaseController {
+	
+	/*
+	 * setAsText 表单提交到controller的时候执行
+	 * getAsText controller到表单的时候执行，没有转换的必要可以不写
+	 */
 
     @InitBinder
     protected void initBinder(WebDataBinder binder) {
@@ -38,32 +44,32 @@ public class BaseController {
     
     public class DoubleEditor extends PropertiesEditor  {    
         @Override    
-        public void setAsText(String text) throws IllegalArgumentException {    
+        public void setAsText(String text) throws IllegalArgumentException { 
             if (text == null || text.equals("")) {    
                 text = "0";    
             }    
             setValue(Double.parseDouble(text));    
         }    
         
-        @Override    
+       /* @Override    
         public String getAsText() {    
-            return getValue().toString();    
-        }    
+            return (getValue() != null) ? getValue().toString() : "";    
+        }    */
     }  
     
     public class IntegerEditor extends PropertiesEditor {    
         @Override    
-        public void setAsText(String text) throws IllegalArgumentException {    
+        public void setAsText(String text) throws IllegalArgumentException {  
             if (text == null || text.equals("")) {    
                 text = "0";    
             }    
             setValue(Integer.parseInt(text));    
         }    
         
-        @Override    
+       /* @Override    
         public String getAsText() {    
-            return getValue().toString();    
-        }    
+            return (getValue() != null) ? getValue().toString() : "";    
+        }   */ 
     }  
 
 }

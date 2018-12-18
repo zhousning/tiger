@@ -29,6 +29,11 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public void delete(T entity) {
 		hibernateTemplate.delete(entity);
 	}
+	
+	public void deleteById(Integer id) {
+		T entity = hibernateTemplate.get(clazz, id);
+		hibernateTemplate.delete(entity);
+	}
 
 	public void update(T entity) {
 		hibernateTemplate.update(entity);
@@ -39,6 +44,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	public List<T> findAll() {
-		return (List<T>) hibernateTemplate.find("from User");
+		return (List<T>) hibernateTemplate.find("from " + clazz.getSimpleName());
 	}
 }

@@ -1,6 +1,11 @@
 package app.controllers;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +15,7 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -21,8 +27,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestScope;
 
+import app.models.Subject;
 import app.models.User;
+import app.services.SubjectService;
 import app.services.UsersService;
+import javassist.expr.NewArray;
 
 @Controller
 @RequestMapping("/users")
@@ -30,13 +39,9 @@ public class UsersController extends BaseController {
 
 	@Autowired
 	UsersService userService;
-
-	@InitBinder
-	protected void init(HttpServletRequest request, ServletRequestDataBinder binder) {
-		/*SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		dateFormat.setLenient(false);
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));*/
-	}
+	
+	@Autowired
+	SubjectService subjectService;
 
 	@ModelAttribute
 	public void getUser(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
@@ -60,22 +65,54 @@ public class UsersController extends BaseController {
 
 	@RequestMapping("/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {
-		map.put("user", userService.getUserById(id));
+		User user = userService.getUserById(id);
+		this.beforeEdit(user, map);
 		return "users/edit";
 	}
-
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public String destroy(@PathVariable("id") Integer id) {
-		userService.deleteById(id);
-		return "redirect:/users";
+	
+	private void beforeEdit(User user, Map<String, Object> map) {
+		Set<Subject> userSubjects = user.getSubjects();	
+		Iterator<Subject> userIterator = userSubjects.iterator();
+		
+		List<Subject> subjects = subjectService.findAll();		
+		
+		while (userIterator.hasNext()) {
+			Subject userSubject = (Subject) userIterator.next();
+			Iterator<Subject> iterator = subjects.iterator();
+			while (iterator.hasNext()) {
+				Subject subject = (Subject) iterator.next();
+				if (userSubject.getId() == subject.getId()) {
+					subjects.remove(subject);
+					subjects.add(userSubject);
+					iterator = null;
+					break;
+				}
+			}
+		}
+		
+		map.put("user", user);
+		map.put("subjects", subjects);
 	}
 
+	private Set<Subject> getSubjectsFromIds(Integer[] subjectIds) {
+		Set<Subject> subjects = new HashSet<Subject>();
+		if (subjectIds != null) {
+			for (int i = 0; i < subjectIds.length; i++) {
+				Subject subject = subjectService.findById(subjectIds[i]);
+				subjects.add(subject);
+			}
+		}
+		return subjects;
+	}
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid User user, Errors result, Map<String, Object> map) {
+	public String update(@Valid User user, @RequestParam(value = "subjects", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
+		Set<Subject> subjects = this.getSubjectsFromIds(subjectIds);	
+		user.setSubjects(subjects);
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}
+			this.beforeEdit(user, map);
 			return "/users/edit";
 		}
 		String principal = user.getEmail();
@@ -89,21 +126,30 @@ public class UsersController extends BaseController {
 		userService.updateUser(user);
 		return "redirect:/users/" + user.getId().toString();
 	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public String destroy(@PathVariable("id") Integer id) {
+		userService.deleteById(id);
+		return "redirect:/users";
+	}
+
 
 	@RequestMapping("/new")
 	public String fresh(Map<String, Object> map) {
+		this.beforeNew(map);
 		map.put("user", new User());
 		return "users/new";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@Valid User user, Errors result, Map<String, Object> map) {
+	public String create(@Valid User user, @RequestParam(value = "subjects", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}
 			// 若验证出错, 则转向定制的页面
-			return "/users/new";
+			this.beforeNew(map);
+			return "users/new";
 		}
 		// 使用邮箱注册，如果改成其他需要修改以下两行内容
 		String principal = user.getEmail();
@@ -112,17 +158,23 @@ public class UsersController extends BaseController {
 			String hashAlgorithmName = "MD5";
 			Object credentials = user.getPassword();
 			Object salt = ByteSource.Util.bytes(principal);
-			;
 			int hashIterations = 1024;
 
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
+			Set<Subject> subjects = this.getSubjectsFromIds(subjectIds);
+			user.setSubjects(subjects);
 			User userObject = userService.insert(user);
 			return "redirect:/users";
 		} else {
-			// throw new ConstraintViolationException(constraintViolations)
-			return "/users/new";
+			this.beforeNew(map);
+			return "users/new";
 		}
+	}
+	
+	private void beforeNew(Map<String, Object> map) {
+		List<Subject> subjects = subjectService.findAll();
+		map.put("subjects", subjects);
 	}
 
 }

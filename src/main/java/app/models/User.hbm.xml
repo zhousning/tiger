@@ -1,21 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-        
-        
+
+
 <hibernate-mapping package="app.models">
 
 	<class name="User" table="users">
 		<id name="id">
 			<generator class="native" />
 		</id>
-		<property name="name"/>
-		<property name="phone"/>
-		<property name="email"/>
-		<property name="password"/>
-		
-		<set name="roles" table="users_roles" lazy="false" cascade="save-update">
+		<property name="name" />
+		<property name="phone" />
+		<property name="email" />
+		<property name="password" />
+
+		<set name="roles" table="users_roles" lazy="false"
+			cascade="save-update">
 			<key column="user_id"></key>
 			<many-to-many class="Role" column="role_id">
+			</many-to-many>
+		</set>
+
+		<set name="subjects" table="users_subjects" lazy="false"
+			cascade="save-update">
+			<key column="user_id"></key>
+			<many-to-many class="Subject" column="subject_id">
 			</many-to-many>
 		</set>
 

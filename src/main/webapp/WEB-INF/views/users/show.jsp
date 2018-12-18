@@ -36,25 +36,43 @@
 						<div class="col-md-4 col-md-offset-4">
 							<form class="form-horizontal">
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="user.name"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${requestScope.user.name }
-										${requestScope.user.email }</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="user.name"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">${requestScope.user.name }</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="user.phone"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="user.phone"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.user.phone }</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="user.email"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="user.email"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.user.email }</div>
 								</div>
 								<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-4">
-										<a href="users/${requestScope.user.id }/edit" type="button" class="btn btn-info"><fmt:message
-												key="btn.edit"></fmt:message></a>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="subject.type"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">
+										<c:if test="${!empty requestScope.user.subjects }">
+											<c:forEach items="${ requestScope.user.subjects }" var="subject">
+												${subject.name }
+											</c:forEach>
+										</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-4">
+										<a href="users/${requestScope.user.id }/edit" type="button"
+											class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
 									</div>
 									<div class="col-sm-offset-2 col-sm-4">
 										<a href="users" type="button" class="btn btn-warning"><fmt:message

@@ -14,15 +14,15 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title><fmt:message key="users.index"></fmt:message></title>
+<title><fmt:message key="subjects.index"></fmt:message></title>
 <%@ include file="/WEB-INF/views/layouts/common.jsp"%>
-<link href="static/stylesheets/users.css" rel="stylesheet">
-<script src="static/javascripts/users.js"></script>
+<link href="static/stylesheets/subjects.css" rel="stylesheet">
+<script src="static/javascripts/subjects.js"></script>
 
 
 
 </head>
-<body class=".users.index">
+<body class=".subjects.index">
 	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
@@ -36,12 +36,12 @@
 				<div class="container-fluid">
 					<div class="page-header">
 						<h1>
-							<fmt:message key="users.index"></fmt:message>
+							<fmt:message key="subjects.index"></fmt:message>
 						</h1>
 					</div>
 					<div class="row">
 						<div class="col-md-1">
-							<a href="users/new" class="btn btn-primary btn-block"> <fmt:message
+							<a href="subjects/new" class="btn btn-primary btn-block"> <fmt:message
 									key="btn.add"></fmt:message>
 							</a>
 						</div>
@@ -58,27 +58,24 @@
 							<tr class="text-center">
 								<th data-field="id">id</th>
 								<th data-field="name" data-filter-control="input"><fmt:message
-										key="user.name"></fmt:message></th>
-								<th data-field="phone" data-filter-control="select"><fmt:message
-										key="user.phone"></fmt:message></th>
-								<th data-field="email" data-filter-control="select"><fmt:message
-										key="user.email"></fmt:message></th>
+										key="subject.name"></fmt:message></th>
+								<th data-field="leader" data-filter-control="select"><fmt:message
+										key="subject.leader"></fmt:message></th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:if test="${ !empty requestScope.users }">
-								<c:forEach items="${ requestScope.users }" var="user"
+							<c:if test="${ !empty requestScope.subjects }">
+								<c:forEach items="${ requestScope.subjects }" var="subject"
 									varStatus="status">
 									<tr>
 										<td>${ status.index + 1 }</td>
-										<td>${ user.name }</td>
-										<td>${ user.phone }</td>
-										<td>${ user.email }</td>
-										<td><a href="users/${user.id }" class="btn btn-info"><fmt:message
+										<td>${ subject.name }</td>
+										<td> ${ requestScope.leaders[subject.leaderId] }</td>
+										<td><a href="subjects/${subject.id }" class="btn btn-info"><fmt:message
 													key="btn.info"></fmt:message></a> <a
-											href="users/${user.id }/edit" class="btn btn-success"><fmt:message
-													key="btn.edit"></fmt:message></a> <a href="users/${user.id}"
+											href="subjects/${subject.id }/edit" class="btn btn-success"><fmt:message
+													key="btn.edit"></fmt:message></a> <a href="subjects/${subject.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a></td>
 									</tr>

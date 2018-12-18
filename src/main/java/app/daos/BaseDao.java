@@ -11,6 +11,8 @@ public interface BaseDao<T> {
 	public void save(T entity);
 
 	public void delete(T entity);
+	
+	public void deleteById(Integer id);
 
 	public void update(T entity);
 	

@@ -22,6 +22,18 @@
                     <li><a href="users/new"><fmt:message
 								key="users.new"></fmt:message></a></li>   
                 </ul>
+                
+                <li  data-toggle="collapse" data-target="#subjects" class="collapsed active">
+                  <a><i class="fa fa-gift fa-lg"></i> <fmt:message
+								key="subjects.manage"></fmt:message> <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="subjects">
+                    <!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+                    <li><a href="subjects"><fmt:message
+								key="subjects.index"></fmt:message></a></li>
+                    <li><a href="subjects/new"><fmt:message
+								key="subjects.new"></fmt:message></a></li>   
+                </ul>
 
 
                 <li data-toggle="collapse" data-target="#questions" class="collapsed">

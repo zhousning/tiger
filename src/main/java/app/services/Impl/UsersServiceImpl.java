@@ -17,7 +17,11 @@ public class UsersServiceImpl implements UsersService {
 	UserDao userDao;
 
 	public User getUserById(Integer id) {
-		return userDao.findById(id);
+		User user = null;
+		if (id != null) {
+			user = userDao.findById(id);
+		}
+		return user;
 	}
 
 	public List<User> getUsers() {

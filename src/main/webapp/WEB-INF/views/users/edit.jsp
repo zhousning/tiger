@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
 
@@ -7,8 +8,9 @@
 
 
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html>
@@ -23,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
+	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
 			<div class="col-md-2 sidebar-container">
@@ -31,15 +33,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="col-md-10 main-container">
 				<div class="container-fluid">
-				<div class="page-header">
-					<h1>
-						<fmt:message key="users.edit"></fmt:message>
-					</h1>
+					<div class="page-header">
+						<h1>
+							<fmt:message key="users.edit"></fmt:message>
+						</h1>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
 							<%@ include file="/WEB-INF/views/users/_form.jsp"%>
-						</div>
 					</div>
 				</div>
 			</div>
