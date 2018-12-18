@@ -10,11 +10,13 @@ import java.util.Set;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import app.models.Role;
 import app.models.User;
+import app.services.RoleService;
 import app.services.UsersService;
 
 
@@ -24,6 +26,22 @@ public class UsersTest {
 	
 	@Autowired
 	UsersService userService;
+	
+	@Autowired
+	RoleService roleService;
+	
+	@Autowired
+	private ResourceBundleMessageSource messageSource;
+	
+	@Test
+	public void testRole() {
+		User oldLeader = userService.getUserById(2);
+		Set<Role> oldRoles = new HashSet<Role>();
+		Role defaultRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		oldRoles.add(defaultRole);
+		oldLeader.setRoles(oldRoles);
+		userService.updateUser(oldLeader);
+	}
 	
 	@Test
 	public void selectByEmail() {

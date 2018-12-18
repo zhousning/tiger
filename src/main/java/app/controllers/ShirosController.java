@@ -1,7 +1,9 @@
 package app.controllers;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -12,6 +14,7 @@ import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -20,7 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import app.models.Role;
 import app.models.User;
+import app.services.RoleService;
 import app.services.UsersService;
 
 @Controller 
@@ -64,7 +69,10 @@ public class ShirosController extends BaseController {
 			
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
-			User userObject = userService.insert(user);
+
+			initRole(user);
+
+			userService.insert(user);
 			return "redirect:/users/sign_in";
 		} else {
 			//throw new ConstraintViolationException(constraintViolations)

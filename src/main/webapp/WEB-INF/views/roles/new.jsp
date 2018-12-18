@@ -19,10 +19,10 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title><fmt:message key="subjects.new"></fmt:message></title>
+<title><fmt:message key="roles.new"></fmt:message></title>
 <%@include file="/WEB-INF/views/layouts/common.jsp"%>
-<link href="static/stylesheets/subjects.css" rel="stylesheet">
-<script src="static/javascripts/subjects.js"></script>
+<link href="static/stylesheets/roles.css" rel="stylesheet">
+<script src="static/javascripts/roles.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
@@ -35,11 +35,13 @@
 				<div class="container-fluid">
 					<div class="page-header">
 						<h1>
-							<fmt:message key="subjects.new"></fmt:message>
+							<fmt:message key="roles.new"></fmt:message>
 						</h1>
 					</div>
 					<div class="row">
-							<%@ include file="/WEB-INF/views/subjects/_form.jsp"%>
+						<div class="col-md-4 col-md-offset-4">
+							<%@ include file="/WEB-INF/views/roles/_form.jsp"%>
+						</div>
 					</div>
 				</div>
 			</div>

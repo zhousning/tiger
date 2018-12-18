@@ -4,13 +4,35 @@ import java.beans.PropertyEditorSupport;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
+import app.models.Role;
+import app.models.User;
+import app.services.RoleService;
+import app.services.SubjectService;
+import app.services.UsersService;
+
 
 public class BaseController {
+	
+	@Autowired
+	RoleService roleService;	
+
+	@Autowired
+	SubjectService subjectService;
+	
+	@Autowired
+	UsersService userService;
+	
+	@Autowired
+	ResourceBundleMessageSource messageSource;
 	
 	/*
 	 * setAsText 表单提交到controller的时候执行
@@ -71,5 +93,12 @@ public class BaseController {
             return (getValue() != null) ? getValue().toString() : "";    
         }   */ 
     }  
+    
+    public void initRole(User user) {
+		Role role = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		Set<Role> roles = new HashSet<Role>();
+		roles.add(role);
+		user.setRoles(roles);
+	}
 
 }

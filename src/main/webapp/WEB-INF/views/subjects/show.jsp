@@ -33,22 +33,40 @@
 						</h1>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
+						<div class="col-md-8 col-md-offset-2">
 							<form class="form-horizontal">
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="subject.name"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="subject.name"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.subject.name }
 									</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="subject.leader"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="subject.leader"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.leader }</div>
 								</div>
 								<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-4">
-										<a href="subjects/${requestScope.subject.id }/edit" type="button" class="btn btn-info"><fmt:message
+									<div class="col-sm-4 info-title">
+										<fmt:message key="subject.group"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">
+										<c:if test="${!empty requestScope.subject.users }">
+											<c:forEach items="${requestScope.subject.users }" var="user">
+												${user.name }
+											</c:forEach>
+										</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-4">
+										<a href="subjects/${requestScope.subject.id }/edit"
+											type="button" class="btn btn-info"><fmt:message
 												key="btn.edit"></fmt:message></a>
 									</div>
 									<div class="col-sm-offset-2 col-sm-4">

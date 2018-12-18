@@ -39,9 +39,8 @@
 						</h1>
 					</div>
 					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
+						
 							<%@ include file="/WEB-INF/views/subjects/_form.jsp"%>
-						</div>
 					</div>
 				</div>
 			</div>

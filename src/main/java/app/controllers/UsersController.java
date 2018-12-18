@@ -14,6 +14,7 @@ import javax.validation.Valid;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -27,8 +28,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestScope;
 
+import app.models.Role;
 import app.models.Subject;
 import app.models.User;
+import app.services.RoleService;
 import app.services.SubjectService;
 import app.services.UsersService;
 import javassist.expr.NewArray;
@@ -36,12 +39,6 @@ import javassist.expr.NewArray;
 @Controller
 @RequestMapping("/users")
 public class UsersController extends BaseController {
-
-	@Autowired
-	UsersService userService;
-	
-	@Autowired
-	SubjectService subjectService;
 
 	@ModelAttribute
 	public void getUser(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
@@ -162,8 +159,12 @@ public class UsersController extends BaseController {
 
 			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
 			user.setPassword(password.toString());
+			
 			Set<Subject> subjects = this.getSubjectsFromIds(subjectIds);
 			user.setSubjects(subjects);
+			
+			initRole(user);
+			
 			User userObject = userService.insert(user);
 			return "redirect:/users";
 		} else {

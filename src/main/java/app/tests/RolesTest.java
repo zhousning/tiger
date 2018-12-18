@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -26,6 +27,26 @@ public class RolesTest {
 	
 	@Autowired
 	RoleService roleService;
+	
+	@Autowired
+	private ResourceBundleMessageSource messageSource;
+	
+	@Test
+	public void tools() {
+		Role adminRole = new Role(messageSource.getMessage("roles.admin", null, null));
+		Role leaderRole = new Role(messageSource.getMessage("roles.leader", null, null));
+		Role teacher = new Role(messageSource.getMessage("roles.default", null, null));
+		
+		roleService.save(adminRole);
+		roleService.save(leaderRole);
+		roleService.save(teacher);
+	}
+	
+	@Test
+	public void selectByName() {
+		Role role = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		System.out.println(role.getName());
+	}
 	
 	@Test
 	public void delete() {
