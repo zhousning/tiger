@@ -14,78 +14,78 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import app.models.Level;
-import app.services.LevelService;
+import app.models.Question;
+import app.services.QuestionService;
 
 @Controller
-@RequestMapping("/templates")
-public class TemplateController extends BaseController {
+@RequestMapping("/questions")
+public class QuestionsController extends BaseController {
 
 	@Autowired
-	LevelService levelService;
+	QuestionService questionService;
 	
 	@ModelAttribute
-	public void getlevel(@RequestParam(value="id", required=false) Integer id, Map<String, Object> map) {
+	public void getquestion(@RequestParam(value="id", required=false) Integer id, Map<String, Object> map) {
 		if (id != null) {
-			System.out.println(levelService.findById(id).toString());
-			map.put("level", levelService.findById(id));
+			System.out.println(questionService.findById(id).toString());
+			map.put("question", questionService.findById(id));
 		}
 	}
 	
 	@RequestMapping("")
 	public String index(Map<String, Object> map) {
-		map.put("levels", levelService.findAll());
-		return "levels/index";
+		map.put("questions", questionService.findAll());
+		return "questions/index";
 	}
 	
 	@RequestMapping("/new")
 	public String fresh(Map<String, Object> map) {
-		map.put("level", new Level());
-		return "levels/new";
+		map.put("question", new Question());
+		return "questions/new";
 	}
 	
 	@RequestMapping(value="/{id}")
 	public String show(@PathVariable("id") Integer id, Map<String, Object> map) {
-		map.put("level", levelService.findById(id));
-		return "levels/show";
+		map.put("question", questionService.findById(id));
+		return "questions/show";
 	}
 	
 	@RequestMapping("/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {	
-		map.put("level", levelService.findById(id));
-		return "levels/edit";
+		map.put("question", questionService.findById(id));
+		return "questions/edit";
 	}
 
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
 	public String destroy(@PathVariable("id") Integer id) {
-		levelService.deleteById(id);
-		return "redirect:/levels";
+		questionService.deleteById(id);
+		return "redirect:/questions";
 	}
 	
 	//创建完返回id
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@Valid Level level, Errors result, Map<String, Object> map) {
+	public String create(@Valid Question question, Errors result, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
 			//若验证出错, 则转向定制的页面
-			return "/levels/new";
+			return "/questions/new";
 		}
-		levelService.save(level);
-		return "redirect:/levels/" + level.getId().toString();
+		questionService.save(question);
+		return "redirect:/questions/" + question.getId().toString();
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid Level level, Errors result, Map<String, Object> map) {
+	public String update(@Valid Question question, Errors result, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
-			return "/levels/edit";
+			return "/questions/edit";
 		}
-		levelService.update(level);
-		return "redirect:/levels/" + level.getId().toString();
+		questionService.update(question);
+		return "redirect:/questions/" + question.getId().toString();
 	}
 
 }

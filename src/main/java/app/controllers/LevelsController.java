@@ -2,6 +2,7 @@ package app.controllers;
 
 import java.util.Map;
 
+import javax.jws.soap.SOAPBinding.Use;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +14,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestScope;
 
 import app.models.Level;
 import app.services.LevelService;
 
 @Controller
-@RequestMapping("/templates")
-public class TemplateController extends BaseController {
+@RequestMapping("/levels")
+public class LevelsController extends BaseController {
 
 	@Autowired
 	LevelService levelService;

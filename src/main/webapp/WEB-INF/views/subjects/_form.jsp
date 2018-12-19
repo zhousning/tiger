@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <form:form action="subjects" method="POST" modelAttribute="subject"
 	class="form-horizontal">
 	<!-- <form:errors path="*"></form:errors> -->

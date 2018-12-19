@@ -12,6 +12,7 @@ public class Question {
 	private String analysis;
 	private Date createTime;
 	private Date utilityTime;
+	private String type;
 	private Integer status;
 	private Level level;
 	private Subject subject;
@@ -83,6 +84,15 @@ public class Question {
 	public void setUtilityTime(Date utilityTime) {
 		this.utilityTime = utilityTime;
 	}
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public Integer getStatus() {
 		return status;
 	}

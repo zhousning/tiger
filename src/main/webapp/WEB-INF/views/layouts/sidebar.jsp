@@ -41,6 +41,36 @@
 				<li><a href="roles"><fmt:message key="roles.index"></fmt:message></a></li>
 				<li><a href="roles/new"><fmt:message key="roles.new"></fmt:message></a></li>
 			</ul>
+			
+			<li data-toggle="collapse" data-target="#levels"
+				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
+					<fmt:message key="levels.manage"></fmt:message> <span
+					class="arrow"></span></a></li>
+			<ul class="sub-menu collapse" id="levels">
+				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+				<li><a href="levels"><fmt:message key="levels.index"></fmt:message></a></li>
+				<li><a href="levels/new"><fmt:message key="levels.new"></fmt:message></a></li>
+			</ul>
+			
+			<li data-toggle="collapse" data-target="#examPoints"
+				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
+					<fmt:message key="examPoints.manage"></fmt:message> <span
+					class="arrow"></span></a></li>
+			<ul class="sub-menu collapse" id="examPoints">
+				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+				<li><a href="examPoints"><fmt:message key="examPoints.index"></fmt:message></a></li>
+				<li><a href="examPoints/new"><fmt:message key="examPoints.new"></fmt:message></a></li>
+			</ul>
+			
+			<li data-toggle="collapse" data-target="#questions"
+				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
+					<fmt:message key="questions.manage"></fmt:message> <span
+					class="arrow"></span></a></li>
+			<ul class="sub-menu collapse" id="questions">
+				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+				<li><a href="questions"><fmt:message key="questions.index"></fmt:message></a></li>
+				<li><a href="questions/new"><fmt:message key="questions.new"></fmt:message></a></li>
+			</ul>
 
 
 			<li data-toggle="collapse" data-target="#questions" class="collapsed">

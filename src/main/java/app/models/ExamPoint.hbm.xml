@@ -11,7 +11,7 @@
 		</id>
 		<property name="name" />
 
-		<many-to-one name="subject" column="subject_id" class="Subject" />
+		<many-to-one name="subject" column="subject_id" class="Subject" lazy="false" />
 
 		<set name="questions" table="questions" cascade="save-update"
 			inverse="false" lazy="false">
