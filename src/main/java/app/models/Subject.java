@@ -9,6 +9,8 @@ public class Subject {
 	private String name;
 	private Integer leaderId;
 	private Set<User> users = new HashSet<User>();
+	private Set<Question> questions = new HashSet<Question>();
+	private Set<ExamPoint> examPoints = new HashSet<ExamPoint>();
 	
 	public Subject(){}
 	
@@ -17,6 +19,18 @@ public class Subject {
 		super();
 		this.name = name;
 	}
+	
+	
+
+	public Set<Question> getQuestions() {
+		return questions;
+	}
+
+
+	public void setQuestions(Set<Question> questions) {
+		this.questions = questions;
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -53,6 +67,16 @@ public class Subject {
 
 	public void setLeaderId(Integer leaderId) {
 		this.leaderId = leaderId;
+	}
+
+
+	public Set<ExamPoint> getExamPoints() {
+		return examPoints;
+	}
+
+
+	public void setExamPoints(Set<ExamPoint> examPoints) {
+		this.examPoints = examPoints;
 	}
 
 

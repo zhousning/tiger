@@ -1,6 +1,7 @@
 package app.tests;
 
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -33,12 +34,15 @@ public class RolesTest {
 	
 	@Test
 	public void tools() {
-		Role adminRole = new Role(messageSource.getMessage("roles.admin", null, null));
-		Role leaderRole = new Role(messageSource.getMessage("roles.leader", null, null));
+/*		Role adminRole = new Role(messageSource.getMessage("roles.admin", null, null));
+		Role leaderRole = new Role(messageSource.getMessage("roles.leader", null, null));*/
 		Role teacher = new Role(messageSource.getMessage("roles.default", null, null));
-		
-		roleService.save(adminRole);
-		roleService.save(leaderRole);
+		User user = new User("4123", "344", "413425");
+		Set<User> users = new HashSet<User>();
+		users.add(user);
+		teacher.setUsers(users);
+/*		roleService.save(adminRole);
+		roleService.save(leaderRole);*/
 		roleService.save(teacher);
 	}
 	
@@ -50,7 +54,7 @@ public class RolesTest {
 	
 	@Test
 	public void delete() {
-		Role role = roleService.findById(1);
+		Role role = roleService.findById(5);
 		roleService.delete(role);
 	}
 

@@ -17,6 +17,8 @@ public class User {
 	private Set<Role> roles = new HashSet<Role>();
 	
 	private Set<Subject> subjects = new HashSet<Subject>();
+	
+	private Set<Question> questions = new HashSet<Question>();
 
 
     
@@ -43,8 +45,18 @@ public class User {
    		this.email = email;
    		this.password = password;
    	}
+   	
+   	
 
-    public Integer getId() {
+    public Set<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(Set<Question> questions) {
+		this.questions = questions;
+	}
+
+	public Integer getId() {
         return id;
     }
 

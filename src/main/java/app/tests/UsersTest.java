@@ -79,7 +79,7 @@ public class UsersTest {
 	
 	@Test
 	public void manyToManyDestroy() {
-		userService.deleteById(1);
+		userService.deleteById(2);
 	}
 	
 }
