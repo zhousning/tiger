@@ -58,7 +58,8 @@ public class ExamPointsController extends BaseController {
 	}
 	
 	@RequestMapping("/{id}/edit")
-	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {	
+	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {
+		initExamPoint(map);
 		map.put("examPoint", examPointService.findById(id));
 		return "examPoints/edit";
 	}
@@ -89,12 +90,16 @@ public class ExamPointsController extends BaseController {
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid ExamPoint examPoint, Errors result, Map<String, Object> map) {
+	public String update(@Valid ExamPoint examPoint, @RequestParam(value="subject.id", required=false) Integer subjectId, Errors result, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
 			return "/examPoints/edit";
+		}
+		if (subjectId != null) {
+			app.models.Subject subject = subjectService.findById(subjectId);
+			examPoint.setSubject(subject);
 		}
 		examPointService.update(examPoint);
 		return "redirect:/examPoints/" + examPoint.getId().toString();

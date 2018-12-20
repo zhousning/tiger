@@ -59,6 +59,8 @@
 								<th data-field="id">id</th>
 								<th data-field="name" data-filter-control="input"><fmt:message
 										key="examPoint.name"></fmt:message></th>
+								<th data-field="subject" data-filter-control="select"><fmt:message
+										key="subject.name"></fmt:message></th>
 								<th></th>
 							</tr>
 						</thead>
@@ -69,10 +71,12 @@
 									<tr>
 										<td>${ status.index + 1 }</td>
 										<td>${ examPoint.name }</td>
-										<td><a href="examPoints/${examPoint.id }" class="btn btn-info"><fmt:message
-													key="btn.info"></fmt:message></a> <a
-											href="examPoints/${examPoint.id }/edit" class="btn btn-success"><fmt:message
-													key="btn.edit"></fmt:message></a> <a href="examPoints/${examPoint.id}"
+										<td>${ examPoint.subject.name }
+										<td><a href="examPoints/${examPoint.id }"
+											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
+											<a href="examPoints/${examPoint.id }/edit"
+											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+											<a href="examPoints/${examPoint.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a></td>
 									</tr>

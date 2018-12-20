@@ -50,7 +50,7 @@
 						<c:otherwise>
 							<div class="radio">
 							<label > <form:radiobutton path="leaderId"
-									value="${user.id }" element="" />${user.name}
+									value="${user.id }" />${user.name}
 							</label>
 							</div>
 						</c:otherwise>

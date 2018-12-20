@@ -10,9 +10,8 @@
 				key="subject.name"></fmt:message></label>
 		<div class="col-sm-10">
 			<c:if test="${!empty requestScope.subjects }">
-				<form:select path="subject"  class="form-control">
-					<form:options items="${requestScope.subjects}"  itemValue="id" itemLabel="name" />
-				</form:select>
+				<form:select  class="form-control" path="subject.id" items="${requestScope.subjects}" itemLabel="name"
+					itemValue="id"></form:select>
 			</c:if>
 		</div>
 	</div>
@@ -20,8 +19,7 @@
 		<label for="name" class="col-sm-2 control-label"><fmt:message
 				key="examPoint.name"></fmt:message></label>
 		<div class="col-sm-10">
-			<form:input type="text" class="form-control" id="name"
-				placeholder="name" path="name" />
+			<form:textarea path="name" class="form-control"  rows="3" cols="20"/>
 		</div>
 	</div>
 	<div class="form-group">
