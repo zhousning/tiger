@@ -41,15 +41,8 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-sm-10 col-sm-offset-2">
-			<p class="info">
-				<fmt:message key="options.split.title"></fmt:message>
-			</p>
-		</div>
-	</div>
-	<div class="form-group">
 		<label for="content" class="col-sm-2 control-label"><fmt:message
-				key="option.items"></fmt:message></label>
+				key="question.content"></fmt:message></label>
 		<div class="col-sm-10">
 			<form:textarea type="text" class="form-control" id="content"
 				path="content" col="20" row="10" />

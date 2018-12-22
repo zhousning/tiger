@@ -32,6 +32,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.mysql.fabric.xmlrpc.base.Data;
 
 import antlr.build.Tool;
+import app.models.Attachment;
 import app.models.Question;
 import app.models.Role;
 import app.models.Subject;
@@ -63,11 +64,11 @@ public class QuestionTest {
 
 	@Test
 	public void create() throws ParseException {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = sdf.parse("2018-12-13");
-		System.out.println(date);
-		Question question = new Question("title2", "content", "answer", "analysis", new Date(), date, "2");
-		
+		Attachment attachment = new Attachment("341341");
+		Question question = new Question("title2", "content", "answer", "analysis", new Date(), new Date(), "2");
+		Set<Attachment> attachments = new HashSet<Attachment>();
+		attachments.add(attachment);
+		question.setAttachments(attachments);
 /*		User user = userService.getUserById(7);
 		question.setUser(user);*/
 		questionService.save(question);
@@ -75,7 +76,7 @@ public class QuestionTest {
 	
 	@Test
 	public void Delete() {
-		Question question = questionService.findById(3);
+		Question question = questionService.findById(9);
 		questionService.delete(question);
 	}
 	

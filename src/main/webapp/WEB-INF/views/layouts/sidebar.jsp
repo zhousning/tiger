@@ -69,7 +69,6 @@
 			<ul class="sub-menu collapse" id="questions">
 				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
 				<li><a href="questions"><fmt:message key="questions.index"></fmt:message></a></li>
-				<li><a href="questions/new"><fmt:message key="questions.new"></fmt:message></a></li>
 			</ul>
 
 
@@ -87,7 +86,11 @@
 							key="questions.essay.manage"></fmt:message></a></li>
 			</ul>
 
-
+			<li><a href="checks"> <i class="fa fa-user fa-lg"></i> <fmt:message
+							key="questions.check.manage"></fmt:message>
+			</a></li>
+			
+			
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
 				<a href="#"><i class="fa fa-car fa-lg"></i> New <span
 					class="arrow"></span></a>
@@ -97,10 +100,6 @@
 				<li>New New 2</li>
 				<li>New New 3</li>
 			</ul>
-
-
-			<li><a href="#"> <i class="fa fa-user fa-lg"></i> Profile
-			</a></li>
 
 			<li><a href="#"> <i class="fa fa-users fa-lg"></i> Users
 			</a></li>
