@@ -32,114 +32,118 @@
 							<fmt:message key="questions.show"></fmt:message>
 						</h1>
 					</div>
-					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
-							<form class="form-horizontal">
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.title"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.title }</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-sm-1">
+									<a href="questions/${requestScope.question.id }/edit"
+										type="button" class="btn btn-info"><fmt:message
+											key="btn.edit"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.content"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.content }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.answer"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.answer }</div>
+								<div class="col-sm-1">
+									<a href="questions" type="button" class="btn btn-warning"><fmt:message
+											key="btn.back"></fmt:message></a>
 								</div>
 
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.analysis"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.analysis }</div>
+								<div class="col-sm-2 info-title">
+									<fmt:message key="question.createTime"></fmt:message>
+									：
 								</div>
+								<div class="col-sm-2 info-ctn">${requestScope.question.createTime }</div>
+								<div class="col-sm-2 info-title">
+									<fmt:message key="question.utilityTime"></fmt:message>
+									：
+								</div>
+								<div class="col-sm-2 info-ctn">${requestScope.question.utilityTime }</div>
+								<div class="col-sm-2 info-ctn">
+									<c:choose>
+										<c:when test="${ question.status == 0 }">
+											<fmt:message key="question.status.pending.title"></fmt:message>
+										</c:when>
+										<c:otherwise>
+											<fmt:message key="question.status.approved.title"></fmt:message>
+										</c:otherwise>
+									</c:choose>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-7">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="question.title"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.question.title }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="question.content"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.question.content }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="question.answer"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.question.answer }</div>
+										</div>
 
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.createTime"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.createTime }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.utilityTime"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.utilityTime }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="subject.name"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">
-										<c:if test="${!empty question.subject }">
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="question.analysis"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.question.analysis }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="subject.name"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">
+												<c:if test="${!empty question.subject }">
 												${ question.subject.name }
 											</c:if>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="level.name"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">
-										<c:if test="${!empty question.level }">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="level.name"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">
+												<c:if test="${!empty question.level }">
 												${ question.level.name }
 											</c:if>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="examPoint.name"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">
-										<c:if test="${!empty question.examPoint }">
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-4 info-title">
+												<fmt:message key="examPoint.name"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">
+												<c:if test="${!empty question.examPoint }">
 												${ question.examPoint.name }
 											</c:if>
-									</div>
+											</div>
+										</div>
+									</form>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="question.status"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.question.status }</div>
+								<div class="col-md-2">
+									<c:if test="${!empty requestScope.question.attachments }">
+										<c:forEach items="${ requestScope.question.attachments }"
+											var="file">
+											<img id="blah" src="${file.file }" class="img-rounded">
+										</c:forEach>
+									</c:if>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-8 col-sm-offset-4 info-ctn">
-										<c:if test="${!empty requestScope.question.attachments }">
-											<c:forEach items="${ requestScope.question.attachments }" var="file">
-												<img  id="blah"  src="${file.file }" class="img-rounded">
-											</c:forEach>
-										</c:if>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-4">
-										<a href="questions/${requestScope.question.id }/edit"
-											type="button" class="btn btn-info"><fmt:message
-												key="btn.edit"></fmt:message></a>
-									</div>
-									<div class="col-sm-offset-2 col-sm-4">
-										<a href="questions" type="button" class="btn btn-warning"><fmt:message
-												key="btn.back"></fmt:message></a>
-									</div>
-								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>

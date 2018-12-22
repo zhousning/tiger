@@ -32,54 +32,61 @@
 							<fmt:message key="users.show"></fmt:message>
 						</h1>
 					</div>
-					<div class="row">
-						<div class="col-md-4 col-md-offset-4">
-							<form class="form-horizontal">
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="user.name"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.user.name }</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-sm-1">
+									<a href="users/${requestScope.user.id }/edit" type="button"
+										class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="user.phone"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.user.phone }</div>
+								<div class="col-sm-1">
+									<a href="users" type="button" class="btn btn-warning"><fmt:message
+											key="btn.back"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="user.email"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">${requestScope.user.email }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title">
-										<fmt:message key="subject.type"></fmt:message>
-										：
-									</div>
-									<div class="col-sm-8 info-ctn">
-										<c:if test="${!empty requestScope.user.subjects }">
-											<c:forEach items="${ requestScope.user.subjects }" var="subject">
+							</div>
+						</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<form class="form-horizontal">
+										<div class="form-group">
+											<div class="col-sm-2 info-title">
+												<fmt:message key="user.name"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.user.name }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-2 info-title">
+												<fmt:message key="user.phone"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.user.phone }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-2 info-title">
+												<fmt:message key="user.email"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.user.email }</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-2 info-title">
+												<fmt:message key="subject.type"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">
+												<c:if test="${!empty requestScope.user.subjects }">
+													<c:forEach items="${ requestScope.user.subjects }"
+														var="subject">
 												${subject.name }
 											</c:forEach>
-										</c:if>
-									</div>
+												</c:if>
+											</div>
+										</div>
+									</form>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-2 col-sm-4">
-										<a href="users/${requestScope.user.id }/edit" type="button"
-											class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
-									</div>
-									<div class="col-sm-offset-2 col-sm-4">
-										<a href="users" type="button" class="btn btn-warning"><fmt:message
-												key="btn.back"></fmt:message></a>
-									</div>
-								</div>
-							</form>
+							</div>
 						</div>
 					</div>
 				</div>
