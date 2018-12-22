@@ -181,5 +181,13 @@
 	</bean>
 	<!-- ========i18n end =============== -->
 
+	<!-- ========file upload start =============== -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="10485760000"></property>
+		<property name="maxInMemorySize" value="40960"></property>
+	</bean>	
+	<!-- ========file upload end =============== -->
 
 </beans>

@@ -4,6 +4,13 @@ package app.tests;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -14,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,23 +54,22 @@ public class QuestionTest {
 	UsersService userService;
 	
 	@Test
-	public void Tool() {
-		Integer[] integers = {1,23,3};
-		for (int i = 0; i < integers.length; i++) {
-			System.out.println(integers[i]);
-		}
+	public void Tool() throws IOException {    
+       String string = "test.jpg";
+       String string2 = string.replaceAll("[^\\.]+\\.", "");
+       System.out.println(string2);
 	}
 	
 
-	
 	@Test
 	public void create() throws ParseException {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = sdf.parse("2018-12-13");
-		Question question = new Question("title2", "content", "answer", "analysis", date, date, 2);
+		System.out.println(date);
+		Question question = new Question("title2", "content", "answer", "analysis", new Date(), date, "2");
 		
-		User user = userService.getUserById(7);
-		question.setUser(user);
+/*		User user = userService.getUserById(7);
+		question.setUser(user);*/
 		questionService.save(question);
 	}
 	

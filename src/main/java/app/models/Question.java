@@ -4,16 +4,22 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.print.attribute.standard.DateTimeAtCompleted;
+
 public class Question {
 	private Integer id;
 	private String title;
 	private String content;
 	private String answer;
 	private String analysis;
-	private Date createTime;
-	private Date utilityTime;
 	private String type;
-	private Integer status;
+	private String status;
+	@Temporal(TemporalType.DATE)
+	private Date createTime;
+	@Temporal(TemporalType.DATE)
+	private Date utilityTime;
 	private Level level;
 	private Subject subject;
 	private User user;
@@ -28,7 +34,7 @@ public class Question {
 	}
 	
 	public Question(String title, String content, String answer, String analysis, Date createTime, Date utilityTime,
-			Integer status) {
+			String status) {
 		super();
 		this.title = title;
 		this.content = content;
@@ -93,12 +99,15 @@ public class Question {
 		this.type = type;
 	}
 
-	public Integer getStatus() {
+
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
+
+	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	public Level getLevel() {
 		return level;
 	}

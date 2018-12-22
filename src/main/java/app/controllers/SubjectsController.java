@@ -22,8 +22,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestScope;
 
+import app.models.ExamPoint;
 import app.models.Role;
 import app.models.Subject;
 import app.models.User;
@@ -134,6 +136,20 @@ public class SubjectsController extends BaseController {
 		} catch (Exception e) {
 			return "/users/new";
 		}
+	}
+	
+	@RequestMapping(value="/{id}/examPoints")
+	@ResponseBody
+	public Map<String, String> getExamPointBySubject( @PathVariable("id") Integer id) {
+		Subject subject = subjectService.findById(id);
+		Set<ExamPoint> examPoints = subject.getExamPoints();
+		Iterator<ExamPoint> iterator = examPoints.iterator();
+		Map<String, String> map = new HashMap<String, String>();
+		while (iterator.hasNext()) {
+			ExamPoint examPoint = (ExamPoint) iterator.next();
+			map.put(examPoint.getId().toString(), examPoint.getName());
+		}
+		return map;
 	}
 
 }

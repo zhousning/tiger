@@ -45,7 +45,7 @@ public class ExamPointsController extends BaseController {
 	
 	@RequestMapping("/new")
 	public String fresh(Map<String, Object> map) {
-		this.initExamPoint(map);
+		currentUserSubjcets(map);
 		map.put("examPoint", new ExamPoint());
 
 		return "examPoints/new";
@@ -59,7 +59,7 @@ public class ExamPointsController extends BaseController {
 	
 	@RequestMapping("/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {
-		initExamPoint(map);
+		currentUserSubjcets(map);
 		map.put("examPoint", examPointService.findById(id));
 		return "examPoints/edit";
 	}
@@ -78,7 +78,7 @@ public class ExamPointsController extends BaseController {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
 			//若验证出错, 则转向定制的页面
-			this.initExamPoint(map);
+			this.currentUserSubjcets(map);
 			return "/examPoints/new";
 		}
 		if (subjectId != null) {
@@ -105,12 +105,6 @@ public class ExamPointsController extends BaseController {
 		return "redirect:/examPoints/" + examPoint.getId().toString();
 	}
 	
-	private void initExamPoint(Map<String, Object> map) {
-		Subject currentUser = SecurityUtils.getSubject();
-		String principal = currentUser.getPrincipal().toString();
-		User user = userService.getUserByEmail(principal);
-		Set<app.models.Subject> subjects = user.getSubjects();
-		map.put("subjects", subjects);
-	}
+	
 
 }

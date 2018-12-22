@@ -94,7 +94,7 @@ public class ShirosController extends BaseController {
         	// 把用户名和密码封装为 UsernamePasswordToken 对象
             UsernamePasswordToken token = new UsernamePasswordToken(user.getEmail(), user.getPassword());
             // rememberme
-            //token.setRememberMe(true);
+            token.setRememberMe(true);
             try {
             	// 执行登录. 
                 currentUser.login(token);

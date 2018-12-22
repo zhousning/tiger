@@ -19,7 +19,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title><fmt:message key="questions.new"></fmt:message></title>
+<title><fmt:message key="questions.multiple.add"></fmt:message></title>
 <%@include file="/WEB-INF/views/layouts/common.jsp"%>
 <link href="static/stylesheets/questions.css" rel="stylesheet">
 <script src="static/javascripts/questions.js"></script>
@@ -40,7 +40,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<%@ include file="/WEB-INF/views/questions/_form.jsp"%>
+							<%@ include file="/WEB-INF/views/questions/_question_multiple_form.jsp"%>
 						</div>
 					</div>
 				</div>

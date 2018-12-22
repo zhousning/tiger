@@ -71,7 +71,7 @@
 									<tr>
 										<td>${ status.index + 1 }</td>
 										<td>${ examPoint.name }</td>
-										<td>${ examPoint.subject.name }
+										<td>${ examPoint.subject.name }</td>
 										<td><a href="examPoints/${examPoint.id }"
 											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
 											<a href="examPoints/${examPoint.id }/edit"

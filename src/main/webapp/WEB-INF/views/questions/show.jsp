@@ -73,14 +73,60 @@
 									<div class="col-sm-8 info-ctn">${requestScope.question.createTime }</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="question.utilityTime"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="question.utilityTime"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.question.utilityTime }</div>
 								</div>
 								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="question.status"></fmt:message>：</div>
+									<div class="col-sm-4 info-title">
+										<fmt:message key="subject.name"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">
+										<c:if test="${!empty question.subject }">
+												${ question.subject.name }
+											</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 info-title">
+										<fmt:message key="level.name"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">
+										<c:if test="${!empty question.level }">
+												${ question.level.name }
+											</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 info-title">
+										<fmt:message key="examPoint.name"></fmt:message>
+										：
+									</div>
+									<div class="col-sm-8 info-ctn">
+										<c:if test="${!empty question.examPoint }">
+												${ question.examPoint.name }
+											</c:if>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 info-title">
+										<fmt:message key="question.status"></fmt:message>
+										：
+									</div>
 									<div class="col-sm-8 info-ctn">${requestScope.question.status }</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-8 col-sm-offset-4 info-ctn">
+										<c:if test="${!empty requestScope.question.attachments }">
+											<c:forEach items="${ requestScope.question.attachments }" var="file">
+												<img  id="blah"  src="${file.file }" class="img-rounded">
+											</c:forEach>
+										</c:if>
+									</div>
 								</div>
 								<div class="form-group">
 									<div class="col-sm-offset-2 col-sm-4">

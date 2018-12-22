@@ -1,6 +1,7 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net /hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="app.models">
 
@@ -14,19 +15,19 @@
 		<property name="content" />
 		<property name="answer" />
 		<property name="analysis" />
-		<property name="createTime" />
-		<property name="utilityTime" />
+		<property name="createTime" type="date"/>
+		<property name="utilityTime" type="date"/>
 		<property name="status" />
 
-		<many-to-one name="user" column="user_id" class="User" />
+		<many-to-one name="user" column="user_id" class="User"  lazy="false"/>
 
-		<many-to-one name="level" column="level_id" class="Level" />
+		<many-to-one name="level" column="level_id" class="Level"  lazy="false"/>
 
 		<many-to-one name="subject" column="subject_id"
-			class="Subject" />
+			class="Subject" lazy="false"/>
 
 		<many-to-one name="examPoint" column="exam_point_id"
-			class="ExamPoint" />
+			class="ExamPoint"  lazy="false" />
 
 		<set name="attachments" table="attachments" cascade="save-update"
 			inverse="false" lazy="false">

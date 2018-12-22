@@ -22,6 +22,7 @@ import antlr.build.Tool;
 import app.models.Role;
 import app.models.Subject;
 import app.models.User;
+import app.services.ExamPointService;
 import app.services.SubjectService;
 import app.services.UsersService;
 
@@ -36,6 +37,8 @@ public class ExamPointTest {
 	SubjectService service;
 	@Autowired
 	UsersService userService;
+	@Autowired
+	ExamPointService examPoinService;
 	
 	@Test
 	public void Tool() {
@@ -95,5 +98,10 @@ public class ExamPointTest {
 			}
 		}
 		System.out.println(leaders);
+	}
+	
+	@Test
+	public void delete() {
+		examPoinService.deleteById(2);
 	}
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page isELIgnored="false" language="java"
+	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
@@ -22,7 +22,7 @@
 
 
 </head>
-<body class=".questions.index">
+<body class="">
 	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
@@ -41,8 +41,13 @@
 					</div>
 					<div class="row">
 						<div class="col-md-1">
-							<a href="questions/new" class="btn btn-primary btn-block"> <fmt:message
-									key="btn.add"></fmt:message>
+							<a href="questions/multiple/new" class="btn btn-primary btn-block"> <fmt:message
+									key="questions.multiple.add"></fmt:message>
+							</a>
+						</div>
+						<div class="col-md-1">
+							<a href="questions/essay/new" class="btn btn-primary btn-block"> <fmt:message
+									key="questions.essay.add"></fmt:message>
 							</a>
 						</div>
 					</div>
@@ -59,6 +64,10 @@
 								<th data-field="id">id</th>
 								<th data-field="title" data-filter-control="input"><fmt:message
 										key="question.title"></fmt:message></th>
+								<th data-field="subject.name" data-filter-control="select"><fmt:message
+										key="subject.name"></fmt:message></th>
+								<th data-field="level.name" data-filter-control="select"><fmt:message
+										key="level.name"></fmt:message></th>
 								<th data-field="status" data-filter-control="select"><fmt:message
 										key="question.status"></fmt:message></th>
 								<th></th>
@@ -71,11 +80,34 @@
 									<tr>
 										<td>${ status.index + 1 }</td>
 										<td>${ question.title }</td>
-										<td>${ question.status }</td>
-										<td><a href="questions/${question.id }" class="btn btn-info"><fmt:message
-													key="btn.info"></fmt:message></a> <a
-											href="questions/${question.id }/edit" class="btn btn-success"><fmt:message
-													key="btn.edit"></fmt:message></a> <a href="questions/${question.id}"
+										<td><c:if test="${!empty question.subject }">
+												${ question.subject.name }
+											</c:if></td>
+										<td><c:if test="${!empty question.level }">
+												${ question.level.name }
+											</c:if></td>
+										<td><c:choose>
+												<c:when test="${ question.status == 0 }">
+													<fmt:message key="question.status.pending.title"></fmt:message>
+												</c:when>
+												<c:otherwise>
+													<fmt:message key="question.status.approved.title"></fmt:message>
+												</c:otherwise>
+											</c:choose></td>
+										<td><a href="questions/${question.id }"
+											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
+											<c:choose>
+												<c:when test="${question.type == 1 }">
+													<a href="questions/${question.id }/multiple/edit"
+											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+												</c:when>
+												<c:otherwise>
+													<a href="questions/${question.id }/essay/edit"
+											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+												</c:otherwise>
+											</c:choose>
+											
+											<a href="questions/${question.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a></td>
 									</tr>
