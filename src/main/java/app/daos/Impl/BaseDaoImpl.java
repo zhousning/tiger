@@ -44,4 +44,9 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public List<T> findAll() {
 		return (List<T>) hibernateTemplate.find("from " + clazz.getSimpleName());
 	}
+	
+	public List<T> findByIds(Integer[] ids) {
+        String sql = "from " + clazz.getSimpleName() + " where id in :ids";
+		return (List<T>) hibernateTemplate.findByNamedParam(sql, "ids", ids);
+	}
 }

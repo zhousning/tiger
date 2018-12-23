@@ -1,6 +1,5 @@
 package app.tests;
 
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -18,44 +17,48 @@ import org.springframework.transaction.annotation.Transactional;
 import app.models.Role;
 import app.models.User;
 import app.services.RoleService;
-
-
+import app.services.UsersService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = { "classpath:applicationContext.xml" })
 public class RolesTest {
-	
-	
+
 	@Autowired
 	RoleService roleService;
 	
 	@Autowired
+	UsersService userService;
+
+	@Autowired
 	private ResourceBundleMessageSource messageSource;
-	
+
 	@Test
 	public void tools() {
-/*		Role adminRole = new Role(messageSource.getMessage("roles.admin", null, null));
-		Role leaderRole = new Role(messageSource.getMessage("roles.leader", null, null));*/
+		Role adminRole = new Role(messageSource.getMessage("roles.admin", null, null));
+		Role leaderRole = new Role(messageSource.getMessage("roles.leader", null, null));
 		Role teacher = new Role(messageSource.getMessage("roles.default", null, null));
-		User user = new User("4123", "344", "413425");
-		Set<User> users = new HashSet<User>();
-		users.add(user);
-		teacher.setUsers(users);
-/*		roleService.save(adminRole);
-		roleService.save(leaderRole);*/
+
+		roleService.save(adminRole);
+		roleService.save(leaderRole);
 		roleService.save(teacher);
 	}
-	
+
 	@Test
 	public void selectByName() {
 		Role role = roleService.findByName(messageSource.getMessage("roles.default", null, null));
 		System.out.println(role.getName());
 	}
-	
+
 	@Test
 	public void delete() {
-		Role role = roleService.findById(5);
-		roleService.delete(role);
+		User newLeader = userService.getUserById(4);
+		Role defaultRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
+		Set<Role> newRoles = new HashSet<Role>();
+		newRoles.add(leaderRole);
+		newRoles.add(defaultRole);
+		newLeader.setRoles(newRoles);
+		userService.updateUser(newLeader);
 	}
 
 	@Test

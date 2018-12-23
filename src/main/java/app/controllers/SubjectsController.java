@@ -35,7 +35,7 @@ import app.services.UsersService;
 @Controller
 @RequestMapping("/subjects")
 public class SubjectsController extends BaseController {
-	
+
 	@ModelAttribute
 	public void getSubject(@RequestParam(value = "id", required = false) Integer id, Map<String, Object> map) {
 		if (id != null) {
@@ -66,9 +66,9 @@ public class SubjectsController extends BaseController {
 		User user = userService.getUserById(subject.getLeaderId());
 		map.put("subject", subject);
 		if (user != null) {
-			map.put("leader", user.getName());	
+			map.put("leader", user.getName());
 		} else {
-			map.put("leader", "");	
+			map.put("leader", "");
 		}
 		return "subjects/show";
 	}
@@ -87,30 +87,35 @@ public class SubjectsController extends BaseController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid Subject subject, @RequestParam(value = "leaderIdentity", required = false) Integer leaderIdentity, Errors result, Map<String, Object> map) {
+	public String update(@Valid Subject subject,
+			@RequestParam(value = "leaderIdentity", required = false) Integer leaderIdentity, Errors result,
+			Map<String, Object> map) {
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}
 			return "/subjects/edit";
 		}
+		Role defaultRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
+
 		Integer leaderId = subject.getLeaderId();
-		if (leaderIdentity != null && leaderIdentity != leaderId) {
+		if (leaderIdentity != 0 && leaderIdentity != leaderId) {
 			User oldLeader = userService.getUserById(leaderIdentity);
 			Set<Role> oldRoles = new HashSet<Role>();
-			Role defaultRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
 			oldRoles.add(defaultRole);
 			oldLeader.setRoles(oldRoles);
 			userService.updateUser(oldLeader);
-			
+		}
+		if (leaderId != null) {
 			User newLeader = userService.getUserById(leaderId);
 			Set<Role> newRoles = new HashSet<Role>();
-			Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
 			newRoles.add(leaderRole);
 			newRoles.add(defaultRole);
 			newLeader.setRoles(newRoles);
 			userService.updateUser(newLeader);
 		}
+		
 		subjectService.update(subject);
 		return "redirect:/subjects/" + subject.getId().toString();
 	}
@@ -137,10 +142,10 @@ public class SubjectsController extends BaseController {
 			return "/users/new";
 		}
 	}
-	
-	@RequestMapping(value="/{id}/examPoints")
+
+	@RequestMapping(value = "/{id}/examPoints")
 	@ResponseBody
-	public Map<String, String> getExamPointBySubject( @PathVariable("id") Integer id) {
+	public Map<String, String> getExamPointBySubject(@PathVariable("id") Integer id) {
 		Subject subject = subjectService.findById(id);
 		Set<ExamPoint> examPoints = subject.getExamPoints();
 		Iterator<ExamPoint> iterator = examPoints.iterator();

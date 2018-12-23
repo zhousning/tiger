@@ -1,6 +1,8 @@
 package app.models;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class User {
@@ -19,6 +21,10 @@ public class User {
 	private Set<Subject> subjects = new HashSet<Subject>();
 	
 	private Set<Question> questions = new HashSet<Question>();
+	
+	private Set<ExamPaper> examPapers = new HashSet<ExamPaper>();
+	
+	private List<Integer> subjectIds = new ArrayList<Integer>();
 
 
     
@@ -48,7 +54,23 @@ public class User {
    	
    	
 
-    public Set<Question> getQuestions() {
+    public List<Integer> getSubjectIds() {
+		return subjectIds;
+	}
+
+	public void setSubjectIds(List<Integer> subjectIds) {
+		this.subjectIds = subjectIds;
+	}
+
+	public Set<ExamPaper> getExamPapers() {
+		return examPapers;
+	}
+
+	public void setExamPapers(Set<ExamPaper> examPapers) {
+		this.examPapers = examPapers;
+	}
+
+	public Set<Question> getQuestions() {
 		return questions;
 	}
 

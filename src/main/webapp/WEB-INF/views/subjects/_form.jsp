@@ -5,10 +5,8 @@
 	<!-- <form:errors path="*"></form:errors> -->
 	<c:if test="${subject.id != null }">
 		<form:hidden path="id" />
-		<c:if test="${ !empty subject.leaderId }">
-			<input type="hidden" name="leaderIdentity"
+		<input type="hidden" name="leaderIdentity"
 				value="${subject.leaderId }" />
-		</c:if>
 		<input type="hidden" name="_method" value="PUT" />
 	</c:if>
 	<div class="col-md-4 col-md-offset-1">
@@ -18,6 +16,14 @@
 			<div class="col-sm-10">
 				<form:input type="text" class="form-control" id="name"
 					placeholder="name" path="name" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="code" class="col-sm-2 control-label"><fmt:message
+					key="subject.code"></fmt:message></label>
+			<div class="col-sm-10">
+				<form:input type="text" class="form-control" id="code"
+					placeholder="" path="code" />
 			</div>
 		</div>
 		<div class="form-group">

@@ -48,4 +48,9 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		dao.deleteById(id);
 	}
 
+	@Override
+	public List<T> findByIds(Integer[] ids) {
+		return dao.findByIds(ids);
+	}
+
 }

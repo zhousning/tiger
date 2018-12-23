@@ -28,9 +28,15 @@
 		</set>
 
 		<set name="questions" table="questions" cascade="save-update"
-			inverse="false"  lazy="false">
+			inverse="false" lazy="false">
 			<key column="user_id" />
 			<one-to-many class="Question" />
+		</set>
+
+		<set name="examPapers" table="exam_papers"
+			inverse="false" lazy="false">
+			<key column="user_id" />
+			<one-to-many class="ExamPaper" />
 		</set>
 
 	</class>

@@ -44,7 +44,7 @@ public class CheckController extends BaseController {
 		User currentUser = currentUser();
 		Set<Subject> subjects = currentUser.getSubjects();
 		Iterator<Subject> iterator = subjects.iterator();
-		Subject mySubject = null;
+		Subject mySubject = new Subject();
 		while (iterator.hasNext()) {
 			Subject subject = (Subject) iterator.next();
 			if (subject.getLeaderId() == currentUser.getId()) {

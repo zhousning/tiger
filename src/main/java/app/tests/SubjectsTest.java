@@ -39,10 +39,8 @@ public class SubjectsTest {
 	
 	@Test
 	public void Tool() {
-		Integer[] integers = {1,23,3};
-		for (int i = 0; i < integers.length; i++) {
-			System.out.println(integers[i]);
-		}
+		Subject subject = service.findById(null);
+		System.out.println(subject.getLeaderId() == null);
 	}
 	
 	@Test

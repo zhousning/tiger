@@ -54,7 +54,7 @@
 		<h3>
 			<fmt:message key="subject.type"></fmt:message>
 		</h3>
-	    <form:checkboxes path="subjects" items="${requestScope.subjects}" element="label class='checkbox-inline'" itemLabel="name" itemValue="id"/><br/>
+	    <form:checkboxes path="subjectIds" items="${requestScope.subjects}" element="label class='checkbox-inline'" itemLabel="name" itemValue="id"/><br/>
 	</div>
 
 </form:form>

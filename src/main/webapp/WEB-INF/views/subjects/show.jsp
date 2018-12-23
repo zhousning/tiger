@@ -60,6 +60,14 @@
 										</div>
 										<div class="form-group">
 											<div class="col-sm-2 info-title">
+												<fmt:message key="subject.code"></fmt:message>
+												：
+											</div>
+											<div class="col-sm-8 info-ctn">${requestScope.subject.code }
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="col-sm-2 info-title">
 												<fmt:message key="subject.leader"></fmt:message>
 												：
 											</div>

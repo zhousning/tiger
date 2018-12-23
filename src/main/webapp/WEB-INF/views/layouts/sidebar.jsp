@@ -70,6 +70,16 @@
 				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
 				<li><a href="questions"><fmt:message key="questions.index"></fmt:message></a></li>
 			</ul>
+			
+			<li data-toggle="collapse" data-target="#examPapers"
+				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
+					<fmt:message key="examPapers.manage"></fmt:message> <span
+					class="arrow"></span></a></li>
+			<ul class="sub-menu collapse" id="examPapers">
+				<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+				<li><a href="examPapers"><fmt:message key="examPapers.index"></fmt:message></a></li>
+				<li><a href="examPapers/new"><fmt:message key="examPapers.new"></fmt:message></a></li>
+			</ul>
 
 
 			<li data-toggle="collapse" data-target="#questions" class="collapsed">

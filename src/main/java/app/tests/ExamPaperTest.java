@@ -26,6 +26,7 @@ import java.util.UUID;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -33,10 +34,12 @@ import com.mysql.fabric.xmlrpc.base.Data;
 
 import antlr.build.Tool;
 import app.models.Attachment;
+import app.models.ExamPaper;
 import app.models.Question;
 import app.models.Role;
 import app.models.Subject;
 import app.models.User;
+import app.services.ExamPaperService;
 import app.services.QuestionService;
 import app.services.SubjectService;
 import app.services.UsersService;
@@ -46,19 +49,23 @@ import net.sf.jsqlparser.statement.delete.Delete;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:applicationContext.xml"})
-public class QuestionTest {
+public class ExamPaperTest {
 	
 	
 	@Autowired
 	QuestionService questionService;
 	@Autowired
 	UsersService userService;
+	@Autowired
+	ExamPaperService examPaperService; 
+	@Autowired
+	ResourceBundleMessageSource messageSource;
 	
 	@Test
 	public void Tool() throws IOException {    
-       String string = "test.jpg";
-       String string2 = string.replaceAll("[^\\.]+\\.", "");
-       System.out.println(string2);
+		Integer id = 1;
+		Integer myInteger = 1;
+		System.out.println(id == myInteger);
 	}
 	
 
@@ -93,12 +100,17 @@ public class QuestionTest {
 	
 	@Test
 	public void index() {
-		Integer[] ids = {1, 4, 7, 10};
-		List<Question> questions = questionService.findByIds(ids);
-		Iterator<Question> iterator = questions.iterator();
+		ExamPaper examPaper = examPaperService.findById(1);
+		Subject subject = examPaper.getSubject();
+		Set<Question> subjectQuestions = subject.getQuestions();
+		List<Question> questions = new ArrayList<Question>();
+		Iterator<Question> iterator = subjectQuestions.iterator();
 		while (iterator.hasNext()) {
 			Question question = (Question) iterator.next();
-			System.out.println(question.getTitle());
+			System.out.println(question.getStatus().equals(messageSource.getMessage("question.status.approved", null, null)));
+			if (question.getStatus() == messageSource.getMessage("question.status.approved", null, null)) {
+				System.out.println(question.getTitle());
+			}
 		}
 	}
 }

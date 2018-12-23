@@ -70,26 +70,19 @@ public class UsersController extends BaseController {
 	private void beforeEdit(User user, Map<String, Object> map) {
 		Set<Subject> userSubjects = user.getSubjects();	
 		Iterator<Subject> userIterator = userSubjects.iterator();
-		
-		List<Subject> subjects = subjectService.findAll();		
+		List<Integer> subjectIds = new ArrayList<Integer>();		
 		
 		while (userIterator.hasNext()) {
 			Subject userSubject = (Subject) userIterator.next();
-			Iterator<Subject> iterator = subjects.iterator();
-			while (iterator.hasNext()) {
-				Subject subject = (Subject) iterator.next();
-				if (userSubject.getId() == subject.getId()) {
-					subjects.remove(subject);
-					subjects.add(userSubject);
-					iterator = null;
-					break;
-				}
-			}
+			subjectIds.add(userSubject.getId());
 		}
 		
-		map.put("user", user);
+		List<Subject> subjects = subjectService.findAll();		
+		user.setSubjectIds(subjectIds);
 		map.put("subjects", subjects);
+		map.put("user", user);
 	}
+	
 
 	private Set<Subject> getSubjectsFromIds(Integer[] subjectIds) {
 		Set<Subject> subjects = new HashSet<Subject>();
@@ -102,7 +95,7 @@ public class UsersController extends BaseController {
 		return subjects;
 	}
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid User user, @RequestParam(value = "subjects", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
+	public String update(@Valid User user, @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
 		Set<Subject> subjects = this.getSubjectsFromIds(subjectIds);	
 		user.setSubjects(subjects);
 		if (result.getErrorCount() > 0) {
@@ -126,6 +119,17 @@ public class UsersController extends BaseController {
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String destroy(@PathVariable("id") Integer id) {
+		User user = userService.getUserById(id);
+		Set<Subject> subjects = user.getSubjects();
+		Iterator<Subject> iterator = subjects.iterator();
+		while (iterator.hasNext()) {
+			Subject subject = (Subject) iterator.next();
+			if (subject.getLeaderId() == user.getId()) {
+				subject.setLeaderId(null);
+				subjectService.update(subject);
+				break;
+			}
+		}
 		userService.deleteById(id);
 		return "redirect:/users";
 	}
@@ -139,7 +143,7 @@ public class UsersController extends BaseController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@Valid User user, @RequestParam(value = "subjects", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
+	public String create(@Valid User user, @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());

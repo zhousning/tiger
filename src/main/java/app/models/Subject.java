@@ -5,12 +5,14 @@ import java.util.List;
 import java.util.Set;
 
 public class Subject {
-	private Integer id;  
+	private Integer id;
+	private String code;
 	private String name;
 	private Integer leaderId;
 	private Set<User> users = new HashSet<User>();
 	private Set<Question> questions = new HashSet<Question>();
 	private Set<ExamPoint> examPoints = new HashSet<ExamPoint>();
+	private Set<ExamPaper> examPapers = new HashSet<ExamPaper>();
 	
 	public Subject(){}
 	
@@ -29,6 +31,28 @@ public class Subject {
 
 	public void setQuestions(Set<Question> questions) {
 		this.questions = questions;
+	}
+
+
+	
+	
+	public Set<ExamPaper> getExamPapers() {
+		return examPapers;
+	}
+
+
+	public void setExamPapers(Set<ExamPaper> examPapers) {
+		this.examPapers = examPapers;
+	}
+
+
+	public String getCode() {
+		return code;
+	}
+
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 

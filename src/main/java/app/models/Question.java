@@ -16,16 +16,14 @@ public class Question {
 	private String analysis;
 	private String type;
 	private String status;
-	@Temporal(TemporalType.DATE)
 	private Date createTime;
-	@Temporal(TemporalType.DATE)
 	private Date utilityTime;
 	private Level level;
 	private Subject subject;
 	private User user;
 	private ExamPoint examPoint;
 	private Set<Attachment> attachments = new HashSet<Attachment>();
-	
+	private Set<ExamPaper> examPapers = new HashSet<ExamPaper>();
 	
 	@Override
 	public String toString() {
@@ -48,6 +46,15 @@ public class Question {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Set<ExamPaper> getExamPapers() {
+		return examPapers;
+	}
+
+	public void setExamPapers(Set<ExamPaper> examPapers) {
+		this.examPapers = examPapers;
+	}
+
 	public Integer getId() {
 		return id;
 	}

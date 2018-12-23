@@ -14,4 +14,6 @@ public interface BaseService<T> {
 	public T findById(Integer id);
 
 	public List<T> findAll();
+	
+	public List<T> findByIds(Integer[] ids);
 }

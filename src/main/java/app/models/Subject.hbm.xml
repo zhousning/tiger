@@ -11,6 +11,7 @@
 			<generator class="native" />
 		</id>
 		<property name="name" />
+		<property name="code" />
 		<property name="leaderId" />
 
 		<set name="users" table="users_subjects" lazy="false">
@@ -29,6 +30,12 @@
 			lazy="false">
 			<key column="subject_id" />
 			<one-to-many class="ExamPoint" />
+		</set>
+
+		<set name="examPapers" table="exam_papers" inverse="false"
+			lazy="false">
+			<key column="subject_id" />
+			<one-to-many class="ExamPaper" />
 		</set>
 
 	</class>
