@@ -38,6 +38,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="title"
 				placeholder="title" path="title" />
+				<form:errors path="title"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -53,6 +54,7 @@
 		<div class="col-sm-10">
 			<form:textarea type="text" class="form-control" id="content"
 				path="content" col="20" row="10" />
+		<form:errors path="content"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -80,16 +82,17 @@
 		<div class="col-sm-10">
 			<form:input type="answer" class="form-control" id="answer"
 				placeholder="answer" path="answer" />
+		<form:errors path="answer"></form:errors>
 		</div>
 	</div>
-	<div class="form-group">
+	<!-- <div class="form-group">
 		<label for="analysis" class="col-sm-2 control-label"><fmt:message
 				key="question.analysis"></fmt:message></label>
 		<div class="col-sm-10">
 			<form:textarea type="analysis" class="form-control" id="analysis"
-				path="analysis" row="20" />
+				path="analysis" rows="5" />
 		</div>
-	</div>
+	</div> -->
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-4">
 			<button type="submit" class="btn btn-success">

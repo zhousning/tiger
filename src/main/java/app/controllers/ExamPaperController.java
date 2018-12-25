@@ -1,6 +1,7 @@
 package app.controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -24,6 +25,7 @@ import app.models.Question;
 import app.models.Subject;
 import app.services.ExamPaperService;
 import app.services.QuestionService;
+import app.works.ExportDoc;
 
 @Controller
 @RequestMapping("/examPapers")
@@ -41,6 +43,58 @@ public class ExamPaperController extends BaseController {
 			System.out.println(examPaperService.findById(id).toString());
 			map.put("examPaper", examPaperService.findById(id));
 		}
+	}
+	
+	@RequestMapping("/{id}/export_doc")
+	public void exportDoc(@PathVariable("id") Integer id) throws Exception {
+        ExportDoc maker = new ExportDoc("UTF-8");
+        ExamPaper examPaper = examPaperService.findById(id);
+        Set<Question> questions = examPaper.getQuestions();
+        List<Object> multiples = new ArrayList<Object>();
+        List<Object> essays = new ArrayList<Object>();
+        Map<String, List<String>> examPointsMap = new HashMap<String, List<String>>();
+        
+        Integer sectAIndex = 0;
+        Integer sectBIndex = 0;
+        Iterator<Question> iterator = questions.iterator();
+        while (iterator.hasNext()) {
+			Question question = (Question) iterator.next();
+			String tag = "";
+			if (question.getType().equals(messageSource.getMessage("questions.multiple.code", null, null))) {
+				Map<String, Object> map = new HashMap();
+				sectAIndex += 1;
+				map.put("index", sectAIndex.toString());
+				map.put("question", question);
+				multiples.add(map);
+				
+				tag = "A" + sectAIndex.toString();				
+			} else {
+				Map<String, Object> map = new HashMap();
+				sectBIndex += 1;
+				map.put("index", sectBIndex.toString());
+				map.put("question", question);
+				multiples.add(map);
+				essays.add(question);
+				
+				tag = "B" + sectBIndex.toString();				
+			}
+			String examPoint = question.getExamPoint().getName();
+			if (examPointsMap.containsKey(examPoint)) {
+				examPointsMap.get(examPoint).add(tag);
+			} else {
+				List<String> list = new ArrayList<String>();
+				examPointsMap.put(examPoint, list);
+			}
+		}
+        
+        Map<String, Object> template = new HashMap<String, Object>();
+        template.put("paper", examPaper);
+        template.put("subject", examPaper.getSubject());
+        template.put("multiples", multiples);
+        template.put("essays", essays);
+        template.put("examPoints", examPointsMap);
+        
+        maker.exportDoc("D:\\test13.doc", template);
 	}
 	
 	@RequestMapping("")

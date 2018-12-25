@@ -7,6 +7,10 @@ import java.util.Set;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.print.attribute.standard.DateTimeAtCompleted;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class Question {
 	private Integer id;

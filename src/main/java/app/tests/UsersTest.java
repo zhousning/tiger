@@ -72,7 +72,7 @@ public class UsersTest {
 		roles.add(new Role("role1"));
 		roles.add(new Role("role2"));
 		roles.add(new Role("role3"));
-		User user = new User("zn", 14234, "341", "481790374");
+		User user = new User("zn", 14234L, "341", "481790374");
 		user.setRoles(roles);
 		userService.createUser(user);
 	}

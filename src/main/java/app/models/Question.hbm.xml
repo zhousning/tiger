@@ -11,10 +11,10 @@
 			<generator class="native" />
 		</id>
 		<property name="type" />
-		<property name="title" />
-		<property name="content" />
-		<property name="answer" />
-		<property name="analysis" />
+		<property name="title" type="text"/>
+		<property name="content"  type="text"/>
+		<property name="answer"  type="text"/>
+		<property name="analysis"  type="text"/>
 		<property name="createTime" type="date" />
 		<property name="utilityTime" type="date" />
 		<property name="status" />

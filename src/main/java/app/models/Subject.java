@@ -22,6 +22,12 @@ public class Subject {
 		this.name = name;
 	}
 	
+	public Subject(String name, String code) {
+		super();
+		this.name = name;
+		this.code = code;
+	}
+	
 	
 
 	public Set<Question> getQuestions() {

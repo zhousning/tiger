@@ -1,5 +1,5 @@
-<%@ page isELIgnored="false" language="java"
-	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
@@ -14,15 +14,15 @@
 <head>
 <base href="<%=basePath%>">
 <meta charset="UTF-8">
-<title><fmt:message key="questions.index"></fmt:message></title>
+<title><fmt:message key="examPapers.index"></fmt:message></title>
 <%@ include file="/WEB-INF/views/layouts/common.jsp"%>
-<link href="static/stylesheets/questions.css" rel="stylesheet">
-<script src="static/javascripts/questions.js"></script>
+<link href="static/stylesheets/examPapers.css" rel="stylesheet">
+<script src="static/javascripts/examPapers.js"></script>
 
 
 
 </head>
-<body class="">
+<body class=".examPapers.index">
 	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
@@ -36,8 +36,15 @@
 				<div class="container-fluid">
 					<div class="page-header">
 						<h1>
-							<fmt:message key="questions.index"></fmt:message>
+							<fmt:message key="examPapers.index"></fmt:message>
 						</h1>
+					</div>
+					<div class="row">
+						<div class="col-md-1">
+							<a href="examPapers/new" class="btn btn-primary btn-block"> <fmt:message
+									key="btn.add"></fmt:message>
+							</a>
+						</div>
 					</div>
 					<table id="table" data-toggle="table" data-filter-control="true"
 						data-height="600" data-pagination="true" data-page-size="20"
@@ -50,41 +57,32 @@
 						<thead>
 							<tr class="text-center">
 								<th data-field="id">id</th>
-								<th data-field="title" data-filter-control="input"><fmt:message
-										key="question.title"></fmt:message></th>
-								<th data-field="subject.name" data-filter-control="select"><fmt:message
+								<th data-field="major" data-filter-control="input"><fmt:message
+										key="examPaper.major"></fmt:message></th>
+								<th data-field="subject" data-filter-control="select"><fmt:message
 										key="subject.name"></fmt:message></th>
-								<th data-field="level.name" data-filter-control="select"><fmt:message
-										key="level.name"></fmt:message></th>
-								<th data-field="status" data-filter-control="select"><fmt:message
-										key="question.status"></fmt:message></th>
+								<th data-field="phone" data-filter-control="select"><fmt:message
+										key="examPaper.date"></fmt:message></th>
+								<th data-field="email" data-filter-control="select"><fmt:message
+										key="examPaper.status"></fmt:message></th>
 								<th></th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:if test="${ !empty requestScope.questions }">
-								<c:forEach items="${ requestScope.questions }" var="question"
+							<c:if test="${ !empty requestScope.examPapers }">
+								<c:forEach items="${ requestScope.examPapers }" var="examPaper"
 									varStatus="status">
 									<tr>
 										<td>${ status.index + 1 }</td>
-										<td>${fn:substring(question.title, 0, 50) }...</td>
-										<td><c:if test="${!empty question.subject }">
-												${ question.subject.name }
-											</c:if></td>
-										<td><c:if test="${!empty question.level }">
-												${ question.level.name }
-											</c:if></td>
-										<td><c:choose>
-												<c:when test="${ question.status == 0 }">
-													<fmt:message key="question.status.pending.title"></fmt:message>
-												</c:when>
-												<c:otherwise>
-													<fmt:message key="question.status.approved.title"></fmt:message>
-												</c:otherwise>
-											</c:choose></td>
-										<td><a href="checks/${question.id }"
-											class="btn btn-info"><fmt:message key="btn.check"></fmt:message></a>
-											<a href="checks/${question.id}"
+										<td>${ examPaper.major }</td>
+										<td>${ examPaper.subject.name }</td>
+										<td>${ examPaper.date }</td>
+										<td>${ examPaper.status }</td>
+										<td><a href="examPapers/${examPaper.id }"
+											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
+											<a href="examPapers/${examPaper.id }/edit"
+											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+											<a href="examPapers/${examPaper.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a></td>
 									</tr>

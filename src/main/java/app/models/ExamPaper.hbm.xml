@@ -14,7 +14,7 @@
 		<property name="date" />
 		<property name="duration" />
 		<property name="space" />
-		<property name="introduction" />
+		<property name="introduction" type="text"/>
 		<property name="partAInfo" />
 		<property name="partBInfo" />
 		<property name="status" />

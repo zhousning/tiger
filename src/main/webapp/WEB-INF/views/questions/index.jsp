@@ -64,6 +64,8 @@
 								<th data-field="id">id</th>
 								<th data-field="title" data-filter-control="input"><fmt:message
 										key="question.title"></fmt:message></th>
+								<th data-field="type" data-filter-control="select"><fmt:message
+										key="question.type"></fmt:message></th>
 								<th data-field="subject.name" data-filter-control="select"><fmt:message
 										key="subject.name"></fmt:message></th>
 								<th data-field="level.name" data-filter-control="select"><fmt:message
@@ -79,7 +81,17 @@
 									varStatus="status">
 									<tr>
 										<td>${ status.index + 1 }</td>
-										<td>${ question.title }</td>
+										<td>${fn:substring(question.title, 0, 50) }...</td>
+										<td>
+											<c:choose>
+												<c:when test="${question.type == 1 }">
+													<fmt:message key="questions.multiple"></fmt:message>
+												</c:when>
+												<c:otherwise>
+													<fmt:message key="questions.essay"></fmt:message>
+												</c:otherwise>
+											</c:choose>
+										</td>
 										<td><c:if test="${!empty question.subject }">
 												${ question.subject.name }
 											</c:if></td>

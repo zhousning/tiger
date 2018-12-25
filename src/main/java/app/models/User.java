@@ -10,7 +10,7 @@ public class User {
 
     private String name;
 
-    private Integer phone;
+    private Long phone;
 
     private String email;
 
@@ -44,7 +44,7 @@ public class User {
    		this.password = password;
    	}
 
-   	public User(String name, Integer phone, String email, String password) {
+   	public User(String name, Long phone, String email, String password) {
    		super();
    		this.name = name;
    		this.phone = phone;
@@ -94,11 +94,11 @@ public class User {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

@@ -69,65 +69,65 @@
 						</div>
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-md-7">
+								<div class="col-md-12">
 									<form class="form-horizontal">
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="question.title"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">${requestScope.question.title }</div>
+											<div class="col-md-10info-ctn">${requestScope.question.title }</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="question.content"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">${requestScope.question.content }</div>
+											<div class="col-md-10info-ctn">${requestScope.question.content }</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="question.answer"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">${requestScope.question.answer }</div>
+											<div class="col-md-10info-ctn">${requestScope.question.answer }</div>
 										</div>
 
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="question.analysis"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">${requestScope.question.analysis }</div>
+											<div class="col-md-10info-ctn">${requestScope.question.analysis }</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="subject.name"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">
+											<div class="col-md-10info-ctn">
 												<c:if test="${!empty question.subject }">
 												${ question.subject.name }
 											</c:if>
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="level.name"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">
+											<div class="col-md-10info-ctn">
 												<c:if test="${!empty question.level }">
 												${ question.level.name }
 											</c:if>
 											</div>
 										</div>
 										<div class="form-group">
-											<div class="col-sm-4 info-title">
+											<div class="col-md-2 info-title">
 												<fmt:message key="examPoint.name"></fmt:message>
 												：
 											</div>
-											<div class="col-sm-8 info-ctn">
+											<div class="col-md-10info-ctn">
 												<c:if test="${!empty question.examPoint }">
 												${ question.examPoint.name }
 											</c:if>

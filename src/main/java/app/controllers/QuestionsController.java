@@ -70,7 +70,7 @@ public class QuestionsController extends BaseController {
 		map.put("examPoints", examPoints);
 		map.put("question", new Question());
 		String url = "";
-		if (path == "multiple") {
+		if (path.equals("multiple")) {
 			url = "questions/multiple_new";
 		} else {
 			url = "questions/essay_new";
@@ -94,7 +94,7 @@ public class QuestionsController extends BaseController {
 		map.put("examPoints", examPoints);
 		
 		String url = "";
-		if (path == "multiple") {
+		if (path.equals("multiple")) {
 			url = "questions/multiple_edit";
 		} else {
 			url = "questions/essay_edit";
@@ -118,15 +118,27 @@ public class QuestionsController extends BaseController {
 			@RequestParam(value="level.id", required=false) Integer levelId, 
 			HttpServletRequest request, HttpServletResponse response,
 			Errors result, Map<String, Object> map) throws IOException {
+		if (subjectId == -1) {
+			String url = "";
+			if (question.getType().equals("1")) {
+				url = "redirect:/questions/multiple/new";
+			} else {
+				url = "redirect:/questions/essay/new";
+			}
+			return url;
+		} else {
+			app.models.Subject subject = subjectService.findById(subjectId);
+			question.setSubject(subject);
+		}
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
 			String url = "";
-			if (question.getType() == "1") {
-				url = "redirect:/questions/multiple_new";
+			if (question.getType().equals("1")) {
+				url = "redirect:/questions/multiple/new";
 			} else {
-				url = "redirect:/questions/essay_new";
+				url = "redirect:/questions/essay/new";
 			}
 			return url;
 		}
@@ -144,15 +156,29 @@ public class QuestionsController extends BaseController {
 			@RequestParam(value="level.id", required=false) Integer levelId, 
 			HttpServletRequest request, HttpServletResponse response,
 			Errors result, Map<String, Object> map) throws IOException {
+		
+		String idString = question.getId().toString();
+		if (subjectId == -1) {
+			String url = "";
+			if (question.getType().equals("1")) {
+				url = "redirect:/questions/" + idString +"/multiple/edit";
+			} else {
+				url = "redirect:/questions/" + idString +"/essay/edit";
+			}
+			return url;
+		} else {
+			app.models.Subject subject = subjectService.findById(subjectId);
+			question.setSubject(subject);
+		}
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}		
 			String url = "";
-			if (question.getType() == "1") {
-				url = "redirect:/questions/multiple_edit";
+			if (question.getType().equals("1")) {
+				url = "redirect:/questions/" + idString +"/multiple/edit";
 			} else {
-				url = "redirect:/questions/essay_edit";
+				url = "redirect:/questions/" + idString +"/essay/edit";
 			}
 			return url;
 		}
@@ -162,10 +188,6 @@ public class QuestionsController extends BaseController {
 	}
 	
 	private void setQuestionAttributes(Question question, Integer subjectId, Integer examPointId, Integer levelId, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IllegalStateException, IOException {
-		if (subjectId != -1) {
-			app.models.Subject subject = subjectService.findById(subjectId);
-			question.setSubject(subject);
-		}
 		if (examPointId != null) {
 			ExamPoint examPoint = examPointService.findById(examPointId);
 			question.setExamPoint(examPoint);

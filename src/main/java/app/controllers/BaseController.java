@@ -14,6 +14,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.PropertiesEditor;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 
@@ -25,7 +26,7 @@ import app.services.RoleService;
 import app.services.SubjectService;
 import app.services.UsersService;
 
-
+@Controller
 public class BaseController {
 	
 	@Autowired
@@ -43,6 +44,9 @@ public class BaseController {
 	@Autowired
 	LevelService levelService;
 	
+/*	protected String multipleType = messageSource.getMessage("questions.multiple.code", null, null);
+	protected String essayType = messageSource.getMessage("questions.essay.code", null, null);*/
+	
 	/*
 	 * setAsText 表单提交到controller的时候执行
 	 * getAsText controller到表单的时候执行，没有转换的必要可以不写
@@ -53,6 +57,8 @@ public class BaseController {
         binder.registerCustomEditor(Date.class, new MyDateEditor());
         binder.registerCustomEditor(Double.class, new DoubleEditor()); 
         binder.registerCustomEditor(Integer.class, new IntegerEditor());
+        binder.registerCustomEditor(Long.class, new LongEditor());
+        binder.registerCustomEditor(String.class, new StringEditor());
     }
 
     private class MyDateEditor extends PropertyEditorSupport {
@@ -72,6 +78,21 @@ public class BaseController {
             setValue(date);
         }
     }
+    
+    public class StringEditor extends PropertiesEditor  {    
+        @Override    
+        public void setAsText(String text) throws IllegalArgumentException { 
+            if (text == null || text.equals("")) {    
+                text = "";    
+            }    
+            setValue(text);
+        }
+        
+      /* @Override    
+        public String getAsText() {    
+            return (getValue() != null) ? getValue().toString() : "";    
+        }*/
+    }  
     
     public class DoubleEditor extends PropertiesEditor  {    
         @Override    
@@ -95,6 +116,21 @@ public class BaseController {
                 text = "0";    
             }    
             setValue(Integer.parseInt(text));    
+        }    
+        
+       /* @Override    
+        public String getAsText() {    
+            return (getValue() != null) ? getValue().toString() : "";    
+        }   */ 
+    }  
+    
+    public class LongEditor extends PropertiesEditor {    
+        @Override    
+        public void setAsText(String text) throws IllegalArgumentException {  
+            if (text == null || text.equals("")) {    
+                text = "0";    
+            }    
+            setValue(Long.parseLong(text));    
         }    
         
        /* @Override    
