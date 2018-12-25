@@ -24,4 +24,9 @@
 			<a class="btn btn-success btn-block" href="users/sign_up">Sign up</a> <br>
 		</div>
 	</div>
+	<div class="form-group">
+		<div class="col-md-4 col-md-offset-8">
+			<a href="users/passwords/new"><fmt:message key="forget.password"></fmt:message></a> <br>
+		</div>
+	</div>
 </form:form>

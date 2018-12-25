@@ -61,12 +61,7 @@ public class ExamPaperTest extends BaseTest {
 
 	@Test
 	public void Tool() throws IOException {
-		String string ="A.	After beta testing; B.  	Before unit testing ;C. 	After white box testing ;D. 	Before functional testing";
-		String[] str = string.split(";");
-
-		for (int i = 0; i < str.length; i++) {
-			System.out.println(str[i]+">>>>>>>>>>>>");
-		}
+		System.out.println((int)((Math.random()*9+1)*100000));
 	}
 
 	@Test
