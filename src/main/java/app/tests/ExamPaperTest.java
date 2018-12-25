@@ -89,8 +89,6 @@ public class ExamPaperTest extends BaseTest {
 				sectAIndex += 1;
 				map.put("index", sectAIndex.toString());
 				map.put("question", question);
-				System.out.println("A>>>>>>>>>>>");
-				System.out.println(map);
 				multiples.add(map);
 
 				tag = "A" + sectAIndex.toString();
@@ -99,8 +97,6 @@ public class ExamPaperTest extends BaseTest {
 				sectBIndex += 1;
 				map.put("index", sectBIndex.toString());
 				map.put("question", question);
-				System.out.println("B>>>>>>>>>>>");
-				System.out.println(map);
 				essays.add(map);
 
 				tag = "B" + sectBIndex.toString();
@@ -110,9 +106,13 @@ public class ExamPaperTest extends BaseTest {
 				examPointsMap.get(examPoint).add(tag);
 			} else {
 				List<String> list = new ArrayList<String>();
+				list.add(tag);
 				examPointsMap.put(examPoint, list);
 			}
+			
 		}
+		System.out.println(">>>>>>>>>>");
+		System.out.println(examPointsMap);
 
 		Map<String, Object> template = new HashMap<String, Object>();
 		template.put("paper", examPaper);

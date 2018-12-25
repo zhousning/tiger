@@ -1,5 +1,8 @@
 package app.controllers;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,10 +10,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
@@ -45,19 +54,19 @@ public class ExamPaperController extends BaseController {
 		}
 	}
 	
-	@RequestMapping("/{id}/export_doc")
-	public void exportDoc(@PathVariable("id") Integer id) throws Exception {
-        ExportDoc maker = new ExportDoc("UTF-8");
-        ExamPaper examPaper = examPaperService.findById(id);
-        Set<Question> questions = examPaper.getQuestions();
-        List<Object> multiples = new ArrayList<Object>();
-        List<Object> essays = new ArrayList<Object>();
-        Map<String, List<String>> examPointsMap = new HashMap<String, List<String>>();
-        
-        Integer sectAIndex = 0;
-        Integer sectBIndex = 0;
-        Iterator<Question> iterator = questions.iterator();
-        while (iterator.hasNext()) {
+
+	public String exportDoc(Integer id, HttpSession session) throws Exception {
+		ExportDoc maker = new ExportDoc("UTF-8");
+		ExamPaper examPaper = examPaperService.findById(id);
+		Set<Question> questions = examPaper.getQuestions();
+		List<Object> multiples = new ArrayList<Object>();
+		List<Object> essays = new ArrayList<Object>();
+		Map<String, List<String>> examPointsMap = new HashMap<String, List<String>>();
+
+		Integer sectAIndex = 0;
+		Integer sectBIndex = 0;
+		Iterator<Question> iterator = questions.iterator();
+		while (iterator.hasNext()) {
 			Question question = (Question) iterator.next();
 			String tag = "";
 			if (question.getType().equals(messageSource.getMessage("questions.multiple.code", null, null))) {
@@ -66,36 +75,68 @@ public class ExamPaperController extends BaseController {
 				map.put("index", sectAIndex.toString());
 				map.put("question", question);
 				multiples.add(map);
-				
-				tag = "A" + sectAIndex.toString();				
+
+				tag = "A" + sectAIndex.toString();
 			} else {
 				Map<String, Object> map = new HashMap();
 				sectBIndex += 1;
 				map.put("index", sectBIndex.toString());
 				map.put("question", question);
-				multiples.add(map);
-				essays.add(question);
-				
-				tag = "B" + sectBIndex.toString();				
+				essays.add(map);
+
+				tag = "B" + sectBIndex.toString();
 			}
 			String examPoint = question.getExamPoint().getName();
 			if (examPointsMap.containsKey(examPoint)) {
 				examPointsMap.get(examPoint).add(tag);
 			} else {
 				List<String> list = new ArrayList<String>();
+				list.add(tag);
 				examPointsMap.put(examPoint, list);
 			}
 		}
-        
-        Map<String, Object> template = new HashMap<String, Object>();
-        template.put("paper", examPaper);
-        template.put("subject", examPaper.getSubject());
-        template.put("multiples", multiples);
-        template.put("essays", essays);
-        template.put("examPoints", examPointsMap);
-        
-        maker.exportDoc("D:\\test13.doc", template);
+
+		Map<String, Object> template = new HashMap<String, Object>();
+		template.put("paper", examPaper);
+		template.put("subject", examPaper.getSubject());
+		template.put("multiples", multiples);
+		template.put("essays", essays);
+		template.put("examPoints", examPointsMap);
+
+		 String path = session.getServletContext().getRealPath("/download/");       
+         path = path.replaceAll("\\\\", "/");
+         
+		 String uuid = UUID.randomUUID().toString().replace("-", "").toLowerCase();
+         String fileName = uuid + ".doc";
+         
+         path = path + "/" + fileName;
+         
+         File destFile = new File(path);
+         if (!destFile.getParentFile().exists()) { 
+         	destFile.getParentFile().mkdirs();
+         }
+         
+		maker.exportDoc(path, template);
+		return fileName;
 	}
+	
+	@RequestMapping("/{id}/export_doc")
+    public ResponseEntity<byte[]> download(@PathVariable("id") Integer id, HttpSession session) throws Exception{
+    	String file = exportDoc(id, session);
+        byte [] body = null;
+        ServletContext servletContext = session.getServletContext();
+        InputStream in = servletContext.getResourceAsStream("/download/" + file);
+        body = new byte[in.available()];
+        in.read(body);
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "attachment;filename="+file);
+        
+        HttpStatus statusCode = HttpStatus.OK;
+        
+        ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(body, headers, statusCode);
+        return response;
+    }
 	
 	@RequestMapping("")
 	public String index(Map<String, Object> map) {

@@ -84,7 +84,11 @@
 											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
 											<a href="examPapers/${examPaper.id}"
 											class="delete btn btn-danger"><fmt:message
-													key="btn.delete"></fmt:message></a></td>
+													key="btn.delete"></fmt:message></a>
+											<a href="examPapers/${examPaper.id}/export_doc"
+											class="btn btn-primary"><fmt:message
+													key="btn.export"></fmt:message></a>
+										</td>
 									</tr>
 								</c:forEach>
 							</c:if>
