@@ -9,7 +9,7 @@
 		<label for="subject" class="col-sm-2 control-label"><fmt:message
 				key="subject.name"></fmt:message></label>
 		<div class="col-sm-10">
-			<form:select class="form-control" path="subject.id">
+			<form:select class="form-control js-subjectid" path="subject.id">
 				<form:option value="-1" label="--- Select ---" />
 				<form:options items="${requestScope.subjects}" itemLabel="name"
 					itemValue="id" />

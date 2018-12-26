@@ -42,6 +42,7 @@
 						<div class="col-md-8 col-md-offset-2">
 							<%@ include file="/WEB-INF/views/questions/_question_essay_form.jsp"%>
 						</div>
+						<%@ include file="/WEB-INF/views/questions/semblance.jsp"%>
 					</div>
 				</div>
 			</div>

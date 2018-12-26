@@ -3,9 +3,13 @@ package app.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -24,15 +28,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import app.models.Attachment;
 import app.models.ExamPoint;
 import app.models.Level;
 import app.models.Question;
+import app.models.Subject;
 import app.services.ExamPointService;
 import app.services.LevelService;
 import app.services.QuestionService;
+import app.works.SemblanceWork;
 
 @Controller
 @RequestMapping("/questions")
@@ -221,6 +228,30 @@ public class QuestionsController extends BaseController {
          
          file.transferTo(destFile);
          return url;
+	}
+	
+	@RequestMapping(value = "/semblance", method = RequestMethod.POST)
+	@ResponseBody
+	public Map<String, String> semblance(@RequestParam("text1") String text1, @RequestParam("subjectId") Integer subjectId) throws UnsupportedEncodingException {
+		Subject subject = subjectService.findById(5);
+		Set<Question> questions = subject.getQuestions();
+		float result = 0;
+		Iterator<Question> iterator = questions.iterator();
+		while (iterator.hasNext()) {
+			Question question = (Question) iterator.next();
+			String text2 = question.getTitle();
+			float semblance = SemblanceWork.semblance(text1, text2);
+			if (semblance > result) {
+				result = semblance;
+			}
+		}
+			
+		NumberFormat percent = NumberFormat.getPercentInstance();
+        percent.setMaximumFractionDigits(2); //保留多少位
+        String score = percent.format(result).toString();
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("score", score);
+		return map;
 	}
 
 }

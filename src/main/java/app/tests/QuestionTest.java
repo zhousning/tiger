@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.aspectj.weaver.ast.Var;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,7 @@ import app.models.User;
 import app.services.QuestionService;
 import app.services.SubjectService;
 import app.services.UsersService;
+import app.works.SemblanceWork;
 import net.sf.jsqlparser.statement.delete.Delete;
 
 
@@ -53,7 +56,27 @@ public class QuestionTest {
 	QuestionService questionService;
 	@Autowired
 	UsersService userService;
+	@Autowired
+	SubjectService subjectService;
+	@Test
+	public void semblance() throws UnsupportedEncodingException {
+		Subject subject = subjectService.findById(5);
+		Set<Question> questions = subject.getQuestions();
+		String text1 = "this is a dog";
+		float result = 0;
+		Iterator<Question> iterator = questions.iterator();
+		while (iterator.hasNext()) {
+			Question question = (Question) iterator.next();
+			String text2 = question.getTitle();
+			float semblance = SemblanceWork.semblance(text1, text2);
+			if (semblance > result) {
+				result = semblance;
+			}
+		}
+		System.out.println(result);
+	}
 	
+
 	@Test
 	public void Tool() throws IOException {    
        String string = "test.jpg";

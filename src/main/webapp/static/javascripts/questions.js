@@ -15,6 +15,25 @@ $(document).ready(function() {
 	$('.newbtn').bind("click", function() {
 		$('#pic').click();
 	});
+	
+	$("#js-semblance").click(function(){
+		var url = "questions/semblance";
+		var title = $.trim($("#title").val());
+		if (title == "") {
+			alert("without subject title");
+			return;
+		}
+		var subjectId = $(".js-subjectid").val();
+		if (!subjectId || subjectId == "-1") {
+			alert("please select subject");
+			return;
+		}
+		$.post(url, {text1: title, subjectId: subjectId}, function(data){
+			var score = data["score"];
+			$("#js-semblance-result").html(score);
+		});
+		
+	});
 });
 
 function readURL(input) {
