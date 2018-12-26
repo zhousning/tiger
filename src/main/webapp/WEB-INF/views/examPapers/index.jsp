@@ -77,7 +77,13 @@
 										<td>${ examPaper.major }</td>
 										<td>${ examPaper.subject.name }</td>
 										<td>${ examPaper.date }</td>
-										<td>${ examPaper.status }</td>
+										<td>
+											<c:choose>
+												<c:when test="${ examPaper.status == '0' }"><fmt:message key="examPaper.status.pending.title"></fmt:message></c:when>
+												<c:when test="${ examPaper.status == '1' }"><fmt:message key="examPaper.status.approved.title"></fmt:message></c:when>
+												<c:otherwise><fmt:message key="examPaper.status.publish.title"></fmt:message></c:otherwise>
+											</c:choose>
+										</td>
 										<td><a href="examPapers/${examPaper.id }"
 											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
 											<a href="examPapers/${examPaper.id }/edit"

@@ -61,10 +61,15 @@
 									<th data-field="id">id</th>
 									<th data-field="title" data-filter-control="input"><fmt:message
 											key="question.title"></fmt:message></th>
+									<th data-field="examPoint.name" data-filter-control="input"><fmt:message
+											key="examPoint.name"></fmt:message></th>
 									<th data-field="type" data-filter-control="select"><fmt:message
 											key="question.type"></fmt:message></th>
 									<th data-field="level.name" data-filter-control="select"><fmt:message
 											key="level.name"></fmt:message></th>
+									<th data-field="question.utilityTime"
+										data-filter-control="select"><fmt:message
+											key="question.utilityTime"></fmt:message></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -72,21 +77,22 @@
 									<c:forEach items="${ questions }" var="question"
 										varStatus="status">
 										<tr>
-											<td><form:checkbox path="questionIds" value="${question.id }"/></td>
+											<td><form:checkbox path="questionIds"
+													value="${question.id }" /></td>
 											<td>${fn:substring(question.title, 0, 50) }...</td>
-											<td>
-											<c:choose>
-												<c:when test="${question.type == 1 }">
-													<fmt:message key="questions.multiple"></fmt:message>
-												</c:when>
-												<c:otherwise>
-													<fmt:message key="questions.essay"></fmt:message>
-												</c:otherwise>
-											</c:choose>
-										</td>
+											<td>${fn:substring(question.examPoint.name, 0, 50) }...</td>
+											<td><c:choose>
+													<c:when test="${question.type == 1 }">
+														<fmt:message key="questions.multiple"></fmt:message>
+													</c:when>
+													<c:otherwise>
+														<fmt:message key="questions.essay"></fmt:message>
+													</c:otherwise>
+												</c:choose></td>
 											<td><c:if test="${!empty question.level }">
 												${ question.level.name }
 											</c:if></td>
+											<td>${ question.utilityTime }</td>
 										</tr>
 									</c:forEach>
 								</c:if>

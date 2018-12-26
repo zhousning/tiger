@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -249,10 +250,18 @@ public class ExamPaperController extends BaseController {
 			}
 			return "redirect:/examPapers/" + examPaper.getId().toString() + "/sample_new";
 		}
+		List<Question> data = new ArrayList<Question>();
 		if (questionIds != null) {
 			List<Question> questions = questionService.findByIds(questionIds);
-			examPaper.setQuestions(new HashSet<Question>(questions));
+			Iterator<Question> iterator = questions.iterator();
+			while (iterator.hasNext()) {
+				Question question = (Question) iterator.next();
+				question.setUtilityTime(new Date());
+				questionService.update(question);
+				data.add(question);
+			}
 		}
+		examPaper.setQuestions(new HashSet<Question>(data));
 		examPaperService.update(examPaper);
 		return "redirect:/examPapers/" + examPaper.getId().toString();
 	}

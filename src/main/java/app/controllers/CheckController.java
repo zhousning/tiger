@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import app.models.ExamPaper;
 import app.models.Question;
 import app.models.Subject;
 import app.models.User;
+import app.services.ExamPaperService;
 import app.services.QuestionService;
 
 @Controller
@@ -30,6 +32,8 @@ public class CheckController extends BaseController {
 
 	@Autowired
 	QuestionService questionService;
+	@Autowired
+	ExamPaperService examPaperService;
 	
 	@ModelAttribute
 	public void getquestion(@RequestParam(value="id", required=false) Integer id, Map<String, Object> map) {
@@ -87,6 +91,30 @@ public class CheckController extends BaseController {
 	    questionService.update(question);
 		map.put("question", question);
 		return "checks/show";
+	}
+	
+	@RequestMapping(value="/examPaper/{id}/pass")
+	public String examPaperPass(@PathVariable("id") Integer id) {
+		ExamPaper examPaper = examPaperService.findById(id);
+		examPaper.setStatus(messageSource.getMessage("examPaper.status.approved", null, null));
+		examPaperService.update(examPaper);
+		return "redirect:/examPapers/" + id.toString();
+	}
+	
+	@RequestMapping(value="/examPaper/{id}/reject")
+	public String examPaperReject(@PathVariable("id") Integer id) {
+		ExamPaper examPaper = examPaperService.findById(id);
+		examPaper.setStatus(messageSource.getMessage("examPaper.status.pending", null, null));
+		examPaperService.update(examPaper);
+		return "redirect:/examPapers/" + id.toString();
+	}
+	
+	@RequestMapping(value="/examPaper/{id}/publish")
+	public String examPaperPublish(@PathVariable("id") Integer id) {
+		ExamPaper examPaper = examPaperService.findById(id);
+		examPaper.setStatus(messageSource.getMessage("examPaper.status.publish", null, null));
+		examPaperService.update(examPaper);
+		return "redirect:/examPapers/" + id.toString();
 	}
 	
 

@@ -32,76 +32,82 @@
 							<fmt:message key="examPapers.show"></fmt:message>
 						</h1>
 					</div>
-					<div class="row">
-					<div class="col-md-12">
-					<ul class="list-group">
-						<c:if test="${!empty examPaper.questions }">
-						<c:forEach items="${examPaper.questions }" var="question">
-							<li class="list-group-item">
-								${question.title }
-							</li>
-						</c:forEach>
-						</c:if>
-					</ul>
-					</div>
-						<div class="col-md-4 col-md-offset-4">
-							<form class="form-horizontal">
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.major"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.major }</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-sm-1">
+									<a href="examPapers/${examPaper.id }/edit" type="button"
+										class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.date"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.date }</div>
+								<div class="col-sm-1">
+									<a href="examPapers" type="button" class="btn btn-warning"><fmt:message
+											key="btn.back"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.duration"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.duration }</div>
+								<div class="col-sm-1">
+									<a href="checks/examPaper/${examPaper.id }/pass" type="button" class="btn btn-success"><fmt:message
+											key="btn.pass"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.space"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.space }</div>
+								<div class="col-sm-1">
+									<a href="checks/examPaper/${examPaper.id }/reject" type="button" class="btn btn-danger"><fmt:message
+											key="btn.reject"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.introduction"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.introduction }</div>
+								<div class="col-sm-1">
+									<a href="checks/examPaper/${examPaper.id }/publish" type="button" class="btn btn-success"><fmt:message
+											key="btn.publish"></fmt:message></a>
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.partAInfo"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.partAInfo }</div>
+								<div class="col-sm-2 info-ctn">
+								<c:choose>
+										<c:when test="${ examPaper.status == 0 }">
+											<fmt:message key="examPaper.status.pending.title"></fmt:message>
+										</c:when>
+										<c:when test="${ examPaper.status == 1 }">
+											<fmt:message key="examPaper.status.approved.title"></fmt:message>
+										</c:when>
+										<c:otherwise>
+											<fmt:message key="examPaper.status.publish.title"></fmt:message>
+										</c:otherwise>
+									</c:choose>
+									
 								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.partBInfo"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.partBInfo }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="subject.name"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.subject.name }</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-4 info-title"><fmt:message
-											key="examPaper.status"></fmt:message>：</div>
-									<div class="col-sm-8 info-ctn">${examPaper.status }</div>
-								</div>
-								<div class="form-group">
-								<div class="col-sm-offset-2 col-sm-4">
-										<a href="examPapers/${examPaper.id }/edit" type="button" class="btn btn-info"><fmt:message
-												key="btn.edit"></fmt:message></a>
-									</div>
-									<div class="col-sm-offset-2 col-sm-4">
-										<a href="examPapers" type="button" class="btn btn-warning"><fmt:message
-												key="btn.back"></fmt:message></a>
-									</div>
-								</div>
-							</form>
+							</div>
+						</div>
+						<div class="panel-body">
+							<table class="table  table-bordered">
+								<thead>
+									<th><fmt:message key="examPaper.major"></fmt:message></th>
+									<th><fmt:message key="examPaper.date"></fmt:message></th>
+									<th><fmt:message key="examPaper.duration"></fmt:message></th>
+									<th><fmt:message key="examPaper.space"></fmt:message></th>
+									<th><fmt:message key="subject.name"></fmt:message></th>
+								</thead>
+								<tbody>
+									<td>${examPaper.major }</td>
+									<td>${examPaper.date }</td>
+									<td>${examPaper.duration }</td>
+									<td>${examPaper.space }</td>
+									<td>${examPaper.subject.name }</td>
+								</tbody>
+							</table>
+							<h3 class="text-center"><fmt:message key="examPaper.introduction"></fmt:message></h3>
+							<p>${examPaper.introduction }</p>
+							<h3 class="text-center"><fmt:message key="examPaper.partAInfo"></fmt:message></h3>
+							<p class="text-center">${examPaper.partAInfo }</p>
+							<c:if test="${!empty examPaper.questions }">
+								<c:forEach items="${examPaper.questions }" var="question" varStatus="status">
+									<c:if test="${question.type == '1' }">
+										${ status.index + 1 }、${question.title }
+									</c:if>
+								</c:forEach>
+							</c:if>
+							<h3 class="text-center"><fmt:message key="examPaper.partBInfo"></fmt:message></h3>
+							<p class="text-center">${examPaper.partBInfo }</p>
+							<c:if test="${!empty examPaper.questions }">
+								<c:forEach items="${examPaper.questions }" var="question"  varStatus="status">
+									<c:if test="${question.type == '2' }">
+										${ status.index + 1 }、${question.title }
+									</c:if>
+								</c:forEach>
+							</c:if>
 						</div>
 					</div>
 				</div>
