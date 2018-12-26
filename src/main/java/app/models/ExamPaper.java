@@ -5,14 +5,24 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class ExamPaper {
 	private Integer id;
+	@NotBlank
 	private String major;
+	@NotBlank
 	private String date;
+	@NotBlank
 	private String duration;
+	@NotBlank
 	private String space;
+	@NotBlank
 	private String introduction;
+	@NotBlank
 	private String partAInfo;
+	@NotBlank
 	private String partBInfo;
 	private String status;
 	private Subject subject;

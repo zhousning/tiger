@@ -5,15 +5,22 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class User {
     private Integer id;
-
+    @NotBlank
     private String name;
-
-    private Long phone;
-
+    
+    private String phone;
+    @Email
     private String email;
-
+    @NotBlank
     private String password;
     
 	private Set<Role> roles = new HashSet<Role>();
@@ -44,7 +51,7 @@ public class User {
    		this.password = password;
    	}
 
-   	public User(String name, Long phone, String email, String password) {
+   	public User(String name, String phone, String email, String password) {
    		super();
    		this.name = name;
    		this.phone = phone;
@@ -94,15 +101,17 @@ public class User {
         this.name = name == null ? null : name.trim();
     }
 
-    public Long getPhone() {
-        return phone;
-    }
+   
 
-    public void setPhone(Long phone) {
-        this.phone = phone;
-    }
+    public String getPhone() {
+		return phone;
+	}
 
-    public String getEmail() {
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmail() {
         return email;
     }
 

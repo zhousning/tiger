@@ -22,7 +22,6 @@
 		<div class="col-sm-10">
 			<form:select class="form-control" path="examPoint.id"
 				items="${requestScope.examPoints}" itemLabel="name" itemValue="id"></form:select>
-			<form:errors path="examPoint"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">

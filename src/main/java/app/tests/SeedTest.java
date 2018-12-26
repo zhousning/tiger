@@ -52,7 +52,7 @@ public class SeedTest extends BaseTest{
 		int hashIterations = 1024;
 
 		Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
-		User leader = new User("jackson", 17254532432L, "leader@leader.com", password.toString());
+		User leader = new User("jackson", "15763703199", "leader@leader.com", password.toString());
 		Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
 		Role teacherRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
 		Set<Role> roles = new HashSet<Role>();

@@ -72,7 +72,7 @@ public class ExamPointsController extends BaseController {
 	
 	//创建完返回id
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@Valid ExamPoint examPoint, @RequestParam(value="subject", required=false) Integer subjectId, Errors result, Map<String, Object> map) {
+	public String create(@Valid ExamPoint examPoint, Errors result, @RequestParam(value="subject", required=false) Integer subjectId, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
@@ -90,7 +90,7 @@ public class ExamPointsController extends BaseController {
 	}
 	
 	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid ExamPoint examPoint, @RequestParam(value="subject.id", required=false) Integer subjectId, Errors result, Map<String, Object> map) {
+	public String update(@Valid ExamPoint examPoint, Errors result, @RequestParam(value="subject.id", required=false) Integer subjectId, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());

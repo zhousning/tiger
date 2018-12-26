@@ -20,6 +20,7 @@
 				key="examPoint.name"></fmt:message></label>
 		<div class="col-sm-10">
 			<form:textarea path="name" class="form-control"  rows="3" cols="20"/>
+			<form:errors path="name"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">

@@ -14,10 +14,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Question {
 	private Integer id;
+	@NotBlank
 	private String title;
+	@NotBlank
 	private String content;
+	@NotBlank
 	private String answer;
 	private String analysis;
+	@NotBlank
 	private String type;
 	private String status;
 	private Date createTime;

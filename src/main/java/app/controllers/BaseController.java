@@ -52,14 +52,14 @@ public class BaseController {
 	 * getAsText controller到表单的时候执行，没有转换的必要可以不写
 	 */
 
-    @InitBinder
+  /*  @InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Date.class, new MyDateEditor());
         binder.registerCustomEditor(Double.class, new DoubleEditor()); 
         binder.registerCustomEditor(Integer.class, new IntegerEditor());
         binder.registerCustomEditor(Long.class, new LongEditor());
         binder.registerCustomEditor(String.class, new StringEditor());
-    }
+    }*/
 
     private class MyDateEditor extends PropertyEditorSupport {
         @Override
@@ -128,7 +128,7 @@ public class BaseController {
         @Override    
         public void setAsText(String text) throws IllegalArgumentException {  
             if (text == null || text.equals("")) {    
-                text = "0";    
+                text = "";    
             }    
             setValue(Long.parseLong(text));    
         }    

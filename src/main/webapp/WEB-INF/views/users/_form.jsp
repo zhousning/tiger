@@ -1,10 +1,10 @@
 <form:form action="users" method="POST" modelAttribute="user"
 	class="form-horizontal">
+	
 	<c:if test="${user.id != null }">
 		<form:hidden path="id" />
 		<input type="hidden" name="_method" value="PUT" />
 	</c:if>
-	<!-- <form:errors path="*"></form:errors> -->
 	<div class="col-md-4 col-md-offset-2">
 		<div class="form-group">
 			<label for="name" class="col-sm-2 control-label"><fmt:message
@@ -12,6 +12,7 @@
 			<div class="col-sm-10">
 				<form:input type="text" class="form-control" id="name"
 					placeholder="name" path="name" />
+				<form:errors path="name"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">
@@ -20,6 +21,7 @@
 			<div class="col-sm-10">
 				<form:input type="text" class="form-control" id="phone"
 					placeholder="phone" path="phone" />
+				<form:errors path="phone"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">
@@ -28,6 +30,7 @@
 			<div class="col-sm-10">
 				<form:input type="email" class="form-control" id="email"
 					placeholder="email" path="email" />
+				<form:errors path="email"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">
@@ -36,6 +39,7 @@
 			<div class="col-sm-10">
 				<form:input type="password" class="form-control" id="password"
 					path="password" />
+				<form:errors path="password"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">
@@ -54,7 +58,10 @@
 		<h3>
 			<fmt:message key="subject.type"></fmt:message>
 		</h3>
-	    <form:checkboxes path="subjectIds" items="${requestScope.subjects}" element="label class='checkbox-inline'" itemLabel="name" itemValue="id"/><br/>
+		<form:checkboxes path="subjectIds" items="${requestScope.subjects}"
+			element="label class='checkbox-inline'" itemLabel="name"
+			itemValue="id" />
+		<br />
 	</div>
 
 </form:form>

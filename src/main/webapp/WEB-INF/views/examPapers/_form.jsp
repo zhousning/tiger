@@ -10,6 +10,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="major"
 				placeholder="major" path="major" />
+				<form:errors path="major"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -17,6 +18,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="date"
 				placeholder="date" path="date" />
+				<form:errors path="date"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -24,6 +26,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="duration"
 				placeholder="duration" path="duration" />
+			<form:errors path="duration"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -31,6 +34,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="space"
 				path="space" />
+			<form:errors path="space"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -38,6 +42,7 @@
 		<div class="col-sm-10">
 			<form:input type="text" class="form-control" id="introduction"
 				path="introduction" />
+			<form:errors path="introduction"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -45,6 +50,7 @@
 		<div class="col-sm-10">
 			<form:textarea class="form-control" id="partAInfo"
 				path="partAInfo" />
+			<form:errors path="partAInfo"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -52,6 +58,7 @@
 		<div class="col-sm-10">
 			<form:textarea class="form-control" id="partBInfo"
 				path="partBInfo" />
+			<form:errors path="partBInfo"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">

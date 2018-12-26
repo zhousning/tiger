@@ -16,6 +16,7 @@
 			<div class="col-sm-10">
 				<form:input type="text" class="form-control" id="name"
 					placeholder="name" path="name" />
+				<form:errors path="name"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">
@@ -24,6 +25,7 @@
 			<div class="col-sm-10">
 				<form:input type="text" class="form-control" id="code"
 					placeholder="" path="code" />
+				<form:errors path="code"></form:errors>
 			</div>
 		</div>
 		<div class="form-group">

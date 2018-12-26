@@ -87,8 +87,8 @@ public class SubjectsController extends BaseController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid Subject subject,
-			@RequestParam(value = "leaderIdentity", required = false) Integer leaderIdentity, Errors result,
+	public String update(@Valid Subject subject, Errors result,
+			@RequestParam(value = "leaderIdentity", required = false) Integer leaderIdentity, 
 			Map<String, Object> map) {
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {

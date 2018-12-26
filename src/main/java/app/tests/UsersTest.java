@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +74,7 @@ public class UsersTest {
 		roles.add(new Role("role1"));
 		roles.add(new Role("role2"));
 		roles.add(new Role("role3"));
-		User user = new User("zn", 14234L, "341", "481790374");
+		User user = new User("zn", "15763703199", "341", "481790374");
 		user.setRoles(roles);
 		userService.createUser(user);
 	}
@@ -80,6 +82,12 @@ public class UsersTest {
 	@Test
 	public void manyToManyDestroy() {
 		userService.deleteById(2);
+	}
+	
+	@Test
+	public void save() {
+		User user = new User("zn", null, "nnnn");
+		userService.createUser(user);
 	}
 	
 }

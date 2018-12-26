@@ -118,13 +118,13 @@ public class QuestionsController extends BaseController {
 
 	// 创建完返回id
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@Valid Question question, 
+	public String create(@Valid Question question, Errors result,
 			@RequestParam("attachment") MultipartFile file,
 			@RequestParam(value="subject.id", required=false) Integer subjectId,  
 			@RequestParam(value="examPoint.id", required=false) Integer examPointId, 
 			@RequestParam(value="level.id", required=false) Integer levelId, 
 			HttpServletRequest request, HttpServletResponse response,
-			Errors result, Map<String, Object> map) throws IOException {
+			 Map<String, Object> map) throws IOException {
 		if (subjectId == -1) {
 			String url = "";
 			if (question.getType().equals("1")) {
@@ -156,13 +156,13 @@ public class QuestionsController extends BaseController {
 	}
 	
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid Question question, 
+	public String update(@Valid Question question, Errors result,
 			@RequestParam("attachment") MultipartFile file,
 			@RequestParam(value="subject.id", required=false) Integer subjectId,  
 			@RequestParam(value="examPoint.id", required=false) Integer examPointId, 
 			@RequestParam(value="level.id", required=false) Integer levelId, 
 			HttpServletRequest request, HttpServletResponse response,
-			Errors result, Map<String, Object> map) throws IOException {
+			 Map<String, Object> map) throws IOException {
 		
 		String idString = question.getId().toString();
 		if (subjectId == -1) {

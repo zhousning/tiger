@@ -173,7 +173,7 @@ public class ExamPaperController extends BaseController {
 	
 	//创建完返回id
 	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@Valid ExamPaper examPaper, @RequestParam(value="subject.id", required=false) Integer subjectId, Errors result, Map<String, Object> map) {
+	public String create(@Valid ExamPaper examPaper, Errors result, @RequestParam(value="subject.id", required=false) Integer subjectId, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
@@ -191,7 +191,7 @@ public class ExamPaperController extends BaseController {
 	
 	
 	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid ExamPaper examPaper, @RequestParam(value="subject.id", required=false) Integer subjectId, Errors result, Map<String, Object> map) {
+	public String update(@Valid ExamPaper examPaper,  Errors result, @RequestParam(value="subject.id", required=false) Integer subjectId, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
@@ -243,7 +243,7 @@ public class ExamPaperController extends BaseController {
 	}
 	
 	@RequestMapping(value="/sample_update", method=RequestMethod.PUT)
-	public String sampleUpdate(@Valid ExamPaper examPaper,  @RequestParam(value = "questionIds", required = false) Integer[] questionIds, Errors result, Map<String, Object> map) {
+	public String sampleUpdate(@Valid ExamPaper examPaper,  Errors result, @RequestParam(value = "questionIds", required = false) Integer[] questionIds, Map<String, Object> map) {
 		if(result.getErrorCount() > 0){
 			for(FieldError error:result.getFieldErrors()){
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());

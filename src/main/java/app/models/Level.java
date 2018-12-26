@@ -3,8 +3,12 @@ package app.models;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Level {
 	private Integer id;
+	@NotBlank
 	private String name;
 	private Set<Question> questions = new HashSet<Question>();
 	

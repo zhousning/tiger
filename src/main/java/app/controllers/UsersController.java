@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.ServletRequestDataBinder;
@@ -95,7 +96,7 @@ public class UsersController extends BaseController {
 		return subjects;
 	}
 	@RequestMapping(value = "", method = RequestMethod.PUT)
-	public String update(@Valid User user, @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
+	public String update(@Valid User user,  Errors result, @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds, Map<String, Object> map) {
 		Set<Subject> subjects = this.getSubjectsFromIds(subjectIds);	
 		user.setSubjects(subjects);
 		if (result.getErrorCount() > 0) {
@@ -143,7 +144,7 @@ public class UsersController extends BaseController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.POST)
-	public String create(@Valid User user, @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds, Errors result, Map<String, Object> map) {
+	public String create(@Valid User user, Errors result,  @RequestParam(value = "subjectIds", required = false) Integer[] subjectIds,  Map<String, Object> map) {
 		if (result.getErrorCount() > 0) {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());

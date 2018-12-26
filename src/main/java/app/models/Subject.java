@@ -4,9 +4,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Subject {
 	private Integer id;
+	@NotBlank
 	private String code;
+	@NotBlank
 	private String name;
 	private Integer leaderId;
 	private Set<User> users = new HashSet<User>();
