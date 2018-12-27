@@ -39,10 +39,10 @@
 									<a href="users/${requestScope.user.id }/edit" type="button"
 										class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
 								</div>
-								<div class="col-sm-1">
+								<%-- <div class="col-sm-1">
 									<a href="users" type="button" class="btn btn-warning"><fmt:message
 											key="btn.back"></fmt:message></a>
-								</div>
+								</div> --%>
 							</div>
 						</div>
 						<div class="panel-body">

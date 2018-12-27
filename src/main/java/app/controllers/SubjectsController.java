@@ -100,7 +100,7 @@ public class SubjectsController extends BaseController {
 		Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
 
 		Integer leaderId = subject.getLeaderId();
-		if (leaderIdentity != 0 && leaderIdentity != leaderId) {
+		if (leaderIdentity != null && leaderIdentity != leaderId) {
 			User oldLeader = userService.getUserById(leaderIdentity);
 			Set<Role> oldRoles = new HashSet<Role>();
 			oldRoles.add(defaultRole);

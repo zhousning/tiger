@@ -71,10 +71,12 @@ public class QuestionsController extends BaseController {
 	@RequestMapping("/{path}/new")
 	public String fresh(@PathVariable("path") String path,Map<String, Object> map) {
 		currentUserSubjcets(map);
+		String userId = currentUser().getId().toString();
 		List<Level> levels = levelService.findAll();
 		map.put("levels", levels);
 		List<ExamPoint> examPoints = new ArrayList<ExamPoint>();
 		map.put("examPoints", examPoints);
+		map.put("userId", userId);
 		map.put("question", new Question());
 		String url = "";
 		if (path.equals("multiple")) {

@@ -52,7 +52,7 @@ public class BaseController {
 	 * getAsText controller到表单的时候执行，没有转换的必要可以不写
 	 */
 
-  /*  @InitBinder
+	/*@InitBinder
     protected void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Date.class, new MyDateEditor());
         binder.registerCustomEditor(Double.class, new DoubleEditor()); 

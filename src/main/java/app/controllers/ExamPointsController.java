@@ -46,6 +46,7 @@ public class ExamPointsController extends BaseController {
 	@RequestMapping("/new")
 	public String fresh(Map<String, Object> map) {
 		currentUserSubjcets(map);
+		map.put("userId", currentUser().getId());
 		map.put("examPoint", new ExamPoint());
 
 		return "examPoints/new";

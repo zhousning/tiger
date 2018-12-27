@@ -61,7 +61,6 @@ public class ExamPaperTest extends BaseTest {
 
 	@Test
 	public void Tool() throws IOException {
-		System.out.println((int)((Math.random()*9+1)*100000));
 	}
 
 	@Test

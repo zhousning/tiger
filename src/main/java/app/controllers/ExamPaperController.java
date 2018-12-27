@@ -1,5 +1,7 @@
 package app.controllers;
 
+import static org.hamcrest.CoreMatchers.nullValue;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -185,6 +187,7 @@ public class ExamPaperController extends BaseController {
 			Subject subject = subjectService.findById(subjectId);
 			examPaper.setSubject(subject);
 		}
+		examPaper.setStatus(messageSource.getMessage("examPaper.status.pending", null, null));
 		examPaperService.save(examPaper);
 		return "redirect:/examPapers/" + examPaper.getId().toString() + "/sample_new";
 	}

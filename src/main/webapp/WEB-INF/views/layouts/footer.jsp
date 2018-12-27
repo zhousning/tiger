@@ -1,5 +1,5 @@
 <div class="footer-wrap">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-4 col-sm-6">
         <h3>ABOUT Classify</h3>

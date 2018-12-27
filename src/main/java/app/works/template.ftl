@@ -1779,7 +1779,7 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
         </w:r>
       </w:p>
       <#if paper.introduction??>
-      <#list paper.introduction?split(";") as info>
+      <#list paper.introduction?split("\r\n") as info>
       <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
@@ -1945,7 +1945,7 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
        </w:p>
        
 
- 	<#list multiple["question"].content?split(";") as option>
+ 	<#list multiple["question"].content?split("\\r\\n") as option>
       <w:p wsp:rsidR="00294824" wsp:rsidRPr="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
         <w:pPr>
           <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>

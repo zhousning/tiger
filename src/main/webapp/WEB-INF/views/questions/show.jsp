@@ -36,114 +36,68 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-sm-1">
-									<a href="questions/${requestScope.question.id }/edit"
-										type="button" class="btn btn-info"><fmt:message
-											key="btn.edit"></fmt:message></a>
+									<c:choose>
+										<c:when test="${question.type == 1 }">
+											<a href="questions/${question.id }/multiple/edit"
+												class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+										</c:when>
+										<c:otherwise>
+											<a href="questions/${question.id }/essay/edit"
+												class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+										</c:otherwise>
+									</c:choose>
 								</div>
 								<div class="col-sm-1">
 									<a href="questions" type="button" class="btn btn-warning"><fmt:message
 											key="btn.back"></fmt:message></a>
 								</div>
-
-								<div class="col-sm-2 info-title">
-									<fmt:message key="question.createTime"></fmt:message>
-									：
-								</div>
-								<div class="col-sm-2 info-ctn">${requestScope.question.createTime }</div>
-								<div class="col-sm-2 info-title">
-									<fmt:message key="question.utilityTime"></fmt:message>
-									：
-								</div>
-								<div class="col-sm-2 info-ctn">${requestScope.question.utilityTime }</div>
-								<div class="col-sm-2 info-ctn">
-									<c:choose>
-										<c:when test="${ question.status == 0 }">
-											<fmt:message key="question.status.pending.title"></fmt:message>
-										</c:when>
-										<c:otherwise>
-											<fmt:message key="question.status.approved.title"></fmt:message>
-										</c:otherwise>
-									</c:choose>
-								</div>
 							</div>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-12">
-									<form class="form-horizontal">
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="question.title"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">${requestScope.question.title }</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="question.content"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">${requestScope.question.content }</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="question.answer"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">${requestScope.question.answer }</div>
-										</div>
-
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="question.analysis"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">${requestScope.question.analysis }</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="subject.name"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">
-												<c:if test="${!empty question.subject }">
+							<table class="table table-bordered">
+								<thead>
+									<th><fmt:message key="subject.name"></fmt:message></th>
+									<th><fmt:message key="level.name"></fmt:message></th>
+									<th><fmt:message key="examPoint.name"></fmt:message></th>
+									<th><fmt:message key="question.createTime"></fmt:message></th>
+									<th><fmt:message key="question.utilityTime"></fmt:message></th>
+									<th><fmt:message key="question.status"></fmt:message></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td><c:if test="${!empty question.subject }">
 												${ question.subject.name }
-											</c:if>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="level.name"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">
-												<c:if test="${!empty question.level }">
+											</c:if></td>
+										<td><c:if test="${!empty question.level }">
 												${ question.level.name }
-											</c:if>
-											</div>
-										</div>
-										<div class="form-group">
-											<div class="col-md-2 info-title">
-												<fmt:message key="examPoint.name"></fmt:message>
-												：
-											</div>
-											<div class="col-md-10info-ctn">
-												<c:if test="${!empty question.examPoint }">
+											</c:if></td>
+										<td><c:if test="${!empty question.examPoint }">
 												${ question.examPoint.name }
-											</c:if>
-											</div>
-										</div>
-									</form>
-								</div>
-								<div class="col-md-2">
-									<c:if test="${!empty requestScope.question.attachments }">
-										<c:forEach items="${ requestScope.question.attachments }"
-											var="file">
-											<img id="blah" src="${file.file }" class="img-rounded">
-										</c:forEach>
-									</c:if>
-								</div>
-							</div>
+											</c:if></td>
+										<td>${question.createTime }</td>
+										<td>${question.utilityTime }</td>
+										<td><c:choose>
+												<c:when test="${ question.status == 0 }">
+													<fmt:message key="question.status.pending.title"></fmt:message>
+												</c:when>
+												<c:otherwise>
+													<fmt:message key="question.status.approved.title"></fmt:message>
+												</c:otherwise>
+											</c:choose></td>
+									</tr>
+								</tbody>
+							</table>
+							<p>${question.title }</p>
+							<p>
+								<c:if test="${!empty question.attachments }">
+									<c:forEach items="${ question.attachments }" var="file">
+										<img id="blah" src="${file.file }" class="img-rounded">
+									</c:forEach>
+								</c:if>
+							</p>
+							<p>${question.content }</p>
+							<p>${question.answer }</p>
+							<P>${question.analysis }</P>
 						</div>
 					</div>
 				</div>

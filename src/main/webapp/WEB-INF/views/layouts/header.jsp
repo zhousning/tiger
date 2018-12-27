@@ -1,7 +1,7 @@
 <div class="navbar navbar-inverse navbar-fixed-top nav-bar-bg navbar-custom">
 	<div class="container-fluid">
 		<a href="index.jsp" class="navbar-brand"> <img
-			src="static/images/logo.png">
+			src="img/logo.png">
 		</a>
 		<button class="navbar-toggle" data-toggle="collapse"
 			data-target=".navHeaderCollapse"></button>

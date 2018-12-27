@@ -8,8 +8,8 @@
 	<div class="menu-list">
 
 		<ul id="menu-content" class="menu-content collapse out">
-			<li><a href="#"> <i class="fa fa-dashboard fa-lg"></i>
-					Dashboard </li>
+			<li><i class="fa fa-dashboard fa-lg"></i>
+					<a href="home"><fmt:message key="users.manage"></fmt:message></a> </li>
 
 			<li data-toggle="collapse" data-target="#users"
 				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
@@ -80,9 +80,13 @@
 				<li><a href="examPapers"><fmt:message key="examPapers.index"></fmt:message></a></li>
 				<li><a href="examPapers/new"><fmt:message key="examPapers.new"></fmt:message></a></li>
 			</ul>
+			
+			<li><a href="checks"> <i class="fa fa-user fa-lg"></i> <fmt:message
+							key="questions.check.manage"></fmt:message>
+			</a></li>
 
 
-			<li data-toggle="collapse" data-target="#questions" class="collapsed">
+			<!-- <li data-toggle="collapse" data-target="#questions" class="collapsed">
 				<a><i class="fa fa-globe fa-lg"></i> <fmt:message
 						key="questions.manage"></fmt:message> <span class="arrow"></span></a>
 			</li>
@@ -96,9 +100,7 @@
 							key="questions.essay.manage"></fmt:message></a></li>
 			</ul>
 
-			<li><a href="checks"> <i class="fa fa-user fa-lg"></i> <fmt:message
-							key="questions.check.manage"></fmt:message>
-			</a></li>
+			
 			
 			
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
@@ -112,7 +114,7 @@
 			</ul>
 
 			<li><a href="#"> <i class="fa fa-users fa-lg"></i> Users
-			</a></li>
+			</a></li> -->
 		</ul>
 	</div>
 </div>

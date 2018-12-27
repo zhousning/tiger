@@ -40,8 +40,8 @@
 	<div class="form-group">
 		<label for="introduction" class="col-sm-2 control-label"><fmt:message key="examPaper.introduction"></fmt:message></label>
 		<div class="col-sm-10">
-			<form:input type="text" class="form-control" id="introduction"
-				path="introduction" />
+			<form:textarea class="form-control" id="introduction"
+				path="introduction" rows="10" cols="20"/>
 			<form:errors path="introduction"></form:errors>
 		</div>
 	</div>

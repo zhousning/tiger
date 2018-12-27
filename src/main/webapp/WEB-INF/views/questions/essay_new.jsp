@@ -38,12 +38,22 @@
 							<fmt:message key="questions.new"></fmt:message>
 						</h1>
 					</div>
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2">
-							<%@ include file="/WEB-INF/views/questions/_question_essay_form.jsp"%>
-						</div>
-						<%@ include file="/WEB-INF/views/questions/semblance.jsp"%>
-					</div>
+					<c:choose>
+						<c:when test="${ !empty subjects}">
+							<div class="row">
+								<div class="col-md-8 col-md-offset-2">
+									<%@ include
+										file="/WEB-INF/views/questions/_question_essay_form.jsp"%>
+								</div>
+								<%@ include file="/WEB-INF/views/questions/semblance.jsp"%>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<fmt:message key="message.set.subject"></fmt:message>
+							<a class="btn btn-primary" href="users/${userId }/edit"><fmt:message
+									key="btn.add"></fmt:message></a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>

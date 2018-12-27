@@ -12,7 +12,6 @@ public class FilterChainDefinitionMapBuilder {
 		map.put("/users/sign_in", "anon");
 		map.put("/users/sign_up", "anon");
 		map.put("/shiro/logout", "logout");
-		map.put("/index.jsp", "authc");
 		/*
 		map.put("/user.jsp", "authc,roles[user]");//authc必须是通过认证访问的，而不是remember me
 		map.put("/admin.jsp", "authc,roles[admin]");

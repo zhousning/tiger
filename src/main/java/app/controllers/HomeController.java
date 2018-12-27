@@ -6,6 +6,7 @@ import javax.jws.soap.SOAPBinding.Use;
 import javax.validation.Valid;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -37,58 +38,11 @@ public class HomeController extends BaseController {
 	}
 	
 	@RequestMapping("")
-	public String index() {
+	public String index(Map<String, Object> map) {
+		Subject currentUser = SecurityUtils.getSubject();
+		String principal = currentUser.getPrincipal().toString();
+		User user = userService.getUserByEmail(principal);
+		map.put("user", user);
 		return "home/index";
 	}
-	
-	@RequestMapping("/new")
-	public String fresh(Map<String, Object> map) {
-		map.put("user", new User());
-		return "users/new";
-	}
-	
-	@RequestMapping(value="/{id}")
-	public String show(@PathVariable("id") Integer id, Map<String, Object> map) {
-		map.put("user", userService.getUserById(id));
-		return "users/show";
-	}
-	
-	@RequestMapping("/{id}/edit")
-	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {	
-		map.put("user", userService.getUserById(id));
-		return "users/edit";
-	}
-
-	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
-	public String destroy(@PathVariable("id") Integer id) {
-		userService.deleteById(id);
-		return "redirect:/users";
-	}
-	
-	//创建完返回id
-	@RequestMapping(value="", method=RequestMethod.POST)
-	public String create(@Valid User user, Errors result, Map<String, Object> map) {
-		if(result.getErrorCount() > 0){
-			for(FieldError error:result.getFieldErrors()){
-				System.out.println(error.getField() + ":" + error.getDefaultMessage());
-			}		
-			//若验证出错, 则转向定制的页面
-			return "/users/new";
-		}
-		userService.createUser(user);
-		return "redirect:/users/" + user.getId().toString();
-	}
-	
-	@RequestMapping(value="", method=RequestMethod.PUT)
-	public String update(@Valid User user, Errors result, Map<String, Object> map) {
-		if(result.getErrorCount() > 0){
-			for(FieldError error:result.getFieldErrors()){
-				System.out.println(error.getField() + ":" + error.getDefaultMessage());
-			}		
-			return "/users/edit";
-		}
-		userService.updateUser(user);
-		return "redirect:/users/" + user.getId().toString();
-	}
-
 }
