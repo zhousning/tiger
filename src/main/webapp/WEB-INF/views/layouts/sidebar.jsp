@@ -9,7 +9,7 @@
 
 		<ul id="menu-content" class="menu-content collapse out">
 			<li><i class="fa fa-dashboard fa-lg"></i>
-					<a href="home"><fmt:message key="users.manage"></fmt:message></a> </li>
+					<a href="home"><fmt:message key="users.center"></fmt:message></a> </li>
 
 			<li data-toggle="collapse" data-target="#users"
 				class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>

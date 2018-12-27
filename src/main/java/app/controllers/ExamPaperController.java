@@ -188,6 +188,7 @@ public class ExamPaperController extends BaseController {
 			examPaper.setSubject(subject);
 		}
 		examPaper.setStatus(messageSource.getMessage("examPaper.status.pending", null, null));
+		examPaper.setUser(currentUser());
 		examPaperService.save(examPaper);
 		return "redirect:/examPapers/" + examPaper.getId().toString() + "/sample_new";
 	}

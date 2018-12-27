@@ -3,8 +3,9 @@
 <%@ include file="/WEB-INF/views/layouts/jsp_header.jsp"%>
 
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE html>
@@ -18,15 +19,55 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script src="static/javascripts/home.js"></script>
 
 </head>
-<body>	
- 	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
+<body>
+	<%@ include file="/WEB-INF/views/layouts/header.jsp"%>
 	<div class="container-fluid body-container">
 		<div class="row body-box">
 			<div class="col-md-2 sidebar-container">
 				<%@ include file="/WEB-INF/views/layouts/sidebar.jsp"%>
 			</div>
 			<div class="col-md-10 main-container">
-				
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="offer offer-success">
+							<div class="shape">
+								<div class="shape-text">1</div>
+							</div>
+							<div class="offer-content">
+								<h3 class="lead">Subjects</h3>
+								<h4>
+									Total: ${ fn:length(user.subjects) }
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="offer offer-warning">
+							<div class="shape">
+								<div class="shape-text">2</div>
+							</div>
+							<div class="offer-content">
+								<h3 class="lead">Questions</h3>
+								<h4>
+									Total: ${ fn:length(user.questions) }
+								</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+						<div class="offer offer-danger">
+							<div class="shape">
+								<div class="shape-text">3</div>
+							</div>
+							<div class="offer-content">
+								<h3 class="lead">ExamPapers</h3>
+								<h4>
+								  Total: ${ fn:length(user.examPapers) }
+								</h4>
+							</div>
+						</div>
+					</div>	
+				</div>
 			</div>
 		</div>
 	</div>
