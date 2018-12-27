@@ -6,16 +6,16 @@
   <o:DocumentProperties>
     <o:Author>天智 王</o:Author>
     <o:LastAuthor>周宁</o:LastAuthor>
-    <o:Revision>2</o:Revision>
-    <o:TotalTime>0</o:TotalTime>
+    <o:Revision>7</o:Revision>
+    <o:TotalTime>6</o:TotalTime>
     <o:Created>2018-12-24T01:06:00Z</o:Created>
-    <o:LastSaved>2018-12-24T01:06:00Z</o:LastSaved>
+    <o:LastSaved>2018-12-27T11:39:00Z</o:LastSaved>
     <o:Pages>5</o:Pages>
-    <o:Words>268</o:Words>
-    <o:Characters>1529</o:Characters>
-    <o:Lines>12</o:Lines>
+    <o:Words>248</o:Words>
+    <o:Characters>1419</o:Characters>
+    <o:Lines>11</o:Lines>
     <o:Paragraphs>3</o:Paragraphs>
-    <o:CharactersWithSpaces>1794</o:CharactersWithSpaces>
+    <o:CharactersWithSpaces>1664</o:CharactersWithSpaces>
     <o:Version>15</o:Version>
   </o:DocumentProperties>
   <w:fonts>
@@ -41,19 +41,19 @@
       <w:pitch w:val="variable"/>
       <w:sig w:usb-0="E0002EFF" w:usb-1="C000785B" w:usb-2="00000009" w:usb-3="00000000" w:csb-0="000001FF" w:csb-1="00000000"/>
     </w:font>
-    <w:font w:name="微软雅黑">
-      <w:panose-1 w:val="020B0503020204020204"/>
-      <w:charset w:val="86"/>
-      <w:family w:val="Swiss"/>
-      <w:pitch w:val="variable"/>
-      <w:sig w:usb-0="80000287" w:usb-1="2ACF3C50" w:usb-2="00000016" w:usb-3="00000000" w:csb-0="0004001F" w:csb-1="00000000"/>
-    </w:font>
     <w:font w:name="等线">
       <w:panose-1 w:val="02010600030101010101"/>
       <w:charset w:val="86"/>
       <w:family w:val="auto"/>
       <w:pitch w:val="variable"/>
       <w:sig w:usb-0="A00002BF" w:usb-1="38CF7CFA" w:usb-2="00000016" w:usb-3="00000000" w:csb-0="0004000F" w:csb-1="00000000"/>
+    </w:font>
+    <w:font w:name="微软雅黑">
+      <w:panose-1 w:val="020B0503020204020204"/>
+      <w:charset w:val="86"/>
+      <w:family w:val="Swiss"/>
+      <w:pitch w:val="variable"/>
+      <w:sig w:usb-0="80000287" w:usb-1="2ACF3C50" w:usb-2="00000016" w:usb-3="00000000" w:csb-0="0004001F" w:csb-1="00000000"/>
     </w:font>
     <w:font w:name="@等线">
       <w:panose-1 w:val="02010600030101010101"/>
@@ -83,107 +83,12 @@
       <w:lsdException w:name="heading 7"/>
       <w:lsdException w:name="heading 8"/>
       <w:lsdException w:name="heading 9"/>
-      <w:lsdException w:name="index 1"/>
-      <w:lsdException w:name="index 2"/>
-      <w:lsdException w:name="index 3"/>
-      <w:lsdException w:name="index 4"/>
-      <w:lsdException w:name="index 5"/>
-      <w:lsdException w:name="index 6"/>
-      <w:lsdException w:name="index 7"/>
-      <w:lsdException w:name="index 8"/>
-      <w:lsdException w:name="index 9"/>
-      <w:lsdException w:name="toc 1"/>
-      <w:lsdException w:name="toc 2"/>
-      <w:lsdException w:name="toc 3"/>
-      <w:lsdException w:name="toc 4"/>
-      <w:lsdException w:name="toc 5"/>
-      <w:lsdException w:name="toc 6"/>
-      <w:lsdException w:name="toc 7"/>
-      <w:lsdException w:name="toc 8"/>
-      <w:lsdException w:name="toc 9"/>
-      <w:lsdException w:name="Normal Indent"/>
-      <w:lsdException w:name="footnote text"/>
-      <w:lsdException w:name="annotation text"/>
-      <w:lsdException w:name="header"/>
-      <w:lsdException w:name="footer"/>
-      <w:lsdException w:name="index heading"/>
       <w:lsdException w:name="caption"/>
-      <w:lsdException w:name="table of figures"/>
-      <w:lsdException w:name="envelope address"/>
-      <w:lsdException w:name="envelope return"/>
-      <w:lsdException w:name="footnote reference"/>
-      <w:lsdException w:name="annotation reference"/>
-      <w:lsdException w:name="line number"/>
-      <w:lsdException w:name="page number"/>
-      <w:lsdException w:name="endnote reference"/>
-      <w:lsdException w:name="endnote text"/>
-      <w:lsdException w:name="table of authorities"/>
-      <w:lsdException w:name="macro"/>
-      <w:lsdException w:name="toa heading"/>
-      <w:lsdException w:name="List"/>
-      <w:lsdException w:name="List Bullet"/>
-      <w:lsdException w:name="List Number"/>
-      <w:lsdException w:name="List 2"/>
-      <w:lsdException w:name="List 3"/>
-      <w:lsdException w:name="List 4"/>
-      <w:lsdException w:name="List 5"/>
-      <w:lsdException w:name="List Bullet 2"/>
-      <w:lsdException w:name="List Bullet 3"/>
-      <w:lsdException w:name="List Bullet 4"/>
-      <w:lsdException w:name="List Bullet 5"/>
-      <w:lsdException w:name="List Number 2"/>
-      <w:lsdException w:name="List Number 3"/>
-      <w:lsdException w:name="List Number 4"/>
-      <w:lsdException w:name="List Number 5"/>
       <w:lsdException w:name="Title"/>
-      <w:lsdException w:name="Closing"/>
-      <w:lsdException w:name="Signature"/>
-      <w:lsdException w:name="Default Paragraph Font"/>
-      <w:lsdException w:name="Body Text"/>
-      <w:lsdException w:name="Body Text Indent"/>
-      <w:lsdException w:name="List Continue"/>
-      <w:lsdException w:name="List Continue 2"/>
-      <w:lsdException w:name="List Continue 3"/>
-      <w:lsdException w:name="List Continue 4"/>
-      <w:lsdException w:name="List Continue 5"/>
-      <w:lsdException w:name="Message Header"/>
       <w:lsdException w:name="Subtitle"/>
-      <w:lsdException w:name="Salutation"/>
-      <w:lsdException w:name="Date"/>
-      <w:lsdException w:name="Body Text First Indent"/>
-      <w:lsdException w:name="Body Text First Indent 2"/>
-      <w:lsdException w:name="Note Heading"/>
-      <w:lsdException w:name="Body Text 2"/>
-      <w:lsdException w:name="Body Text 3"/>
-      <w:lsdException w:name="Body Text Indent 2"/>
-      <w:lsdException w:name="Body Text Indent 3"/>
-      <w:lsdException w:name="Block Text"/>
-      <w:lsdException w:name="Hyperlink"/>
-      <w:lsdException w:name="FollowedHyperlink"/>
       <w:lsdException w:name="Strong"/>
       <w:lsdException w:name="Emphasis"/>
-      <w:lsdException w:name="Document Map"/>
-      <w:lsdException w:name="Plain Text"/>
-      <w:lsdException w:name="E-mail Signature"/>
-      <w:lsdException w:name="HTML Top of Form"/>
-      <w:lsdException w:name="HTML Bottom of Form"/>
-      <w:lsdException w:name="Normal (Web)"/>
-      <w:lsdException w:name="HTML Acronym"/>
-      <w:lsdException w:name="HTML Address"/>
-      <w:lsdException w:name="HTML Cite"/>
-      <w:lsdException w:name="HTML Code"/>
-      <w:lsdException w:name="HTML Definition"/>
-      <w:lsdException w:name="HTML Keyboard"/>
-      <w:lsdException w:name="HTML Preformatted"/>
-      <w:lsdException w:name="HTML Sample"/>
-      <w:lsdException w:name="HTML Typewriter"/>
-      <w:lsdException w:name="HTML Variable"/>
       <w:lsdException w:name="Normal Table"/>
-      <w:lsdException w:name="annotation subject"/>
-      <w:lsdException w:name="No List"/>
-      <w:lsdException w:name="Outline List 1"/>
-      <w:lsdException w:name="Outline List 2"/>
-      <w:lsdException w:name="Outline List 3"/>
       <w:lsdException w:name="Table Simple 1"/>
       <w:lsdException w:name="Table Simple 2"/>
       <w:lsdException w:name="Table Simple 3"/>
@@ -226,10 +131,7 @@
       <w:lsdException w:name="Table Web 1"/>
       <w:lsdException w:name="Table Web 2"/>
       <w:lsdException w:name="Table Web 3"/>
-      <w:lsdException w:name="Balloon Text"/>
-      <w:lsdException w:name="Table Grid"/>
       <w:lsdException w:name="Table Theme"/>
-      <w:lsdException w:name="Placeholder Text"/>
       <w:lsdException w:name="No Spacing"/>
       <w:lsdException w:name="Light Shading"/>
       <w:lsdException w:name="Light List"/>
@@ -251,7 +153,6 @@
       <w:lsdException w:name="Medium Shading 1 Accent 1"/>
       <w:lsdException w:name="Medium Shading 2 Accent 1"/>
       <w:lsdException w:name="Medium List 1 Accent 1"/>
-      <w:lsdException w:name="Revision"/>
       <w:lsdException w:name="List Paragraph"/>
       <w:lsdException w:name="Quote"/>
       <w:lsdException w:name="Intense Quote"/>
@@ -338,116 +239,12 @@
       <w:lsdException w:name="Subtle Reference"/>
       <w:lsdException w:name="Intense Reference"/>
       <w:lsdException w:name="Book Title"/>
-      <w:lsdException w:name="Bibliography"/>
       <w:lsdException w:name="TOC Heading"/>
-      <w:lsdException w:name="Plain Table 1"/>
-      <w:lsdException w:name="Plain Table 2"/>
-      <w:lsdException w:name="Plain Table 3"/>
-      <w:lsdException w:name="Plain Table 4"/>
-      <w:lsdException w:name="Plain Table 5"/>
-      <w:lsdException w:name="Grid Table Light"/>
-      <w:lsdException w:name="Grid Table 1 Light"/>
-      <w:lsdException w:name="Grid Table 2"/>
-      <w:lsdException w:name="Grid Table 3"/>
-      <w:lsdException w:name="Grid Table 4"/>
-      <w:lsdException w:name="Grid Table 5 Dark"/>
-      <w:lsdException w:name="Grid Table 6 Colorful"/>
-      <w:lsdException w:name="Grid Table 7 Colorful"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 1"/>
-      <w:lsdException w:name="Grid Table 2 Accent 1"/>
-      <w:lsdException w:name="Grid Table 3 Accent 1"/>
-      <w:lsdException w:name="Grid Table 4 Accent 1"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 1"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 1"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 1"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 2"/>
-      <w:lsdException w:name="Grid Table 2 Accent 2"/>
-      <w:lsdException w:name="Grid Table 3 Accent 2"/>
-      <w:lsdException w:name="Grid Table 4 Accent 2"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 2"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 2"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 2"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 3"/>
-      <w:lsdException w:name="Grid Table 2 Accent 3"/>
-      <w:lsdException w:name="Grid Table 3 Accent 3"/>
-      <w:lsdException w:name="Grid Table 4 Accent 3"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 3"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 3"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 3"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 4"/>
-      <w:lsdException w:name="Grid Table 2 Accent 4"/>
-      <w:lsdException w:name="Grid Table 3 Accent 4"/>
-      <w:lsdException w:name="Grid Table 4 Accent 4"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 4"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 4"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 4"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 5"/>
-      <w:lsdException w:name="Grid Table 2 Accent 5"/>
-      <w:lsdException w:name="Grid Table 3 Accent 5"/>
-      <w:lsdException w:name="Grid Table 4 Accent 5"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 5"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 5"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 5"/>
-      <w:lsdException w:name="Grid Table 1 Light Accent 6"/>
-      <w:lsdException w:name="Grid Table 2 Accent 6"/>
-      <w:lsdException w:name="Grid Table 3 Accent 6"/>
-      <w:lsdException w:name="Grid Table 4 Accent 6"/>
-      <w:lsdException w:name="Grid Table 5 Dark Accent 6"/>
-      <w:lsdException w:name="Grid Table 6 Colorful Accent 6"/>
-      <w:lsdException w:name="Grid Table 7 Colorful Accent 6"/>
-      <w:lsdException w:name="List Table 1 Light"/>
-      <w:lsdException w:name="List Table 2"/>
-      <w:lsdException w:name="List Table 3"/>
-      <w:lsdException w:name="List Table 4"/>
-      <w:lsdException w:name="List Table 5 Dark"/>
-      <w:lsdException w:name="List Table 6 Colorful"/>
-      <w:lsdException w:name="List Table 7 Colorful"/>
-      <w:lsdException w:name="List Table 1 Light Accent 1"/>
-      <w:lsdException w:name="List Table 2 Accent 1"/>
-      <w:lsdException w:name="List Table 3 Accent 1"/>
-      <w:lsdException w:name="List Table 4 Accent 1"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 1"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 1"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 1"/>
-      <w:lsdException w:name="List Table 1 Light Accent 2"/>
-      <w:lsdException w:name="List Table 2 Accent 2"/>
-      <w:lsdException w:name="List Table 3 Accent 2"/>
-      <w:lsdException w:name="List Table 4 Accent 2"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 2"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 2"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 2"/>
-      <w:lsdException w:name="List Table 1 Light Accent 3"/>
-      <w:lsdException w:name="List Table 2 Accent 3"/>
-      <w:lsdException w:name="List Table 3 Accent 3"/>
-      <w:lsdException w:name="List Table 4 Accent 3"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 3"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 3"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 3"/>
-      <w:lsdException w:name="List Table 1 Light Accent 4"/>
-      <w:lsdException w:name="List Table 2 Accent 4"/>
-      <w:lsdException w:name="List Table 3 Accent 4"/>
-      <w:lsdException w:name="List Table 4 Accent 4"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 4"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 4"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 4"/>
-      <w:lsdException w:name="List Table 1 Light Accent 5"/>
-      <w:lsdException w:name="List Table 2 Accent 5"/>
-      <w:lsdException w:name="List Table 3 Accent 5"/>
-      <w:lsdException w:name="List Table 4 Accent 5"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 5"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 5"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 5"/>
-      <w:lsdException w:name="List Table 1 Light Accent 6"/>
-      <w:lsdException w:name="List Table 2 Accent 6"/>
-      <w:lsdException w:name="List Table 3 Accent 6"/>
-      <w:lsdException w:name="List Table 4 Accent 6"/>
-      <w:lsdException w:name="List Table 5 Dark Accent 6"/>
-      <w:lsdException w:name="List Table 6 Colorful Accent 6"/>
-      <w:lsdException w:name="List Table 7 Colorful Accent 6"/>
     </w:latentStyles>
     <w:style w:type="paragraph" w:default="on" w:styleId="a">
       <w:name w:val="Normal"/>
       <wx:uiName wx:val="正文"/>
+      <w:rsid w:val="00056E61"/>
       <w:pPr>
         <w:spacing w:after="160" w:line="259" w:line-rule="auto"/>
       </w:pPr>
@@ -596,7 +393,7 @@
     <w:alwaysShowPlaceholderText w:val="off"/>
     <w:footnotePr>
       <w:footnote w:type="separator">
-        <w:p wsp:rsidR="00531B30" wsp:rsidRDefault="00531B30" wsp:rsidP="002405FA">
+        <w:p wsp:rsidR="007A16CA" wsp:rsidRDefault="007A16CA" wsp:rsidP="002405FA">
           <w:pPr>
             <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
           </w:pPr>
@@ -606,7 +403,7 @@
         </w:p>
       </w:footnote>
       <w:footnote w:type="continuation-separator">
-        <w:p wsp:rsidR="00531B30" wsp:rsidRDefault="00531B30" wsp:rsidP="002405FA">
+        <w:p wsp:rsidR="007A16CA" wsp:rsidRDefault="007A16CA" wsp:rsidP="002405FA">
           <w:pPr>
             <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
           </w:pPr>
@@ -618,7 +415,7 @@
     </w:footnotePr>
     <w:endnotePr>
       <w:endnote w:type="separator">
-        <w:p wsp:rsidR="00531B30" wsp:rsidRDefault="00531B30" wsp:rsidP="002405FA">
+        <w:p wsp:rsidR="007A16CA" wsp:rsidRDefault="007A16CA" wsp:rsidP="002405FA">
           <w:pPr>
             <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
           </w:pPr>
@@ -628,7 +425,7 @@
         </w:p>
       </w:endnote>
       <w:endnote w:type="continuation-separator">
-        <w:p wsp:rsidR="00531B30" wsp:rsidRDefault="00531B30" wsp:rsidP="002405FA">
+        <w:p wsp:rsidR="007A16CA" wsp:rsidRDefault="007A16CA" wsp:rsidP="002405FA">
           <w:pPr>
             <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
           </w:pPr>
@@ -648,13 +445,16 @@
     </w:compat>
     <wsp:rsids>
       <wsp:rsidRoot wsp:val="00075AD7"/>
+      <wsp:rsid wsp:val="00056E61"/>
       <wsp:rsid wsp:val="00075AD7"/>
       <wsp:rsid wsp:val="0007755D"/>
       <wsp:rsid wsp:val="000D5388"/>
       <wsp:rsid wsp:val="000D539B"/>
+      <wsp:rsid wsp:val="0014356B"/>
       <wsp:rsid wsp:val="001436C5"/>
       <wsp:rsid wsp:val="00152730"/>
       <wsp:rsid wsp:val="00166B39"/>
+      <wsp:rsid wsp:val="001C7B1E"/>
       <wsp:rsid wsp:val="002405FA"/>
       <wsp:rsid wsp:val="00270404"/>
       <wsp:rsid wsp:val="00294824"/>
@@ -669,18 +469,21 @@
       <wsp:rsid wsp:val="00702681"/>
       <wsp:rsid wsp:val="00781576"/>
       <wsp:rsid wsp:val="00781F59"/>
+      <wsp:rsid wsp:val="007A16CA"/>
+      <wsp:rsid wsp:val="00940AA3"/>
       <wsp:rsid wsp:val="00A14F01"/>
       <wsp:rsid wsp:val="00A346C0"/>
       <wsp:rsid wsp:val="00B51BB9"/>
       <wsp:rsid wsp:val="00BC3F03"/>
       <wsp:rsid wsp:val="00E40992"/>
       <wsp:rsid wsp:val="00EF4573"/>
+      <wsp:rsid wsp:val="00F43CBC"/>
       <wsp:rsid wsp:val="00F671FF"/>
     </wsp:rsids>
   </w:docPr>
   <w:body>
     <wx:sect>
-      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="00702681" wsp:rsidP="00166B39">
+      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="00056E61" wsp:rsidP="00166B39">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:ind w:first-line="720"/>
@@ -689,7 +492,7 @@
             <w:b/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidRPr="00056E61">
           <w:rPr>
             <w:noProof/>
           </w:rPr>
@@ -1123,7 +926,7 @@ wMcmt6kAUUUUDCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKK
 ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA
 KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAo
 oooAKKKKAP/Z
-</w:binData>            <v:shape id="图片 4" o:spid="_x0000_s1033" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:249.55pt;margin-top:75.7pt;width:108.45pt;height:108.45pt;z-index:-7;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">              <v:imagedata src="wordml://02000001.jpg" o:title=""/>              <w10:wrap type="topAndBottom" anchory="page"/>            </v:shape>          </w:pict>        </w:r>        <w:r>          <w:rPr>            <w:noProof/>          </w:rPr>          <w:pict>            <w:binData w:name="wordml://02000002.jpg" xml:space="preserve">/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
+</w:binData>            <v:shape id="图片 4" o:spid="_x0000_s1033" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:249.55pt;margin-top:75.7pt;width:108.45pt;height:108.45pt;z-index:-2;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">              <v:imagedata src="wordml://02000001.jpg" o:title=""/>              <w10:wrap type="topAndBottom" anchory="page"/>            </v:shape>          </w:pict>        </w:r>        <w:r wsp:rsidRPr="00056E61">          <w:rPr>            <w:noProof/>          </w:rPr>          <w:pict>            <w:binData w:name="wordml://02000002.jpg" xml:space="preserve">/9j/4AAQSkZJRgABAQEA3ADcAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK
 CwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU
 FBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAE1AeIDASIA
 AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
@@ -1709,7 +1512,7 @@ igAooooAKKKKACiiigAooooAKKKKAP/Z
           <w:t>${paper.space}</w:t>
         </w:r>
       </w:p>
-      <w:p wsp:rsidR="00A346C0" wsp:rsidRDefault="00702681" wsp:rsidP="00166B39">
+      <w:p wsp:rsidR="00A346C0" wsp:rsidRDefault="00056E61" wsp:rsidP="00166B39">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:rPr>
@@ -1719,41 +1522,12 @@ igAooooAKKKKACiiigAooooAKKKKAP/Z
             <w:sz w:val="32"/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidRPr="00056E61">
           <w:rPr>
             <w:noProof/>
           </w:rPr>
           <w:pict>
-            <v:line id="直接连接符 5" o:spid="_x0000_s1031" style="position:absolute;flip:y;z-index:3;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.95pt" to="415.5pt,2.45pt" o:gfxdata="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
-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
-UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
-" strokeweight="1.5pt">
+            <v:line id="直接连接符 5" o:spid="_x0000_s1031" style="position:absolute;flip:y;z-index:2;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.95pt" to="415.5pt,2.45pt" o:gfxdata="" strokeweight="1.5pt">
               <v:stroke joinstyle="miter"/>
               <w10:wrap anchorx="margin"/>
             </v:line>
@@ -1778,8 +1552,6 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:t>NSTRUCTIONS TO CANDIDATES</w:t>
         </w:r>
       </w:p>
-      <#if paper.introduction??>
-      <#list paper.introduction?split("\r\n") as info>
       <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
@@ -1797,34 +1569,200 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
             <w:b/>
             <w:sz w:val="24"/>
           </w:rPr>
-          <w:t>${info}</w:t>
+          <w:t>1</w:t>
         </w:r>
-      </w:p>
-      </#list>
-      </#if>
-      
-       <w:p wsp:rsidR="000F3035" wsp:rsidRDefault="000F3035">
-        <w:pPr>
-          <w:widowControl/>
-          <w:jc w:val="left"/>
-        </w:pPr>
-        <w:r>
-          <w:br w:type="page"/>
-        </w:r>
-      </w:p>
-      
-      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00781576" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
-        <w:pPr>
-          <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+        <w:r wsp:rsidRPr="00A346C0">
           <w:rPr>
             <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
             <wx:font wx:val="Times New Roman"/>
             <w:b/>
             <w:sz w:val="24"/>
           </w:rPr>
+          <w:tab/>
+          <w:t>This paper consists of 3 pages (excluding the cover page)</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>2</w:t>
+        </w:r>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:tab/>
+          <w:t>This paper consists of 2sections.</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>         Section A (40 marks)</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>         This section has 10 questions. Answer ALL questions in this section.</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>         Section B (60 marks)</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>         This section has 4 questions. Answer 3 questions in this section.</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>3 </w:t>
+        </w:r>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:tab/>
+          <w:t>Start each answer on a new paper and clearly identify which question you are answering (e.g. Q1a)</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>4 </w:t>
+        </w:r>
+        <w:r wsp:rsidRPr="00A346C0">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:tab/>
+          <w:t>Write clearly and number the questions you attempt accordingly.</w:t>
+        </w:r>
+      </w:p>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00781576" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="24"/>
+          </w:rPr>
         </w:pPr>
       </w:p>
-      
       <w:p wsp:rsidR="00166B39" wsp:rsidRPr="00166B39" wsp:rsidRDefault="00166B39" wsp:rsidP="00166B39">
         <w:pPr>
           <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
@@ -1868,7 +1806,7 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:t>${paper.partAInfo}</w:t>
         </w:r>
       </w:p>
-      <w:p wsp:rsidR="00166B39" wsp:rsidRPr="00294824" wsp:rsidRDefault="00702681" wsp:rsidP="00166B39">
+      <w:p wsp:rsidR="00056E61" wsp:rsidRPr="00940AA3" wsp:rsidRDefault="00056E61" wsp:rsidP="00940AA3">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:rPr>
@@ -1879,49 +1817,20 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
             <w:sz-cs w:val="28"/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidRPr="00056E61">
           <w:rPr>
             <w:noProof/>
           </w:rPr>
           <w:pict>
-            <v:line id="直接连接符 6" o:spid="_x0000_s1030" style="position:absolute;flip:y;z-index:4;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.7pt" to="415.5pt,2.2pt" o:gfxdata="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
-90jcwfIWJU67QAgl6YK0S0CoHGBkTxKLZGx5TGhvj5O2G0SRWNoz/78nu9wcxkFMGNg6quQqL6RA
-0s5Y6ir5vt9lD1JwBDIwOMJKHpHlpr69KfdHjyxSmriSfYz+USnWPY7AufNIadK6MEJMx9ApD/oD
-OlTrorhX2lFEilmcO2RdNtjC5xDF9pCuTyYBB5bi6bQ4syoJ3g9WQ0ymaiLzg5KdCXlKLjvcW893
-SUOqXwnz5DrgnHtJTxOsQfEKIT7DmDSUCaxw7Rqn8787ZsmRM9e2VmPeBN4uqYvTtW7jvijg9N/y
-JsXecLq0q+WD6m8AAAD//wMAUEsDBBQABgAIAAAAIQA4/SH/1gAAAJQBAAALAAAAX3JlbHMvLnJl
-bHOkkMFqwzAMhu+DvYPRfXGawxijTi+j0GvpHsDYimMaW0Yy2fr2M4PBMnrbUb/Q94l/f/hMi1qR
-JVI2sOt6UJgd+ZiDgffL8ekFlFSbvV0oo4EbChzGx4f9GRdb25HMsYhqlCwG5lrLq9biZkxWOiqY
-22YiTra2kYMu1l1tQD30/bPm3wwYN0x18gb45AdQl1tp5j/sFB2T0FQ7R0nTNEV3j6o9feQzro1i
-OWA14Fm+Q8a1a8+Bvu/d/dMb2JY5uiPbhG/ktn4cqGU/er3pcvwCAAD//wMAUEsDBBQABgAIAAAA
-IQD+5+P06AEAAJQDAAAOAAAAZHJzL2Uyb0RvYy54bWysU72OEzEQ7pF4B8s92U2kC2GVzRUXHQ2C
-SBz0c15715L/5DHZ5CV4ASQ6qCjpeRvuHoOxk4sC153Ywhp7Zj7P9/nb5eXOGraVEbV3LZ9Oas6k
-E77Trm/5h5vrFwvOMIHrwHgnW76XyC9Xz58tx9DImR+86WRkBOKwGUPLh5RCU1UoBmkBJz5IR0nl
-o4VE29hXXYSR0K2pZnU9r0YfuxC9kIh0uj4k+argKyVFeqcUysRMy2m2VNZY1tu8VqslNH2EMGhx
-HAOeMIUF7ejSE9QaErBPUT+CslpEj16lifC28kppIQsHYjOt/2HzfoAgCxcSB8NJJvx/sOLtdhOZ
-7lo+58yBpSe6+/Lz9+dv97++0nr34zubZ5HGgA3VXrlNPO4wbGJmvFPRMmV0+EjvXzQgVmxXJN6f
-JJa7xAQdXsxezhcX9BKCctNXNYWEVx1gMlyImF5Lb1kOWm60ywpAA9s3mA6lDyX52PlrbQydQ2Mc
-Gx8wmQAykzKQ6CYbiB66njMwPblUpFgg0Rvd5fbcjXu8MpFtgYxC/ur8eEMzc2YAEyWISPmO0/7V
-mudZAw6H5pLKZdBYncjcRtuWL867jctZWex5ZJX1PSiao1vf7YvQVd7R0xeJjjbN3jrfU3z+M63+
-AAAA//8DAFBLAwQUAAYACAAAACEA6t4o59kAAAAEAQAADwAAAGRycy9kb3ducmV2LnhtbEyPsU7D
-QBBEeyT+4bRIdOTsxEAwPkcIiZIiDgXpLvbGZ/DtWb6NY/h6lgrK2VnNvCk2s+/VhGPsAhlIFwko
-pDo0HbUG3nYvN2tQkS01tg+EBr4wwqa8vChs3oQzbXGquFUSQjG3BhzzkGsda4fexkUYkMQ7htFb
-Fjm2uhntWcJ9r5dJcqe97UganB3w2WH9WZ28gSpNUe9XD/zxenz/5tu9u19OW2Our+anR1CMM/89
-wy++oEMpTIdwoiaq3oAMYblmoMRcr1LRBwNZBros9H/48gcAAP//AwBQSwECLQAUAAYACAAAACEA
-toM4kv4AAADhAQAAEwAAAAAAAAAAAAAAAAAAAAAAW0NvbnRlbnRfVHlwZXNdLnhtbFBLAQItABQA
-BgAIAAAAIQA4/SH/1gAAAJQBAAALAAAAAAAAAAAAAAAAAC8BAABfcmVscy8ucmVsc1BLAQItABQA
-BgAIAAAAIQD+5+P06AEAAJQDAAAOAAAAAAAAAAAAAAAAAC4CAABkcnMvZTJvRG9jLnhtbFBLAQIt
-ABQABgAIAAAAIQDq3ijn2QAAAAQBAAAPAAAAAAAAAAAAAAAAAEIEAABkcnMvZG93bnJldi54bWxQ
-SwUGAAAAAAQABADzAAAASAUAAAAA
-" strokeweight="1.5pt">
+            <v:line id="直接连接符 6" o:spid="_x0000_s1030" style="position:absolute;flip:y;z-index:3;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.7pt" to="415.5pt,2.2pt" o:gfxdata="" strokeweight="1.5pt">
               <v:stroke joinstyle="miter"/>
               <w10:wrap anchorx="margin"/>
             </v:line>
           </w:pict>
         </w:r>
-      </w:p>
-	  <!--SectionA 问题-->
-	 <#if multiples?? && (multiples?size > 0) >
+       </w:p>
+       
+        <#if multiples?? && (multiples?size > 0) >
 	  <#list multiples as multiple>
 	   <w:p w:rsidR="00294824" w:rsidRPr="00294824" w:rsidRDefault="00294824" w:rsidP="00294824">
             <w:pPr>
@@ -1945,7 +1854,7 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
        </w:p>
        
 
- 	<#list multiple["question"].content?split("\\r\\n") as option>
+ 	<#list multiple["question"].content?split("\r\n") as option>
       <w:p wsp:rsidR="00294824" wsp:rsidRPr="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
         <w:pPr>
           <w:shd w:val="clear" w:color="auto" w:fill="FFFFFF"/>
@@ -1972,7 +1881,7 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
 	  </#list>
 	  </#list>
 	  </#if>
-	 	  	    
+	  
       
       <w:p wsp:rsidR="00166B39" wsp:rsidRPr="00166B39" wsp:rsidRDefault="003440AB" wsp:rsidP="003440AB">
         <w:pPr>
@@ -2059,9 +1968,8 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
           </w:rPr>
           <w:t>${paper.partBInfo}</w:t>
         </w:r>
-        
       </w:p>
-      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00166B39" wsp:rsidRDefault="00702681" wsp:rsidP="00166B39">
+      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00166B39" wsp:rsidRDefault="00056E61" wsp:rsidP="00166B39">
         <w:pPr>
           <w:spacing w:after="0" w:line="240" w:line-rule="auto"/>
           <w:jc w:val="center"/>
@@ -2073,50 +1981,40 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
             <w:sz-cs w:val="24"/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidRPr="00056E61">
           <w:rPr>
             <w:noProof/>
           </w:rPr>
           <w:pict>
-            <v:line id="直接连接符 7" o:spid="_x0000_s1029" style="position:absolute;left:0;text-align:left;flip:y;z-index:5;visibility:visible;mso-position-horizontal-relative:margin" from="0,-.05pt" to="415.5pt,1.45pt" o:gfxdata="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
-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
-SwUGAAAAAAQABADzAAAASAUAAAAA
-" strokeweight="1.5pt">
+            <v:line id="直接连接符 7" o:spid="_x0000_s1029" style="position:absolute;left:0;text-align:left;flip:y;z-index:4;visibility:visible;mso-position-horizontal-relative:margin" from="0,-.05pt" to="415.5pt,1.45pt" o:gfxdata="" strokeweight="1.5pt">
               <v:stroke joinstyle="miter"/>
               <w10:wrap anchorx="margin"/>
             </v:line>
           </w:pict>
         </w:r>
       </w:p>
-
-	  <#if essays?? && (essays?size > 0) >
+      
+        <#if essays?? && (essays?size > 0) >
 	  <#list essays as essay>
+	  <w:p wsp:rsidR="00781576" wsp:rsidRDefault="00294824" wsp:rsidP="00781576">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r>
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>${essay["index"]}</w:t>
+        </w:r>
+      </w:p>
+	  <#list essay["question"].title?split("\r\n") as content>
       <w:p wsp:rsidR="00781576" wsp:rsidRDefault="00294824" wsp:rsidP="00781576">
         <w:pPr>
           <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
@@ -2132,31 +2030,14 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
             <wx:font wx:val="Times New Roman"/>
             <w:sz w:val="24"/>
           </w:rPr>
-          <w:t>${essay["index"]!''} ${essay["question"].title!''} </w:t>
+          <w:t>${content} </w:t>
         </w:r>
       </w:p>
       </#list>
+      </#list>
       </#if>
-     
-
-      <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00294824">
-        <w:pPr>
-          <w:rPr>
-            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
-            <wx:font wx:val="Times New Roman"/>
-            <w:sz w:val="24"/>
-          </w:rPr>
-        </w:pPr>
-        <w:r>
-          <w:rPr>
-            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
-            <wx:font wx:val="Times New Roman"/>
-            <w:sz w:val="24"/>
-          </w:rPr>
-          <w:br w:type="page"/>
-        </w:r>
-      </w:p>
-      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="00702681" wsp:rsidP="00294824">
+      
+      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="00294824" wsp:rsidP="00940AA3">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:ind w:first-line="720"/>
@@ -2167,27 +2048,41 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
         </w:pPr>
         <w:r>
           <w:rPr>
-            <w:noProof/>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:br w:type="page"/>
+        </w:r>
+        <w:r wsp:rsidR="00056E61" wsp:rsidRPr="00940AA3">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="36"/>
           </w:rPr>
           <w:pict>
-            <v:shape id="图片 10" o:spid="_x0000_s1028" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:249.55pt;margin-top:75.7pt;width:108.45pt;height:108.45pt;z-index:-2;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">
+            <v:shape id="图片 10" o:spid="_x0000_s1028" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:249.55pt;margin-top:75.7pt;width:108.45pt;height:108.45pt;z-index:-1;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">
               <v:imagedata src="wordml://02000001.jpg" o:title=""/>
               <w10:wrap type="topAndBottom" anchory="page"/>
             </v:shape>
           </w:pict>
         </w:r>
-        <w:r>
+        <w:r wsp:rsidR="00056E61" wsp:rsidRPr="00940AA3">
           <w:rPr>
-            <w:noProof/>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:b/>
+            <w:sz w:val="36"/>
           </w:rPr>
           <w:pict>
-            <v:shape id="图片 11" o:spid="_x0000_s1027" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:55.05pt;margin-top:79.45pt;width:171.1pt;height:110pt;z-index:6;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">
+            <v:shape id="图片 11" o:spid="_x0000_s1027" type="#_x0000_t75" style="position:absolute;left:0;text-align:left;margin-left:55.05pt;margin-top:79.45pt;width:171.1pt;height:110pt;z-index:5;visibility:visible;mso-position-vertical-relative:page;mso-width-relative:margin;mso-height-relative:margin">
               <v:imagedata src="wordml://02000002.jpg" o:title=""/>
               <w10:wrap type="topAndBottom" anchory="page"/>
             </v:shape>
           </w:pict>
         </w:r>
-        <w:r wsp:rsidR="00294824" wsp:rsidRPr="00294824">
+        <w:r wsp:rsidRPr="00294824">
           <w:rPr>
             <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
             <wx:font wx:val="Times New Roman"/>
@@ -2344,7 +2239,7 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
           <w:t>${paper.space}</w:t>
         </w:r>
       </w:p>
-      <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00702681" wsp:rsidP="00294824">
+      <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00056E61" wsp:rsidP="00294824">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:rPr>
@@ -2354,41 +2249,12 @@ SwUGAAAAAAQABADzAAAASAUAAAAA
             <w:sz w:val="32"/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidRPr="00056E61">
           <w:rPr>
             <w:noProof/>
           </w:rPr>
           <w:pict>
-            <v:line id="直接连接符 9" o:spid="_x0000_s1026" style="position:absolute;flip:y;z-index:8;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.95pt" to="415.5pt,2.45pt" o:gfxdata="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
-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
-UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
-" strokeweight="1.5pt">
+            <v:line id="直接连接符 9" o:spid="_x0000_s1026" style="position:absolute;flip:y;z-index:6;visibility:visible;mso-position-horizontal:left;mso-position-horizontal-relative:margin" from="0,.95pt" to="415.5pt,2.45pt" o:gfxdata="" strokeweight="1.5pt">
               <v:stroke joinstyle="miter"/>
               <w10:wrap anchorx="margin"/>
             </v:line>
@@ -2413,7 +2279,10 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:t>NSTRUCTIONS TO CANDIDATES</w:t>
         </w:r>
       </w:p>
-      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
+      
+      <#if paper.introduction??>
+      <#list paper.introduction?split("\r\n") as info>
+      <w:p wsp:rsidR="0045205A" wsp:rsidRPr="00A346C0" wsp:rsidRDefault="0045205A" wsp:rsidP="0045205A">
         <w:pPr>
           <w:spacing w:after="0" w:line="620" w:line-rule="exact"/>
           <w:rPr>
@@ -2430,20 +2299,17 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
             <w:b/>
             <w:sz w:val="24"/>
           </w:rPr>
-          <w:t>${paper.introduction}</w:t>
-        </w:r>
+          <w:t>${info}</w:t>
+        </w:r>  
       </w:p>
+       </#list>
+      </#if>
       
-       <w:p wsp:rsidR="000F3035" wsp:rsidRDefault="000F3035">
-        <w:pPr>
-          <w:widowControl/>
-          <w:jc w:val="left"/>
-        </w:pPr>
-        <w:r>
-          <w:br w:type="page"/>
-        </w:r>
-      </w:p>
-     
+   
+      
+      
+      
+      <w:p wsp:rsidR="000F3035" wsp:rsidRDefault="007A16CA"/>
       <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
         <w:pPr>
           <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
@@ -2499,7 +2365,7 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:gridCol w:w="2547"/>
           <w:gridCol w:w="3827"/>
         </w:tblGrid>
-
+        
         <#assign keys=examPoints?keys />
         <#list keys as key>
         <w:tr wsp:rsidR="00294824" wsp:rsidRPr="00702681" wsp:rsidTr="00702681">
@@ -2554,17 +2420,17 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
                 </w:rPr>
                 <w:t>${examPoint} </w:t>
               </w:r>
-            </#list>
+              </#list>
             </w:p>
           </w:tc>
         </w:tr>
-      </#list>
+        </#list>
       </w:tbl>
       <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
         <w:pPr>
           <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
           <w:rPr>
-            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman" w:hint="fareast"/>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
             <wx:font wx:val="Times New Roman"/>
             <w:b/>
             <w:sz w:val="24"/>
@@ -2650,6 +2516,24 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:t> ${multiple["question"].answer}</w:t>
         </w:r>
       </w:p>
+       <#list multiple["question"].analysis?split("\r\n") as analysis>
+      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="0014356B" wsp:rsidRDefault="00294824" wsp:rsidP="0014356B">
+        <w:pPr>
+          <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+          <w:rPr>
+            <w:rFonts w:hint="fareast"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidR="000D5388">
+          <w:rPr>
+            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+            <wx:font wx:val="Times New Roman"/>
+            <w:sz w:val="24"/>
+          </w:rPr>
+          <w:t>${analysis}</w:t>
+        </w:r>
+      </w:p>
+      </#list>
       </#list>
       
       <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
@@ -2712,9 +2596,12 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
       </w:p>
       
       <#list essays as essay>
-      <w:p wsp:rsidR="00294824" wsp:rsidRDefault="00294824" wsp:rsidP="00294824">
+      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="0014356B" wsp:rsidRDefault="00294824" wsp:rsidP="0014356B">
         <w:pPr>
           <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+          <w:rPr>
+            <w:rFonts w:hint="fareast"/>
+          </w:rPr>
         </w:pPr>
         <w:r>
           <w:rPr>
@@ -2726,38 +2613,46 @@ UEsFBgAAAAAEAAQA8wAAAEkFAAAAAA==
           <w:t>${essay["index"]!""}</w:t>
         </w:r>
       </w:p>
-      <w:p wsp:rsidR="00294824" wsp:rsidRPr="00294824" wsp:rsidRDefault="000D5388" wsp:rsidP="00781576">
+      <#list essay["question"].answer?split("\r\n") as answer>
+      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="0014356B" wsp:rsidRDefault="00294824" wsp:rsidP="0014356B">
         <w:pPr>
           <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
           <w:rPr>
-            <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
-            <wx:font wx:val="Times New Roman"/>
-            <w:sz w:val="24"/>
+            <w:rFonts w:hint="fareast"/>
           </w:rPr>
         </w:pPr>
-        <w:r>
+        <w:r wsp:rsidR="000D5388">
           <w:rPr>
             <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
             <wx:font wx:val="Times New Roman"/>
             <w:sz w:val="24"/>
           </w:rPr>
-          <w:t>${essay["question"].answer!""}</w:t>
+          <w:t>${answer}</w:t>
         </w:r>
       </w:p>
       </#list>
-      
-      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="00294824" wsp:rsidRDefault="002405FA" wsp:rsidP="002405FA">
+      <#list essay["question"].analysis?split("\r\n") as analysis>
+      <w:p wsp:rsidR="002405FA" wsp:rsidRPr="0014356B" wsp:rsidRDefault="00294824" wsp:rsidP="0014356B">
         <w:pPr>
-          <w:jc w:val="center"/>
+          <w:spacing w:after="0" w:line="360" w:line-rule="auto"/>
+          <w:rPr>
+            <w:rFonts w:hint="fareast"/>
+          </w:rPr>
+        </w:pPr>
+        <w:r wsp:rsidR="000D5388">
           <w:rPr>
             <w:rFonts w:ascii="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
             <wx:font wx:val="Times New Roman"/>
-            <w:b/>
-            <w:sz w:val="32"/>
+            <w:sz w:val="24"/>
           </w:rPr>
-        </w:pPr>
+          <w:t>${analysis}</w:t>
+        </w:r>
       </w:p>
-      <w:sectPr wsp:rsidR="002405FA" wsp:rsidRPr="00294824" wsp:rsidSect="002405FA">
+      </#list>
+      </#list>
+      
+      
+      <w:sectPr wsp:rsidR="002405FA" wsp:rsidRPr="0014356B" wsp:rsidSect="002405FA">
         <w:hdr w:type="odd">
           <wx:pBdrGroup>
             <wx:borders>

@@ -1,8 +1,9 @@
-<form:form action="questions" method="POST" modelAttribute="question"
-	class="form-horizontal" enctype="multipart/form-data">
-	<c:if test="${question.id != null }">
+<form:form
+	action="questions/${question.id != null ? 'update' : 'create'}"
+	method="POST" modelAttribute="question" class="form-horizontal"
+	enctype="multipart/form-data">
+	<c:if test="${question.id != null}">
 		<form:hidden path="id" />
-		<input type="hidden" title="_method" value="PUT" />
 	</c:if>
 	<form:hidden path="type" value="2" />
 	<div class="form-group">

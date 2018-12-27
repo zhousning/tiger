@@ -1,8 +1,9 @@
-<form:form action="questions" method="POST" modelAttribute="question"
-	class="form-horizontal" enctype="multipart/form-data">
-	<c:if test="${question.id != null }">
+<form:form
+	action="questions/${question.id != null ? 'update' : 'create'}"
+	method="POST" modelAttribute="question" class="form-horizontal"
+	enctype="multipart/form-data">
+	<c:if test="${question.id != null}">
 		<form:hidden path="id" />
-		<input type="hidden" title="_method" value="PUT" />
 	</c:if>
 	<form:hidden path="type" value="1" />
 	<div class="form-group">
@@ -36,16 +37,9 @@
 		<label for="title" class="col-sm-2 control-label"><fmt:message
 				key="question.title"></fmt:message></label>
 		<div class="col-sm-10">
-			<form:input type="text" class="form-control" id="title"
-				placeholder="title" path="title" />
-				<form:errors path="title"></form:errors>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-10 col-sm-offset-2">
-			<p class="info">
-				<fmt:message key="options.split.title"></fmt:message>
-			</p>
+			<form:input class="form-control" id="title"
+				placeholder="title" path="title"/>
+			<form:errors path="title"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
@@ -53,26 +47,25 @@
 				key="option.items"></fmt:message></label>
 		<div class="col-sm-10">
 			<form:textarea type="text" class="form-control" id="content"
-				path="content" col="20" row="10" />
-		<form:errors path="content"></form:errors>
+				path="content" rows="5" />
+			<form:errors path="content"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="attachment" class="col-sm-2 control-label"><fmt:message
 				key="image.title"></fmt:message></label>
 		<div class="col-sm-10">
-			<label class=newbtn> 
-				<c:choose>
+			<label class=newbtn> <c:choose>
 					<c:when test="${!empty question.attachments }">
 						<c:forEach items="${question.attachments }" var="attachment">
-							<img id="blah" src="${attachment.file}" /> 
+							<img id="blah" src="${attachment.file}" />
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
-						<img id="blah" src="static/images/image-upload.png"> 
+						<img id="blah" src="static/images/image-upload.png">
 					</c:otherwise>
-				</c:choose>
-				<input id="pic" class='pis' onchange="readURL(this);" type="file" name="attachment">
+				</c:choose> <input id="pic" class='pis' onchange="readURL(this);" type="file"
+				name="attachment">
 			</label>
 		</div>
 	</div>
@@ -82,7 +75,7 @@
 		<div class="col-sm-10">
 			<form:input type="answer" class="form-control" id="answer"
 				placeholder="answer" path="answer" />
-		<form:errors path="answer"></form:errors>
+			<form:errors path="answer"></form:errors>
 		</div>
 	</div>
 	<div class="form-group">

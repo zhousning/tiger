@@ -119,7 +119,7 @@ public class QuestionsController extends BaseController {
 	}
 
 	// 创建完返回id
-	@RequestMapping(value="", method=RequestMethod.POST)
+	@RequestMapping(value="/create", method=RequestMethod.POST)
 	public String create(@Valid Question question, Errors result,
 			@RequestParam("attachment") MultipartFile file,
 			@RequestParam(value="subject.id", required=false) Integer subjectId,  
@@ -153,11 +153,12 @@ public class QuestionsController extends BaseController {
 		}
 		setQuestionAttributes(question, subjectId, examPointId, levelId, file, request, response);
 		question.setUser(currentUser());
+		question.setStatus(messageSource.getMessage("question.status.pending", null, null));
 		questionService.save(question);
 		return "redirect:/questions/" + question.getId().toString();
 	}
 	
-	@RequestMapping(value = "", method = RequestMethod.PUT)
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String update(@Valid Question question, Errors result,
 			@RequestParam("attachment") MultipartFile file,
 			@RequestParam(value="subject.id", required=false) Integer subjectId,  
@@ -165,11 +166,10 @@ public class QuestionsController extends BaseController {
 			@RequestParam(value="level.id", required=false) Integer levelId, 
 			HttpServletRequest request, HttpServletResponse response,
 			 Map<String, Object> map) throws IOException {
-		
 		String idString = question.getId().toString();
 		if (subjectId == -1) {
 			String url = "";
-			if (question.getType().equals("1")) {
+		  	if (question.getType().equals("1")) {
 				url = "redirect:/questions/" + idString +"/multiple/edit";
 			} else {
 				url = "redirect:/questions/" + idString +"/essay/edit";
@@ -211,7 +211,6 @@ public class QuestionsController extends BaseController {
             attachments.add(new Attachment(url));
             question.setAttachments(attachments);
 		}
-		question.setStatus(messageSource.getMessage("question.status.pending", null, null));
 		question.setCreateTime(new Date());
 	}
 	
