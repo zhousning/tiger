@@ -35,9 +35,7 @@
 							</div>
 							<div class="offer-content">
 								<h3 class="lead">Subjects</h3>
-								<h4>
-									Total: ${ fn:length(user.subjects) }
-								</h4>
+								<h4>Total: ${ fn:length(user.subjects) }</h4>
 							</div>
 						</div>
 					</div>
@@ -48,9 +46,7 @@
 							</div>
 							<div class="offer-content">
 								<h3 class="lead">Questions</h3>
-								<h4>
-									Total: ${ fn:length(user.questions) }
-								</h4>
+								<h4>Total: ${ questionCount }</h4>
 							</div>
 						</div>
 					</div>
@@ -61,15 +57,28 @@
 							</div>
 							<div class="offer-content">
 								<h3 class="lead">ExamPapers</h3>
-								<h4>
-								  Total: ${ fn:length(user.examPapers) }
-								</h4>
+								<h4>Total: ${ examPaperCount }</h4>
 							</div>
 						</div>
-					</div>	
+					</div>
+				</div>
+			<div class="row body-box">
+			<div class="col-md-10 main-container">
+				<div class="container-fluid">
+					<div class="page-header">
+						<h1>
+							<fmt:message key="users.edit"></fmt:message>
+						</h1>
+					</div>
+					<div class="row">
+						<%@ include file="/WEB-INF/views/users/_form.jsp"%>
+					</div>
 				</div>
 			</div>
 		</div>
+			</div>
+		</div>
+		
 	</div>
 </body>
 </html>

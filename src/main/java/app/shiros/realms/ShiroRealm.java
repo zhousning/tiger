@@ -2,7 +2,11 @@ package app.shiros.realms;
 
 
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
+
+import javax.management.relation.Role;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -20,12 +24,15 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import app.models.User;
+import app.services.RoleService;
 import app.services.UsersService;
 
 public class ShiroRealm extends AuthorizingRealm {
 	
 	@Autowired
 	UsersService usersService;
+	@Autowired
+	RoleService roleService;
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
@@ -82,14 +89,18 @@ public class ShiroRealm extends AuthorizingRealm {
 		Object principal = principals.getPrimaryPrincipal();
 		
 		//2. 利用登录的用户的信息来用户当前用户的角色或权限(可能需要查询数据库)
+		User user = usersService.getUserByEmail(principal.toString());
+		Set<app.models.Role> userRoles = user.getRoles();
 		Set<String> roles = new HashSet<>();
-		roles.add("user");
-		if("admin".equals(principal)){
-			roles.add("admin");
+		Iterator<app.models.Role> iterator = userRoles.iterator();
+		while (iterator.hasNext()) {
+			app.models.Role role = (app.models.Role) iterator.next();
+			roles.add(role.getName());
 		}
 		
 		//3. 创建 SimpleAuthorizationInfo, 并设置其 reles 属性.
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);
+		
 		
 		//4. 返回 SimpleAuthorizationInfo 对象. 
 		return info;

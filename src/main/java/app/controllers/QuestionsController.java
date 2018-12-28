@@ -64,7 +64,12 @@ public class QuestionsController extends BaseController {
 
 	@RequestMapping("")
 	public String index(Map<String, Object> map) {
-		currentUserQuestions(map);
+		if (adminRole()) {
+			List<Question> questions = questionService.findAll();
+			map.put("questions", questions);
+		} else {
+		  currentUserQuestions(map);
+		}
 		return "questions/index";
 	}
 

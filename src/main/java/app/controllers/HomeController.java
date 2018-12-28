@@ -1,6 +1,8 @@
 package app.controllers;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.jws.soap.SOAPBinding.Use;
 import javax.validation.Valid;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.RequestScope;
 
-
+import app.models.ExamPaper;
+import app.models.ExamPoint;
+import app.models.Question;
 import app.models.User;
 import app.services.UsersService;
 
@@ -42,7 +46,24 @@ public class HomeController extends BaseController {
 		Subject currentUser = SecurityUtils.getSubject();
 		String principal = currentUser.getPrincipal().toString();
 		User user = userService.getUserByEmail(principal);
-		map.put("user", user);
+		if (adminRole()) {
+			List<Question> questions = questionService.findAll();
+			int questionCount = questions !=null ? questions.size() : 0;
+			List<ExamPaper> examPapers = examPaperService.findAll();
+			int examPaperCount = examPapers != null ? examPapers.size() : 0;
+			
+			map.put("questionCount", questionCount);
+			map.put("examPaperCount", examPaperCount);
+		} else {
+			Set<Question> questions = user.getQuestions();
+			int questionCount = questions !=null ? questions.size() : 0;
+			Set<ExamPaper> examPapers = user.getExamPapers();
+			int examPaperCount = examPapers != null ? examPapers.size() : 0;
+			
+			map.put("questionCount", questionCount);
+			map.put("examPaperCount", examPaperCount);
+		}
+		beforeUserEdit(user, map);
 		return "home/index";
 	}
 }

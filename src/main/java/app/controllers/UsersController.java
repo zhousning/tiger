@@ -11,7 +11,10 @@ import javax.jws.soap.SOAPBinding.Use;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
@@ -64,24 +67,8 @@ public class UsersController extends BaseController {
 	@RequestMapping("/{id}/edit")
 	public String edit(@PathVariable("id") Integer id, Map<String, Object> map) {
 		User user = userService.getUserById(id);
-		this.beforeEdit(user, map);
+		beforeUserEdit(user, map);
 		return "users/edit";
-	}
-	
-	private void beforeEdit(User user, Map<String, Object> map) {
-		Set<Subject> userSubjects = user.getSubjects();	
-		Iterator<Subject> userIterator = userSubjects.iterator();
-		List<Integer> subjectIds = new ArrayList<Integer>();		
-		
-		while (userIterator.hasNext()) {
-			Subject userSubject = (Subject) userIterator.next();
-			subjectIds.add(userSubject.getId());
-		}
-		
-		List<Subject> subjects = subjectService.findAll();		
-		user.setSubjectIds(subjectIds);
-		map.put("subjects", subjects);
-		map.put("user", user);
 	}
 	
 
@@ -103,18 +90,30 @@ public class UsersController extends BaseController {
 			for (FieldError error : result.getFieldErrors()) {
 				System.out.println(error.getField() + ":" + error.getDefaultMessage());
 			}
-			this.beforeEdit(user, map);
+			beforeUserEdit(user, map);
 			return "/users/edit";
 		}
-		String principal = user.getEmail();
-		String hashAlgorithmName = "MD5";
-		Object credentials = user.getPassword();
-		Object salt = ByteSource.Util.bytes(principal);
-		int hashIterations = 1024;
+		
+		if (!(currentUser().getPassword().equals(user.getPassword()))) {
+			String principal = user.getEmail();
+			String hashAlgorithmName = "MD5";
+			Object credentials = user.getPassword();
+			Object salt = ByteSource.Util.bytes(principal);
+			int hashIterations = 1024;
 
-		Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
-		user.setPassword(password.toString());
-		userService.updateUser(user);
+			Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
+			user.setPassword(password.toString());
+		}
+		
+		if (!(currentUser().getEmail().equals(user.getEmail()))) {
+			org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
+			PrincipalCollection principalCollection = subject.getPrincipals();
+			String realmName = principalCollection.getRealmNames().iterator().next();
+			PrincipalCollection newPrincipalCollection = new SimplePrincipalCollection(user.getEmail(), realmName);
+			subject.runAs(newPrincipalCollection);
+		}
+		
+		userService.updateUser(user);	
 		return "redirect:/users/" + user.getId().toString();
 	}
 	

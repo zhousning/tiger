@@ -41,25 +41,25 @@ public class SeedTest extends BaseTest{
 		initRole();
 		initUser();
 		initLevel();
-		initSubject();
-		initExamPoint();
+		/*initSubject();
+		initExamPoint();*/
 	}
 	
 	private void initUser() {
 		String hashAlgorithmName = "MD5";
-		Object credentials = "leader@leader.com";
-		Object salt = ByteSource.Util.bytes("leader@leader.com");
+		Object credentials = "admin@admin.com";
+		Object salt = ByteSource.Util.bytes("admin@admin.com");
 		int hashIterations = 1024;
 
 		Object password = new SimpleHash(hashAlgorithmName, credentials, salt, hashIterations);
-		User leader = new User("jackson", "15763703199", "leader@leader.com", password.toString());
-		Role leaderRole = roleService.findByName(messageSource.getMessage("roles.leader", null, null));
-		Role teacherRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
+		User admin = new User("Admin", "15763703199", "admin@admin.com", password.toString());
+		Role adminRole = roleService.findByName(messageSource.getMessage("roles.admin", null, null));
+		//Role teacherRole = roleService.findByName(messageSource.getMessage("roles.default", null, null));
 		Set<Role> roles = new HashSet<Role>();
-		roles.add(leaderRole);
-		roles.add(teacherRole);
-		leader.setRoles(roles);
-		userService.createUser(leader);
+		roles.add(adminRole);
+		//roles.add(teacherRole);
+		admin.setRoles(roles);
+		userService.createUser(admin);
 	}
 	
 	private void initLevel() {

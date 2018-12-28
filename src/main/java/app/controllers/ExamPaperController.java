@@ -143,7 +143,13 @@ public class ExamPaperController extends BaseController {
 	
 	@RequestMapping("")
 	public String index(Map<String, Object> map) {
-		map.put("examPapers", examPaperService.findAll());
+		if (adminRole()) {
+			map.put("examPapers", examPaperService.findAll());
+		} else if (leaderRole()) {
+			currentUserSubjectExamPapers(map);
+		} else {
+			currentUserExamPapers(map);
+		}		
 		return "examPapers/index";
 	}
 	

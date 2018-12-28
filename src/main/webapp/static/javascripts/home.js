@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$("#test").click(function() {
-		$("#main_container").load("users");
+	$("#js-edit-userinfo").click(function(){
+		$(".user-control").removeAttr("disabled");
 	});
 });

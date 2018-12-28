@@ -50,7 +50,7 @@
 						</c:when>
 						<c:otherwise>
 							<fmt:message key="message.set.subject"></fmt:message>
-							<a class="btn btn-primary" href="users/${userId }/edit"><fmt:message
+							<a class="btn btn-primary" href="home"><fmt:message
 									key="btn.add"></fmt:message></a>
 						</c:otherwise>
 					</c:choose>
