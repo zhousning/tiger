@@ -10,7 +10,7 @@
 		<ul id="menu-content" class="menu-content collapse out">
 			<li><i class="fa fa-dashboard fa-lg"></i> <a href="home"><fmt:message
 						key="user.center"></fmt:message></a></li>
-			<shiro:hasRole name="admin">
+			<shiro:hasAnyRoles name="admin">
 				<li data-toggle="collapse" data-target="#users"
 					class="collapsed active"><a><i class="fa fa-gift fa-lg"></i>
 						<fmt:message key="users.manage"></fmt:message> <span class="arrow"></span></a>
@@ -29,7 +29,7 @@
 					<li><a href="subjects"><fmt:message key="subjects.index"></fmt:message></a></li>
 					<li><a href="subjects/new"><fmt:message key="subjects.new"></fmt:message></a></li>
 				</ul>
-			</shiro:hasRole>
+			</shiro:hasAnyRoles>
 
 			<!-- <li data-toggle="collapse" data-target="#roles" class="collapsed
 			active">
@@ -77,7 +77,7 @@
 								key="questions.multiple.add"></fmt:message></a></li>
 					<li><a href="questions/essay/new"><fmt:message
 								key="questions.essay.add"></fmt:message></a></li>
-					<shiro:hasAnyRoles name="admin,leader">
+					<shiro:hasAnyRoles name="leader">
 						<li><a href="checks"> <fmt:message
 									key="questions.check.manage"></fmt:message>
 						</a></li>
@@ -90,10 +90,16 @@
 						class="arrow"></span></a></li>
 				<ul class="sub-menu collapse" id="examPapers">
 					<!-- <li class="active"><a href="#">CSS3 Animation</a></li> -->
+					<shiro:hasAnyRoles name="leader,teacher">
 					<li><a href="examPapers"><fmt:message
 								key="examPapers.index"></fmt:message></a></li>
 					<li><a href="examPapers/new"><fmt:message
 								key="examPapers.new"></fmt:message></a></li>
+					</shiro:hasAnyRoles>
+					<shiro:hasRole name="admin">
+					<li><a href="examPapers"><fmt:message
+								key="examPapers.check.title"></fmt:message></a></li>
+					</shiro:hasRole>
 				</ul>
 			</shiro:hasAnyRoles>
 

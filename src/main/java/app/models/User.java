@@ -19,6 +19,7 @@ public class User {
     
     private String phone;
     @Email
+    @NotBlank
     private String email;
     @NotBlank
     private String password;

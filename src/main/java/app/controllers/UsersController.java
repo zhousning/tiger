@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
@@ -53,6 +55,8 @@ public class UsersController extends BaseController {
 	}
 
 	@RequestMapping("")
+	@RequiresAuthentication
+	@RequiresRoles("admin")
 	public String index(Map<String, Object> map) {
 		map.put("users", userService.getUsers());
 		return "users/index";
@@ -94,7 +98,10 @@ public class UsersController extends BaseController {
 			return "/users/edit";
 		}
 		
-		if (!(currentUser().getPassword().equals(user.getPassword()))) {
+		boolean isAdmin = adminRole();
+		
+		User baseUser = userService.getUserById(user.getId());
+		if (!baseUser.getPassword().equals(user.getPassword())) {
 			String principal = user.getEmail();
 			String hashAlgorithmName = "MD5";
 			Object credentials = user.getPassword();
@@ -105,15 +112,16 @@ public class UsersController extends BaseController {
 			user.setPassword(password.toString());
 		}
 		
-		if (!(currentUser().getEmail().equals(user.getEmail()))) {
+		userService.updateUser(user);
+		
+		if (!isAdmin && !(baseUser.getEmail().equals(user.getEmail()))) {
 			org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
 			PrincipalCollection principalCollection = subject.getPrincipals();
 			String realmName = principalCollection.getRealmNames().iterator().next();
 			PrincipalCollection newPrincipalCollection = new SimplePrincipalCollection(user.getEmail(), realmName);
 			subject.runAs(newPrincipalCollection);
 		}
-		
-		userService.updateUser(user);	
+
 		return "redirect:/users/" + user.getId().toString();
 	}
 	

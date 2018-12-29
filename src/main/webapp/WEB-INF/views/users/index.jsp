@@ -70,6 +70,7 @@
 							<c:if test="${ !empty requestScope.users }">
 								<c:forEach items="${ requestScope.users }" var="user"
 									varStatus="status">
+									<c:if test="${user.email != 'admin@admin.com' }">
 									<tr>
 										<td>${ status.index + 1 }</td>
 										<td>${ user.name }</td>
@@ -82,6 +83,7 @@
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a></td>
 									</tr>
+									</c:if>
 								</c:forEach>
 							</c:if>
 						</tbody>

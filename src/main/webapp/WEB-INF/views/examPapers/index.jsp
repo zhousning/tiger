@@ -39,6 +39,7 @@
 							<fmt:message key="examPapers.index"></fmt:message>
 						</h1>
 					</div>
+					<shiro:lacksRole name = "admin">
 					<div class="row">
 						<div class="col-md-1">
 							<a href="examPapers/new" class="btn btn-primary btn-block"> <fmt:message
@@ -46,6 +47,7 @@
 							</a>
 						</div>
 					</div>
+					</shiro:lacksRole>
 					<table id="table" data-toggle="table" data-filter-control="true"
 						data-height="600" data-pagination="true" data-page-size="20"
 						data-page-list="[5,8,10]" data-pagination-first-text="First"
@@ -86,8 +88,10 @@
 										</td>
 										<td><a href="examPapers/${examPaper.id }"
 											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
+											<shiro:hasAnyRoles name="leader,teacher">
 											<a href="examPapers/${examPaper.id }/edit"
 											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+											</shiro:hasAnyRoles>
 											<a href="examPapers/${examPaper.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a>

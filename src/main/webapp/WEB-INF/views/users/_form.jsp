@@ -52,10 +52,10 @@
 				<button type="submit" class="btn btn-success">
 					<fmt:message key="btn.save"></fmt:message>
 				</button>
-			</div>
-			
+			</div>	
 		</div>
 	</div>
+	
 	<div class="col-md-4 col-md-offset-1">
 		<h3>
 			<fmt:message key="subject.type"></fmt:message>

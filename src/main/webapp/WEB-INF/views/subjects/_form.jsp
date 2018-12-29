@@ -6,7 +6,7 @@
 	<c:if test="${subject.id != null }">
 		<form:hidden path="id" />
 		<input type="hidden" name="leaderIdentity"
-				value="${subject.leaderId }" />
+			value="${subject.leaderId }" />
 		<input type="hidden" name="_method" value="PUT" />
 	</c:if>
 	<div class="col-md-4 col-md-offset-1">
@@ -47,22 +47,25 @@
 			</h3>
 			<c:if test="${!empty requestScope.subject.users }">
 				<c:forEach items="${ requestScope.subject.users }" var="user">
-					<c:choose>
-						<c:when test="${ fn:length(user.roles) > 1 && user.id != requestScope.subject.leaderId}">
-							<div class="radio disabled">
-								<label> <form:radiobutton path="leaderId"
-										value="${user.id }" disabled="true" label="${user.name}"/>
-								</label>
-							</div>
-						</c:when>
-						<c:otherwise>
-							<div class="radio">
-							<label > <form:radiobutton path="leaderId"
-									value="${user.id }" />${user.name}
-							</label>
-							</div>
-						</c:otherwise>
-					</c:choose>
+					<c:if test="${user.email != 'admin@admin.com' }">
+						<c:choose>
+							<c:when
+								test="${ fn:length(user.roles) > 1 && user.id != requestScope.subject.leaderId}">
+								<div class="radio disabled">
+									<label> <form:radiobutton path="leaderId"
+											value="${user.id }" disabled="true" label="${user.name}" />
+									</label>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<div class="radio">
+									<label> <form:radiobutton path="leaderId"
+											value="${user.id }" />${user.name}
+									</label>
+								</div>
+							</c:otherwise>
+						</c:choose>
+					</c:if>
 				</c:forEach>
 			</c:if>
 		</c:if>

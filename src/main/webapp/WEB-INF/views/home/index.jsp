@@ -71,7 +71,12 @@
 						</h1>
 					</div>
 					<div class="row">
-						<%@ include file="/WEB-INF/views/users/_form.jsp"%>
+						<shiro:lacksRole name="admin">
+							<%@ include file="/WEB-INF/views/users/_form.jsp"%>
+						</shiro:lacksRole>
+						<shiro:hasRole name="admin">
+							<%@ include file="/WEB-INF/views/users/_admin_form.jsp"%>
+						</shiro:hasRole>
 					</div>
 				</div>
 			</div>
