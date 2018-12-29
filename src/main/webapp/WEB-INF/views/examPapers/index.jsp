@@ -88,13 +88,20 @@
 										</td>
 										<td><a href="examPapers/${examPaper.id }"
 											class="btn btn-info"><fmt:message key="btn.info"></fmt:message></a>
+											
 											<shiro:hasAnyRoles name="leader,teacher">
-											<a href="examPapers/${examPaper.id }/edit"
-											class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+												<c:if test="${ examPaper.status != '2' }">
+													<a href="examPapers/${examPaper.id }/edit"
+												class="btn btn-success"><fmt:message key="btn.edit"></fmt:message></a>
+												</c:if>
 											</shiro:hasAnyRoles>
-											<a href="examPapers/${examPaper.id}"
+											
+											<c:if test="${ examPaper.status != '2' }">
+												<a href="examPapers/${examPaper.id}"
 											class="delete btn btn-danger"><fmt:message
 													key="btn.delete"></fmt:message></a>
+											</c:if>	
+											
 											<a href="examPapers/${examPaper.id}/export_doc"
 											class="btn btn-primary"><fmt:message
 													key="btn.export"></fmt:message></a>

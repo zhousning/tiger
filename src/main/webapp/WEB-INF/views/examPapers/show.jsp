@@ -36,16 +36,19 @@
 						<div class="panel-heading">
 							<div class="row">
 								<shiro:hasAnyRoles name="leader,teacher">
+								<c:if test="${ examPaper.status != '2' }">
 								<div class="col-sm-1">
 									<a href="examPapers/${examPaper.id }/edit" type="button"
 										class="btn btn-info"><fmt:message key="btn.edit"></fmt:message></a>
 								</div>
+								</c:if>
 								</shiro:hasAnyRoles>
 								<div class="col-sm-1">
 									<a href="examPapers" type="button" class="btn btn-warning"><fmt:message
 											key="btn.back"></fmt:message></a>
 								</div>
 								<shiro:hasRole name="leader">
+								<c:if test="${ examPaper.status != '2' }">
 								<div class="col-sm-1">
 									<a href="checks/examPaper/${examPaper.id }/pass" type="button" class="btn btn-success"><fmt:message
 											key="btn.pass"></fmt:message></a>
@@ -54,6 +57,7 @@
 									<a href="checks/examPaper/${examPaper.id }/reject" type="button" class="btn btn-danger"><fmt:message
 											key="btn.reject"></fmt:message></a>
 								</div>
+								</c:if>
 								</shiro:hasRole>
 								<shiro:hasRole name="admin">
 								<div class="col-sm-1">

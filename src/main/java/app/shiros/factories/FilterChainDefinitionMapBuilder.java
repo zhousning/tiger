@@ -12,8 +12,11 @@ public class FilterChainDefinitionMapBuilder {
 		LinkedHashMap<String, String> map = new LinkedHashMap<>();
 		map.put("/users/sign_in", "anon");
 		map.put("/users/sign_up", "anon");
+		map.put("/users/passwords**", "anon");
+		map.put("/users/reset_password", "anon");
 		map.put("/shiro/logout", "logout");
 				
+		map.put("/users", "authc, perms[user:read]");
 		map.put("/home", "authc");
 		map.put("/questions/**", "authc");
 		map.put("/subjects/**", "authc");

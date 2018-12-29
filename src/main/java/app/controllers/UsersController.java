@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -55,8 +56,6 @@ public class UsersController extends BaseController {
 	}
 
 	@RequestMapping("")
-	@RequiresAuthentication
-	@RequiresRoles("admin")
 	public String index(Map<String, Object> map) {
 		map.put("users", userService.getUsers());
 		return "users/index";
