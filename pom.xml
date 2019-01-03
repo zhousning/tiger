@@ -222,6 +222,12 @@
 	
 	<build>
         <resources>
+        <resource>
+            <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.ftl</include>
+                </includes>
+            </resource>
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
