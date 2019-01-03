@@ -2,16 +2,16 @@ package app.models;
 
 public class Attachment {
 	private Integer id;
-	private String file;
+	private String image;
 	private Question question;
 	
 	public Attachment() {
 		super();
 	}
 
-	public Attachment(String file) {
+	public Attachment(String image) {
 		super();
-		this.file = file;
+		this.image = image;
 	}
 
 	public Integer getId() {
@@ -22,12 +22,12 @@ public class Attachment {
 		this.id = id;
 	}
 
-	public String getFile() {
-		return file;
+	public String getImage() {
+		return image;
 	}
 
-	public void setFile(String file) {
-		this.file = file;
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public Question getQuestion() {

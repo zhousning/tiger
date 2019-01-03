@@ -15,8 +15,8 @@ $(document).ready(function() {
 	$('.newbtn').bind("click", function() {
 		$('#pic').click();
 	});
-	
-	$("#js-semblance").click(function(){
+
+	$("#js-semblance").click(function() {
 		var url = "questions/semblance";
 		var title = $.trim($("#title").val());
 		if (title == "") {
@@ -28,11 +28,37 @@ $(document).ready(function() {
 			alert("please select subject");
 			return;
 		}
-		$.post(url, {text1: title, subjectId: subjectId}, function(data){
+		$.post(url, {
+			text1 : title,
+			subjectId : subjectId
+		}, function(data) {
 			var score = data["score"];
 			$("#js-semblance-result").html(score);
 		});
-		
+
+	});
+
+	$("#randomForm").submit(function() {
+		var data = "";
+		$.post("examPapers/random_selector", $(this).serialize(),
+			function (result) {
+				if ($.isEmptyObject(result)) {
+					$("#question-ctn").html("without result");
+					$("#random-submit").attr("disabled", "disabled");
+				} else {
+					$.each(result, function(key, value){
+						var id = key;
+						var title = value;
+						
+						data += "<p>" + title + "</p>" + "<input type='hidden' name='questionIds' value='" + id + "' />";
+					});
+					$("#random-submit").removeAttr("disabled");
+					$("#question-ctn").html(data);
+				}	
+			},
+			"json"
+		);
+		return false;
 	});
 });
 

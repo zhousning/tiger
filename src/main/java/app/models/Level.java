@@ -16,6 +16,11 @@ public class Level {
 		super();
 	}
 	
+	public Level(Integer id) {
+		super();
+		this.id = id;
+	}
+	
 	public Level(String name) {
 		super();
 		this.name = name;

@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,8 +32,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import app.models.ExamPaper;
+import app.models.Level;
 import app.models.Question;
 import app.models.Subject;
 import app.services.ExamPaperService;
@@ -266,7 +269,7 @@ public class ExamPaperController extends BaseController {
 			Iterator<Question> iterator = questions.iterator();
 			while (iterator.hasNext()) {
 				Question question = (Question) iterator.next();
-				question.setUtilityTime(new Date());
+			 	question.setUtilityTime(new Date());
 				questionService.update(question);
 				data.add(question);
 			}
@@ -274,6 +277,47 @@ public class ExamPaperController extends BaseController {
 		examPaper.setQuestions(new HashSet<Question>(data));
 		examPaperService.update(examPaper);
 		return "redirect:/examPapers/" + examPaper.getId().toString();
+	}
+	
+	@RequestMapping("/{id}/random")
+	public String prepareRandom(@PathVariable("id") Integer id, Map<String, Object> map) {
+		List<Level> levels = levelService.findAll();
+		ExamPaper examPaper = examPaperService.findById(id);
+		map.put("levels", levels);
+		map.put("examPaper", examPaper);
+		map.put("subjectId", examPaper.getSubject().getId());
+		return "examPapers/random";
+	}
+	
+	@RequestMapping("/random_selector")
+	@ResponseBody 
+	public Map<String, String> randomSelector(
+			@RequestParam(value = "subjectId") Integer subjectId,
+			@RequestParam(value = "levelId", required = false) Integer levelId,
+			@RequestParam(value = "multipleCount", required = false) Integer multipleCount,
+			@RequestParam(value = "essayCount", required = false) Integer essayCount,
+			@RequestParam(value = "start", required = false) String start,
+			@RequestParam(value = "end", required = false) String end
+			) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+	
+		List<Question> multipleList = questionService.selectByConditions("1", subjectId, levelId, start, end, multipleCount);
+		List<Question> essayList = questionService.selectByConditions("2", subjectId, levelId, start, end, essayCount);
+		
+		Iterator<Question> multipleIterator = multipleList.iterator();
+		while (multipleIterator.hasNext()) {
+			Question question = (Question) multipleIterator.next();
+			map.put(question.getId().toString(), question.getTitle());
+		}
+		
+		Iterator<Question> essayIterator = essayList.iterator();
+		while (essayIterator.hasNext()) {
+			Question question = (Question) essayIterator.next();
+			map.put(question.getId().toString(), question.getTitle());
+		}
+		
+		return map;
 	}
 
 }

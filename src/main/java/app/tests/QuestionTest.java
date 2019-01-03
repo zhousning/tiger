@@ -58,6 +58,20 @@ public class QuestionTest {
 	UsersService userService;
 	@Autowired
 	SubjectService subjectService;
+	
+	@Test
+	public void selectByConditions() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");
+		int limit = 2;
+		Date start = null;
+		Date end = java.sql.Date.valueOf("2018-12-20");
+		/*List<Question> questions = questionService.selectByConditions("1", 1, start, end, limit);
+		Iterator<Question> iterator = questions.iterator();
+		while (iterator.hasNext()) {
+			Question question = (Question) iterator.next();
+			System.out.println(question.getTitle());
+		}*/
+	}
 	@Test
 	public void semblance() throws UnsupportedEncodingException {
 		Subject subject = subjectService.findById(5);

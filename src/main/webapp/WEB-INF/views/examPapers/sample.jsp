@@ -47,6 +47,11 @@
 								</button>
 								</a>
 							</div>
+							<div class="col-md-2">
+								<a href="examPapers/${id }/random" class="btn btn-primary btn-block">
+									<fmt:message key="btn.random"></fmt:message>
+								</a>
+							</div>
 						</div>
 						<table id="table" data-toggle="table" data-filter-control="true"
 							data-height="600" data-pagination="true" data-page-size="20"
